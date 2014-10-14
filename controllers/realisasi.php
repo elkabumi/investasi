@@ -25,7 +25,6 @@ switch ($page) {
 		
 		
 		$query = select($master_category_id);
-		echo $master_category_id;
 		$add_button = "realisasi.php?page=form&master_category_id=$master_category_id";
 	
 
@@ -43,7 +42,11 @@ switch ($page) {
 		
 		if($id){
 			$row = read_id($id);
-			$action = "realisasi.php?page=edit&id=$id";
+			if($master_category_id == '4'){
+				$action = "realisasi.php?page=edit2&id=$id&master_category_id=$master_category_id";
+			}else{
+				$action = "realisasi.php?page=edit&id=$id&master_category_id=$master_category_id";
+			}
 		} else{
 		
 			$row = new stdClass();
@@ -69,17 +72,17 @@ switch ($page) {
 
 			
 			
-			if($master_category_id == '1' or $master_category_id =='2' or $master_category_id =='3'){
-				$action = "realisasi.php?page=save&master_category_id=$master_category_id";;
-			}else{
+			if($master_category_id == '4'){
 				$action = "realisasi.php?page=save2&master_category_id=$master_category_id";
+			}else{
+				$action = "realisasi.php?page=save&master_category_id=$master_category_id";
 		
 			}
 		}
-			if($master_category_id == '1' or $master_category_id =='2' or $master_category_id =='3'){
-				include '../views/realisasi/form.php';
-			}else{
+			if($master_category_id == '4'){
 				include '../views/realisasi/form2.php';
+			}else{
+				include '../views/realisasi/form.php';
 		
 			}
 		
@@ -90,6 +93,7 @@ switch ($page) {
 	
 	case 'save':
 
+		$master_category_id = (isset($_GET['master_category_id'])) ? $_GET['master_category_id'] : null;
 		extract($_POST);
 		
 	
@@ -113,7 +117,7 @@ switch ($page) {
 		$i_master_date = date("Y-m-d");
 		$i_master_img = get_isset($i_master_img);
 		
-		$path = '../img/master_img/';
+		$path = '../img/realisa_img/';
 		if($i_master_img!=""){
 			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $path.$_FILES['i_master_img']['name']);
 			echo "img sukses";
@@ -144,12 +148,14 @@ switch ($page) {
 				 '$i_master_img'";
 		create($data);
 	
-		header("Location: realisasi.php?page=list&master_category_id=$master_category_id");
+		header("Location: realisasi.php?page=list&master_category_id=".$master_category_id."");
 	
 
 	break;
 	
 	case 'save2':
+	
+		$master_category_id = (isset($_GET['master_category_id'])) ? $_GET['master_category_id'] : null;
 
 		extract($_POST);
 		
@@ -200,7 +206,7 @@ switch ($page) {
 		
 		create($data);
 	
-		header("Location: realisasi.php?page=list&master_category_id=$master_category_id");
+		header("Location: realisasi.php?page=list&master_category_id=".$master_category_id."");
 	
 
 	break;
@@ -209,6 +215,8 @@ switch ($page) {
 	
 	case 'edit':
 		
+		$master_category_id = (isset($_GET['master_category_id'])) ? $_GET['master_category_id'] : null;
+			
 		$id = get_isset($_GET['id']);	
 		
 		extract($_POST);
@@ -258,10 +266,57 @@ switch ($page) {
 
 		update($data, $id);
 
-		header('Location: realisasi.php?page=list&master_type_id=$master_type_id&did=2');
+		header('Location: realisasi.php?page=list&master_category_id='.$master_category_id.'&did=2');
 
 	break;
 
+	
+	case 'edit2':
+		
+		$master_category_id = (isset($_GET['master_category_id'])) ? $_GET['master_category_id'] : null;
+		
+
+		$id = get_isset($_GET['id']);	
+		
+		extract($_POST);
+
+		
+			$i_master_sub_category_id = get_isset($i_master_sub_category_id);
+		$i_nama_perusahaan = get_isset($i_nama_perusahaan);
+		$i_alamat = get_isset($i_alamat);
+		$i_investasi = get_isset($i_investasi);
+		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
+		$i_ekspor = get_isset($i_ekspor);
+		$i_city_id = get_isset($i_city_id);
+		$i_npwp = get_isset($i_npwp);
+		$i_business_type_id = get_isset($i_business_type_id);
+		
+		$i_user_id = get_isset($_SESSION['user_id']);
+		$i_master_year = get_isset($i_master_year);
+		$i_master_date = date("Y-m-d");
+		$i_master_img = get_isset($i_master_img);
+
+		$data = " master_sub_category_id = '$i_master_sub_category_id',
+				nama_perusahaan = '$i_nama_perusahaan',
+				alamat = '$i_alamat',   
+				investasi = '$i_investasi',
+				nama_perusahaan = '$i_nama_perusahaan',
+				tenaga_kerja = '$i_tenaga_kerja',
+				ekspor = '$i_ekspor',
+				country_id = '$i_country_id',
+				city_id = '$i_city_id',
+				npwp = '$i_npwp',
+				business_type_id = '$i_business_type_id',
+				master_year = '$master_year',
+				master_img = '$master_img'
+				
+				";
+
+		update($data, $id);
+
+		header('Location: realisasi.php?page=list&master_category_id='.$master_category_id.'&did=2');
+
+	break;
 	case 'delete':
 
 		$id = get_isset($_GET['id']);	

@@ -94,8 +94,8 @@
                             </ul>
                   </li>
                   
-                  <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
-                            <a href="#">
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                            <a href="search.php?page=form">
                                 <i class="fa fa-search"></i>
                                 <span>Search</span>
                                
