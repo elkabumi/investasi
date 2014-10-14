@@ -52,11 +52,11 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> PMA</a></li>
-                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> PMDN</a></li>
-                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> Non Fas</a></li>
-                               <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> IU</a></li>
-                               <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> Ekspor</a></li>
+                                <li><a href="realisasi.php?page=list&master_category_id=1"><i class="fa fa-chevron-circle-right"></i> PMA</a></li>
+                                <li><a href="realisasi.php?page=list&master_category_id=2"><i class="fa fa-chevron-circle-right"></i> PMDN</a></li>
+                                <li><a href="realisasi.php?page=list&master_category_id=3"><i class="fa fa-chevron-circle-right"></i> Non Fas</a></li>
+                               <li><a href="realisasi.php?page=list&master_category_id=4"><i class="fa fa-chevron-circle-right"></i> IU</a></li>
+                               <li><a href="realisasi.php?page=list&master_category_id=5"><i class="fa fa-chevron-circle-right"></i> Ekspor</a></li>
                             </ul>
                       </li>
                   
