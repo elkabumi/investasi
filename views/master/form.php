@@ -221,6 +221,14 @@
                                      
 										<div class="form-group">
                                         <label>Upload</label>
+                                        <?php
+                                        if($id){
+										?>
+                                        <br />
+                                        <img src="<?= $row->master_img ?>" width="100" />
+                                        <?php
+										}
+										?>
                                         <input type="file" name="i_master_img" id="i_master_img" />
                                         </div>
                                    		

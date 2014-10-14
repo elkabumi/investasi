@@ -15,11 +15,9 @@
                 ?>
                 <section class="content_new">
                    
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Sukses !</b>
-               Simpan Berhasil
+               <div class="callout callout-info">
+                <h4>Sukses !</h4>
+                <p>Simpan data berhasil</p>
                 </div>
            
                 </section>
@@ -28,11 +26,9 @@
                 ?>
                 <section class="content_new">
                    
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Sukses !</b>
-               Edit Berhasil
+                <div class="callout callout-info">
+                <h4>Sukses !</h4>
+                <p>Edit data berhasil</p>
                 </div>
            
                 </section>
@@ -41,11 +37,9 @@
                 ?>
                 <section class="content_new">
                    
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Sukses !</b>
-               Delete Berhasil
+               <div class="callout callout-info">
+                <h4>Sukses !</h4>
+                <p>Hapus data berhasil</p>
                 </div>
            
                 </section>
@@ -110,7 +104,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-                                                <th colspan="7"><a href="<?= $add_button ?>" class="btn btn-default" >Add</a></th>
+                                                <th colspan="12"><a href="<?= $add_button ?>" class="btn btn-default" >Add</a></th>
                                                 
                                             </tr>
                                         </tfoot>
