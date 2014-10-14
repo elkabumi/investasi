@@ -19,7 +19,7 @@
  <!-- page script -->
         <script type="text/javascript">
             $(function() {
-                $("#example1").dataTable();
+               /* $("#example1").dataTable();
                 $('#example2').dataTable({
                     "bPaginate": true,
                     "bLengthChange": false,
@@ -37,7 +37,12 @@
                     "bSort": false,
                     "bInfo": false,
                     "bAutoWidth": false
-                });
+                });*/
+				
+				$(function() {
+				  $('table').footable();
+				});
+					
                 //Datemask dd/mm/yyyy
                 $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
                 //Datemask2 mm/dd/yyyy

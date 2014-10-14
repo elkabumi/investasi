@@ -62,14 +62,20 @@
                             <div class="box">
                              
                                 <div class="box-body2 table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><a href="<?= $add_button ?>" class="btn btn-danger" >Tambah Data</a></td>
+    <td align="right"><input id="filter" type="text" class="search_new" placeholder="Cari disini" size="30" /></td>
+  </tr>
+</table>
+                                    <table data-filter="#filter" class="footable" data-page-size="10">
                                         <thead>
                                             <tr>
-                                            <th width="5%">No</th>
+                                            <th  data-sort-initial="true"  data-class="expand">No</th>
                                                 <th>Code</th>
                                                 <th>Name</th>
-                                                  <th>Type</th>
-                                                   <th>Phone</th> 
+                                                  <th data-hide="phone">Type</th>
+                                                   <th data-hide="phone">Phone</th> 
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -106,12 +112,11 @@
                                            
                                           
                                         </tbody>
-                                          <tfoot>
-                                            <tr>
-                                                <th colspan="10"><a href="<?= $add_button ?>" class="btn btn-default " >Add</a></th>
-                                               
-                                            </tr>
-                                        </tfoot>
+                                         <tfoot class="footable-pagination">
+        <tr>
+          <td colspan="5"><ul id="pagination" class="footable-nav" /></td>
+        </tr>
+      </tfoot>
                                     </table>
 
                                 </div><!-- /.box-body -->
