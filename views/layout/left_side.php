@@ -32,60 +32,35 @@
                      
                           <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 1){ echo "active"; }?>">
                             <a href="#">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <span>Master</span>
+                                <i class="fa fa-briefcase"></i>
+                                <span>Izin</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
                                 
-                                <li><a href="truck.php?page=list"><i class="fa fa-chevron-circle-right"></i> Truk</a></li>
-                                <li><a href="owner.php?page=list"><i class="fa fa-chevron-circle-right"></i> Suplier</a></li>
+                                <li><a href="master.php?page=list&master_type_id=1"><i class="fa fa-chevron-circle-right"></i> Izin Prinsip</a></li>
+                                <li><a href="master.php?page=list&master_type_id=2"><i class="fa fa-chevron-circle-right"></i> Izin Usaha</a></li>
                              	
                             </ul>
                   </li>
                   
-                  <?
-                    if($_SESSION['user_type_id'] != '3'){
-					?>
+                
                          <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 2){ echo "active"; }?>">
                             <a href="#">
-                                <i class="fa fa-user"></i>
-                                <span>User</span>
+                                <i class="fa fa-briefcase"></i>
+                                <span>Realisasi</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="user.php?page=list"><i class="fa fa-angle-double-right"></i> User</a></li>
-                                
-                               
+                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> PMA</a></li>
+                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> PMDN</a></li>
+                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> Non Fas</a></li>
+                               <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> IU</a></li>
+                               <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> Ekspor</a></li>
                             </ul>
                       </li>
-                      <?php
-					}
-					  ?>
-                          <?
-                    if($_SESSION['user_type_id'] != '2'){
-					?>
-                        <li>
-                            <a href="transaction.php?page=list">
-                                <i class="fa fa-calendar"></i> <span>Transaksi</span> 
-                        </a></li>
-                          </a></li>
-                      <?php
-					}
-					  ?>  
-                        <?
-                    if($_SESSION['user_type_id'] != '3'){
-					?>
-                         <li>
-                            <a href="edit_transaction.php?page=list">
-                                <i class="fa fa-calendar"></i> <span>Edit Transaksi</span> 
-                        </a></li>
-                      <?php
-					}
-					  ?>  
-                       <?
-                    if($_SESSION['user_type_id'] != '3'){
-					?>
+                  
+                        
                      <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
                             <a href="#">
                                 <i class="fa fa-book"></i>
@@ -94,14 +69,49 @@
                             </a>
                             <ul class="treeview-menu">
                                 
-                                <li><a href="report_summary.php?page=list"><i class="fa fa-angle-double-right"></i> Harian</a></li>
-                                <li><a href="report_detail.php?page=list"><i class="fa fa-angle-double-right"></i> Range Tanggal</a></li>
+                                <li><a href="report_summary.php?page=list"><i class="fa fa-chevron-circle-right"></i> Triwulan</a></li>
+                                <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Semester</a></li>
+                                 <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Tahunan</a></li>
                              
                             </ul>
                   </li>
-                  <?php
-					}
-				  ?>
+                  
+                   <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                            <a href="#">
+                                <i class="fa fa-pencil-square-o"></i>
+                                <span>Olah</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                
+                                <li><a href="report_summary.php?page=list"><i class="fa fa-chevron-circle-right"></i> Negara</a></li>
+                                <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Bidang Usaha</a></li>
+                                 <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Lokasi</a></li>
+                                 <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Investasi</a></li>
+                                 <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Tenaga Kerja</a></li>
+                                 
+                             
+                            </ul>
+                  </li>
+                  
+                  <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                            <a href="#">
+                                <i class="fa fa-search"></i>
+                                <span>Search</span>
+                               
+                            </a>
+                            
+                  </li>
+                  
+                  <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>User</span>
+                               
+                            </a>
+                            
+                  </li>
+                 
               
                     </ul>
                 </section>

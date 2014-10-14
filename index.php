@@ -1,3 +1,3 @@
 <?php
-header('Location: controllers/truck.php');
+header('Location: controllers/master.php');
 ?>

@@ -32,7 +32,7 @@
                 <i class="fa fa-check"></i>
                 <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
                 <b>Sukses !</b>
-               Tambah data truck Berhasil
+               Edit Berhasil
                 </div>
            
                 </section>
@@ -62,17 +62,21 @@
                             <div class="box">
                              
                                 <div class="box-body2 table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table  table-striped">
                                         <thead>
                                             <tr>
                                             <th width="5%">No</th>
-                                            <th>Kode</th>
-                                                <th>Nopol</th>
-                                                <th>P x L x T</th>
-                                               
-                                                <th>Volume(m3)</th>
-                                                <th>Pemilik</th>
-                                                <th width="20%">Config</th>
+                                            	<th>Nama Perusahaan</th>
+                                                <th>Alamat</th>
+                                                <th>NO IP</th>
+                                                <th>NO IU</th>
+                                                <th>Investasi</th>
+                                                <th>Tenaga Kerja</th>
+                                                <th>Negara</th>
+                                                <th>Lokasi</th>
+                                                <th>NPWP</th>
+                                                <th>Bidang Usaha</th>
+                                                <th>Config</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -81,22 +85,20 @@
                                             while($row = mysql_fetch_array($query)){
                                             ?>
                                             <tr>
-                                            <td><?= $no ?></td>
-                                             <td><?= $row['truck_code']?></td>
-                                                <td><?= $row['truck_nopol']?></td>
-                                                <td><?= $row['truck_p']." x ".$row['truck_l']." x ".$row['truck_t']?></td>
-                                                <td><?= $row['truck_volume']?></td>
-                                                <td><?= $row['owner_name']?></td>
-                                               
-                                                <td style="text-align:center;">
-                                            <?	if(isset($_GET['type']) == '1'){
-											?>
-                                                <a href="edit_transaction.php?page=form&id=<?= $row['truck_id']; ?>" class="btn btn-default" >Proses</a></td>		
-											<?
-												}else{
-												?>
-                                                <a href="transaction.php?page=form&id=<?= $row['truck_id']; ?>" class="btn btn-default" >Proses</a></td>
-                                                <? } ?>
+                                            	<td><?= $no ?></td>
+                                             	<td><?= $row['nama_perusahaan']?></td>
+                                                <td><?= $row['alamat']?></td>
+                                                <td><?= $row['no_ip']?></td>
+                                                <td><?= $row['no_iu']?></td>
+                                                <td><?= $row['investasi']?></td>
+                                                <td><?= $row['tenaga_kerja']?></td>
+                                                <td><?= $row['country_name']?></td>
+                                                <td><?= $row['city_name']?></td>
+                                                <td><?= $row['npwp']?></td>
+                                                <td><?= $row['business_type_name']?></td>
+                                                 <td style="text-align:center;">
+                                                    <a href="master.php?page=form&id=<?= $row['master_id']?>&master_type_id=<?= $master_type_id ?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'master.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a></td>
                                             </tr>
                                             <?php
 											$no++;
@@ -108,11 +110,7 @@
                                         </tbody>
                                           <tfoot>
                                             <tr>
-                                                <th colspan="7"><a href="<?= $add_truck ?>" class="btn btn-default" >Add</a>
-                                                <?php if(isset($_GET['type']) == '1'){
-													?>
-												<a href="<?= $close ?>" class="btn btn-default" >Close</a>	
-												<?php } ?></th>
+                                                <th colspan="7"><a href="<?= $add_button ?>" class="btn btn-default" >Add</a></th>
                                                 
                                             </tr>
                                         </tfoot>

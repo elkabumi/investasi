@@ -151,5 +151,13 @@ function format_report($data){
 	return $data;
 }
 
+function message($message){
+	?>
+    <script>
+    alert("<?php echo $message ?>");
+    </script>
+    <?php
+	
+}
 
 ?>
