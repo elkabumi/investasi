@@ -151,10 +151,11 @@ function format_report($data){
 	return $data;
 }
 
-function message($message){
+function show_message($message, $link){
 	?>
-    <script>
-    alert("<?php echo $message ?>");
+    <script type="text/javascript">
+    alert("<?= $message ?>");
+	window.location = "<?= $link ?>";
     </script>
     <?php
 	

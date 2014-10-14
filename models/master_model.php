@@ -7,7 +7,8 @@ function select($master_type_id){
 						join business_types d on d.business_type_id = a.business_type_id
 						join countries e on e.country_id = a.country_id
 						join cities f on f.city_id = a.city_id
-						where a.master_type_id = $master_type_id
+						where a.master_type_id = 1 
+						and master_category_id = $master_type_id
 						
 						");
 	return $query;
@@ -24,11 +25,17 @@ function create($data){
 }
 
 function update($data, $id){
-	mysql_query("update master set ".$data." where truck_id = '$id'");
+	mysql_query("update master set ".$data." where master_id = '$id'");
 }
 
 function delete($id){
-	mysql_query("delete from master  where truck_id = '$id'");
+	mysql_query("delete from master  where master_id = '$id'");
+}
+
+function get_img($id){
+	$q_img = mysql_query("select master_img from master where master_id = '$id'");
+	$r_img = mysql_fetch_object($q_img);
+	return $r_img->master_img;
 }
 
 

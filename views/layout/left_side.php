@@ -15,14 +15,14 @@
                             <img src="<?= $img ?>" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p style="color:#333;">
+                            <p style="color:#333;  text-shadow: 1pt 1px 1px #ffffff;">
                                         <?php
                                        
                                         echo $user_data[0];
                                         ?>
                                 </p>
 
-                            <a style="color:#333"><?= $user_data[1]?></a>
+                            <a style="color:#333;  text-shadow: 1pt 1px 1px #ffffff;"><?= $user_data[1]?></a>
                         </div>
                     </div>
                    
@@ -38,8 +38,8 @@
                             </a>
                             <ul class="treeview-menu">
                                 
-                                <li><a href="master.php?page=list&master_type_id=1"><i class="fa fa-chevron-circle-right"></i> Izin Prinsip</a></li>
-                                <li><a href="master.php?page=list&master_type_id=2"><i class="fa fa-chevron-circle-right"></i> Izin Usaha</a></li>
+                                <li><a href="master.php?page=list&master_type_id=6"><i class="fa fa-chevron-circle-right"></i> Izin Prinsip</a></li>
+                                <li><a href="master.php?page=list&master_type_id=7"><i class="fa fa-chevron-circle-right"></i> Izin Usaha</a></li>
                              	
                             </ul>
                   </li>
@@ -103,8 +103,8 @@
                             
                   </li>
                   
-                  <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
-                            <a href="#">
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                            <a href="user.php">
                                 <i class="fa fa-user"></i>
                                 <span>User</span>
                                

@@ -6,10 +6,10 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
 $_SESSION['menu_active'] = 1;
-$master_type_id = (isset($_GET['master_type_id'])) ? $_GET['master_type_id'] : 1;
-		if($master_type_id == 1){
+$master_type_id = (isset($_GET['master_type_id'])) ? $_GET['master_type_id'] : 6;
+		if($master_type_id == 6){
 			$title = "Izin Prinsip";
-		}else if($master_type_id == 2){
+		}else if($master_type_id == 7){
 			$title = "Izin Usaha";
 		}
 
@@ -37,7 +37,7 @@ switch ($page) {
 		
 		if($id){
 			$row = read_id($id);
-			$action = "master.php?page=edit&id=$id";
+			$action = "master.php?page=edit&id=$id&master_type_id=$master_type_id";
 		} else{
 			//inisialisasi
 			$row = new stdClass();
@@ -92,20 +92,23 @@ switch ($page) {
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
-		$i_master_img = get_isset($i_master_img);
+		$i_master_img = get_isset($_FILES['i_master_img']['name']);
 		
 		$path = '../img/master_img/';
+		
 		if($i_master_img!=""){
-			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $path.$_FILES['i_master_img']['name']);
-			echo "img sukses";
+			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
+			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
+		}else{
+			$image = "";
 		}
 		
-		/*
-		$data = "'', '$master_type_id', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek', '$i_investasi', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$i_master_img'";
+		$data = "'', '1', '$master_type_id', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek', '$i_investasi', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image'";
 		create($data);
-		message("Simpan berhasil");
-		header("Location: master.php?page=list&master_type_id=$master_type_id");
-		*/
+		
+		show_message("Simpan berhasil", "master.php?page=list&master_type_id=$master_type_id&did=1");
+		
+		
 
 	break;
 
@@ -134,10 +137,26 @@ switch ($page) {
 		$i_keterangan = get_isset($i_keterangan);
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
-		$i_master_img = get_isset($i_master_img);
-
-
-		$data = " master_category_id = '$i_master_category_id',
+		$i_master_date = date("Y-m-d");
+		$i_master_img = get_isset($_FILES['i_master_img']['name']);
+		
+		$path = '../img/master_img/';
+		
+		if($i_master_img!=""){
+			
+			
+			$r_img = get_img($id);
+			
+			if($r_img != ""){
+				if(file_exists($r_img)){
+					unlink($r_img); 
+				}
+			}
+			
+			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
+			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
+			
+			$data = " master_sub_category_id = '$i_master_category_id',
 				nama_perusahaan = '$i_nama_perusahaan',
 				alamat = '$i_alamat', 
 				no_ip = '$i_no_ip', 
@@ -145,7 +164,6 @@ switch ($page) {
 				no_perusahaan = '$i_no_perusahaan', 
 				no_kode_proyek = '$i_no_kode_proyek', 
 				investasi = '$i_investasi',
-				nama_perusahaan = '$i_nama_perusahaan',
 				tenaga_kerja = '$i_tenaga_kerja',
 				kapasitas = '$i_kapasitas',
 				ekspor = '$i_ekspor',
@@ -154,21 +172,49 @@ switch ($page) {
 				npwp = '$i_npwp',
 				business_type_id = '$i_business_type_id',
 				keterangan = '$i_keterangan',
-				master_year = '$master_year',
-				master_img = '$master_img'
+				master_year = '$i_master_year',
+				master_img = '$image'
 				
 				";
+		}else{
+			$data = " master_category_id = '$i_master_category_id',
+				nama_perusahaan = '$i_nama_perusahaan',
+				alamat = '$i_alamat', 
+				no_ip = '$i_no_ip', 
+				no_iu = '$i_no_iu', 
+				no_perusahaan = '$i_no_perusahaan', 
+				no_kode_proyek = '$i_no_kode_proyek', 
+				investasi = '$i_investasi',
+				tenaga_kerja = '$i_tenaga_kerja',
+				kapasitas = '$i_kapasitas',
+				ekspor = '$i_ekspor',
+				country_id = '$i_country_id',
+				city_id = '$i_city_id',
+				npwp = '$i_npwp',
+				business_type_id = '$i_business_type_id',
+				keterangan = '$i_keterangan',
+				master_year = '$i_master_year'
+				";
+		}
+
+		
 
 		update($data, $id);
-
-		header('Location: master.php?page=list&master_type_id=$master_type_id&did=2');
+		show_message("Simpan berhasil", "master.php?page=list&master_type_id=$master_type_id&did=2");
 
 	break;
 
 	case 'delete':
 
 		$id = get_isset($_GET['id']);	
-
+		$r_img = get_img($id);
+			
+			if($r_img != ""){
+				if(file_exists($r_img)){
+					unlink($r_img); 
+				}
+			}
+			
 		delete($id);
 
 		header('Location: master.php?page=list&did=3');
