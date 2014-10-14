@@ -177,6 +177,26 @@
                                           
                                          </div>
                                         
+                                        
+                                        								<div class="form-group">
+                                        <label>Upload</label>
+                                        <?php
+                                        if($id){
+										?>
+                                        <br />
+                                        <img src="<?= $row->master_img ?>" width="100" />
+                                        <?php
+										}
+										?>
+                                        <input type="file" name="i_master_img" id="i_master_img" />
+                                        </div>
+                                   		
+                                   		
+                                           <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>Lain - lain</label>
+                                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->keterangan ?></textarea>
+                                        </div>
                                      
                                        </div>
                                        <div style="clear:both;"></div>

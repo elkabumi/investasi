@@ -115,12 +115,15 @@ switch ($page) {
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
-		$i_master_img = get_isset($i_master_img);
+		$i_master_img = get_isset($_FILES['i_master_img']['name']);
 		
-		$path = '../img/realisa_img/';
+		$path = '../img/master_img/';
+		echo $i_master_img;
 		if($i_master_img!=""){
-			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $path.$_FILES['i_master_img']['name']);
-			echo "img sukses";
+			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
+			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
+		}else{
+			$image = "";
 		}
 		
 		$data = "'',
@@ -145,10 +148,10 @@ switch ($page) {
 				 '$i_user_id', 
 				 '$i_master_year', 
 				 '$i_master_date', 
-				 '$i_master_img'";
+				 '$image'";
 		create($data);
-	
-		header("Location: realisasi.php?page=list&master_category_id=".$master_category_id."");
+		
+		show_message("Simpan berhasil", "realisasi.php?page=list&master_category_id=".$master_category_id."&did=1");
 	
 
 	break;
@@ -172,12 +175,14 @@ switch ($page) {
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
-		$i_master_img = get_isset($i_master_img);
+		$i_master_img = get_isset($_FILES['i_master_img']['name']);
 		
 		$path = '../img/master_img/';
 		if($i_master_img!=""){
-			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $path.$_FILES['i_master_img']['name']);
-			echo "img sukses";
+			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
+			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
+		}else{
+			$image = "";
 		}
 		
 		$data = "'',
@@ -202,12 +207,12 @@ switch ($page) {
 				 '$i_user_id', 
 				 '$i_master_year', 
 				 '$i_master_date', 
-				 '$i_master_img'";
+				 '$image'";
 		
 		create($data);
 	
-		header("Location: realisasi.php?page=list&master_category_id=".$master_category_id."");
-	
+		show_message("Simpan berhasil", "realisasi.php?page=list&master_category_id=".$master_category_id."&did=1");
+		
 
 	break;
 	
@@ -239,10 +244,24 @@ switch ($page) {
 		$i_keterangan = get_isset($i_keterangan);
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
-		$i_master_img = get_isset($i_master_img);
+		$i_master_img = get_isset($_FILES['i_master_img']['name']);
+		$path = '../img/master_img/';
+		
+		if($i_master_img!=""){
+			
+			
+			$r_img = get_img($id);
+			
+			if($r_img != ""){
+				if(file_exists($r_img)){
+					unlink($r_img); 
+				}
+			}
+			
+			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
+			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
 
-
-		$data = " master_category_id = '$i_master_category_id',
+			$data = " master_category_id = '$master_category_id',
 				nama_perusahaan = '$i_nama_perusahaan',
 				alamat = '$i_alamat', 
 				no_ip = '$i_no_ip', 
@@ -259,15 +278,33 @@ switch ($page) {
 				npwp = '$i_npwp',
 				business_type_id = '$i_business_type_id',
 				keterangan = '$i_keterangan',
-				master_year = '$master_year',
-				master_img = '$master_img'
+				master_year = '$i_master_year',
+				master_img = '$image'";
+		}else{
+			$data = " master_category_id = '$master_category_id',
+				nama_perusahaan = '$i_nama_perusahaan',
+				alamat = '$i_alamat', 
+				no_ip = '$i_no_ip', 
+				no_iu = '$i_no_iu', 
+				no_perusahaan = '$i_no_perusahaan', 
+				no_kode_proyek = '$i_no_kode_proyek', 
+				investasi = '$i_investasi',
+				nama_perusahaan = '$i_nama_perusahaan',
+				tenaga_kerja = '$i_tenaga_kerja',
+				kapasitas = '$i_kapasitas',
+				ekspor = '$i_ekspor',
+				country_id = '$i_country_id',
+				city_id = '$i_city_id',
+				npwp = '$i_npwp',
+				business_type_id = '$i_business_type_id',
+				keterangan = '$i_keterangan',
+				master_year = '$i_master_year'
 				
 				";
-
+		}
 		update($data, $id);
 
-		header('Location: realisasi.php?page=list&master_category_id='.$master_category_id.'&did=2');
-
+		show_message("Edit berhasil", "realisasi.php?page=list&master_category_id=".$master_category_id."&did=2");
 	break;
 
 	
@@ -294,9 +331,25 @@ switch ($page) {
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
-		$i_master_img = get_isset($i_master_img);
+		$i_master_img = get_isset($_FILES['i_master_img']['name']);
+		
 
-		$data = " master_sub_category_id = '$i_master_sub_category_id',
+		$path = '../img/master_img/';
+		if($i_master_img!=""){
+			
+			
+			$r_img = get_img($id);
+			
+			if($r_img != ""){
+				if(file_exists($r_img)){
+					unlink($r_img); 
+				}
+			}
+			
+			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
+			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
+
+		$data = " master_sub_category_id = '$master_sub_category_id',
 				nama_perusahaan = '$i_nama_perusahaan',
 				alamat = '$i_alamat',   
 				investasi = '$i_investasi',
@@ -307,15 +360,31 @@ switch ($page) {
 				city_id = '$i_city_id',
 				npwp = '$i_npwp',
 				business_type_id = '$i_business_type_id',
-				master_year = '$master_year',
-				master_img = '$master_img'
+				master_year = '$i_master_year',
+				master_img = '$image'
 				
 				";
-
+		}else{
+			$data = 
+				"master_sub_category_id = '$master_sub_category_id',
+				nama_perusahaan = '$i_nama_perusahaan',
+				alamat = '$i_alamat',   
+				investasi = '$i_investasi',
+				nama_perusahaan = '$i_nama_perusahaan',
+				tenaga_kerja = '$i_tenaga_kerja',
+				ekspor = '$i_ekspor',
+				country_id = '$i_country_id',
+				city_id = '$i_city_id',
+				npwp = '$i_npwp',
+				business_type_id = '$i_business_type_id',
+				master_year = '$i_master_year'
+		
+				
+				";
+		}
 		update($data, $id);
 
-		header('Location: realisasi.php?page=list&master_category_id='.$master_category_id.'&did=2');
-
+		show_message("Edit berhasil", "realisasi.php?page=list&master_category_id=".$master_category_id."&did=2");
 	break;
 	case 'delete':
 

@@ -79,7 +79,7 @@ function show_sub(str)
                                        
                                          <div class="form-group">
                                         <label>Kategori</label>
-                                        <select id="basic" name="i_master_sub_category_id" class="selectpicker show-tick form-control" data-live-search="true"  onChange="show_sub(this.value)" >
+                                        <select id="basic" name="i_master_category_id" class="selectpicker show-tick form-control" data-live-search="true"  onChange="show_sub(this.value)" >
                                        
                                            <?php
                                         $query_owner = mysql_query("select * from master_categories ");
@@ -95,7 +95,7 @@ function show_sub(str)
                                       
                                        <div class="form-group">
                                         <label>Negara</label>
-                                        <select class="form-control"  id="fom" name="trainer_id">
+                                        <select class="form-control"  id="fom" name="i_country_id">
                                        
                                         </select>
                                         </div>
@@ -108,7 +108,7 @@ function show_sub(str)
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" required class="form-control pull-right" id="reservation" name="i_date" value="<?= $date_default?>"/>
+                                            <input type="text" required class="form-control pull-right" id="reservation" name="i_date" />
                                         </div><!-- /.input group -->
                                     </div><!-- /.form group -->
                                        
@@ -122,7 +122,7 @@ function show_sub(str)
                                        
                                          <div class="form-group">
                                         <label>Triwulan</label>
-                                        <select id="basic" name="i_master_sub_category_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                        <select id="basic" name="i_triwulan" class="selectpicker show-tick form-control" data-live-search="true">
                                        
                                            <?php
                                         for($i=1; $i<=4; $i++){

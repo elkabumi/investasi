@@ -31,5 +31,11 @@ function delete($id){
 	mysql_query("delete from master  where master_id = '$id'");
 }
 
+function get_img($id){
+	$q_img = mysql_query("select master_img from master where master_id = '$id'");
+	$r_img = mysql_fetch_object($q_img);
+	return $r_img->master_img;
+}
+
 
 ?>
