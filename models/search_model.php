@@ -1,6 +1,24 @@
 <?php
-
-function select($category,$country,$triwulan,$year){
+function select1($category,$country,$date1,$date2){
+	if($country != ''){
+		$where_country = 'AND a.country_id = '.$country.'';
+	}else{
+		$where_country ='';
+	}
+	
+	$where = "master_date >=  '$date1' AND master_date <=  '$date2'";
+		
+	
+	$query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_name
+							from master a
+							join business_types d on d.business_type_id = a.business_type_id
+							LEFT join countries e on e.country_id = a.country_id
+							LEFT join cities f on f.city_id = a.city_id
+							where a.master_category_id = $category AND a.master_type_id = '2' AND $where  $where_country 
+						");
+	return $query;
+}
+function select2($category,$country,$triwulan,$year){
 	if($country != ''){
 		$where_country = 'AND a.country_id = '.$country.'';
 	}else{
