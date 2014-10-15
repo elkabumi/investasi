@@ -69,13 +69,20 @@
          									 	<th  data-class="expand" data-sort-initial="true">No</th>
                                             	<th>Nama Perusahaan</th>
                                                 <th data-hide="phone">Alamat</th>
-                                                <th data-hide="phone">NO IP</th>
-                                                <th data-hide="phone">NO IU</th>
-                                                
+                                                <th data-hide="all">No IP</th>
+                                                <th data-hide="all">No IU</th>
+                                                <th data-hide="all">No Perusahaan</th>
+                                                <th data-hide="all">No Kode Proyek</th>       
+                                                <th data-hide="all">Investasi</th>
+                                                <th data-hide="all">Tenaga Kerja</th>
+                                                <th data-hide="all">Kapasitas</th>
+                                                <th data-hide="all">Ekspor</th>                                           
                                                 <th data-hide="phone">Negara</th>
                                                 <th data-hide="phone,tablet">Lokasi</th>
                                                 <th data-hide="phone,tablet">NPWP</th>
                                                 <th data-hide="phone,tablet">Bidang Usaha</th>
+                                                <th data-hide="all">Lain-lain</th>
+                                                <th data-hide="all">Tahun</th>
                                                 <th width="10%">Config</th>
         </tr>
       </thead>
@@ -90,11 +97,18 @@
                                                 <td><?= $row['alamat']?></td>
                                                 <td><?= $row['no_ip']?></td>
                                                 <td><?= $row['no_iu']?></td>
-                                               
+                                                 <td><?= $row['no_perusahaan']?></td>
+                                                  <td><?= $row['no_kode_proyek']?></td>
+                                                   <td><?= $row['investasi']?></td>
+                                                 <td><?= $row['tenaga_kerja']?></td>
+                                                <td><?= $row['kapasitas']?></td>
+                                                <td><?= $row['ekspor']?></td>
                                                 <td><?= $row['country_name']?></td>
                                                 <td><?= $row['city_name']?></td>
                                                 <td><?= $row['npwp']?></td>
                                                 <td><?= $row['business_type_name']?></td>
+                                                <td><?= $row['keterangan']?></td>
+                                                <td><?= $row['master_year']?></td>
                                                  <td style="text-align:center;">
                                                     <a href="master.php?page=form&id=<?= $row['master_id']?>&master_type_id=<?= $master_type_id ?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
                                                 <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'master.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a></td>

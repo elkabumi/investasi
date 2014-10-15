@@ -69,9 +69,9 @@
                             </a>
                             <ul class="treeview-menu">
                                 
-                                <li><a href="report_summary.php?page=list"><i class="fa fa-chevron-circle-right"></i>Triwulan</a></li>
-                                <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Semester</a></li>
-                                 <li><a href="report_detail.php?page=list"><i class="fa fa-chevron-circle-right"></i>Tahunan</a></li>
+                                <li><a href="report_triwulan.php?page=list"><i class="fa fa-chevron-circle-right"></i>Triwulan</a></li>
+                                <li><a href="report_semester.php?page=list"><i class="fa fa-chevron-circle-right"></i>Semester</a></li>
+                                 <li><a href="report_tahunan.php?page=list"><i class="fa fa-chevron-circle-right"></i>Tahunan</a></li>
                              
                             </ul>
                   </li>

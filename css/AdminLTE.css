@@ -1282,6 +1282,8 @@ body > .header .logo .icon {
 }
 .box.box-primary {
   border-top-color: #3c8dbc;
+  background:url(../img/bg-noise.png) repeat #FCF9B6;
+  border-radius:3px;
 }
 .box.box-info {
   border-top-color: #00c0ef;
@@ -1459,7 +1461,6 @@ body > .header .logo .icon {
   -moz-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
   box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
   border-top: 1px solid #ccc;
-  text-shadow: 0 1px 0 rgba(255,255,255,.5);
   padding: 10px;
 }
 .box.box-solid {
