@@ -99,7 +99,7 @@ function show_sub2(str)
                                   	<div class="tab-pane <?php if($type == 1){ ?>active<?php }?>" id="tab_1">
 										<form role="form" action="<?= $action1?>" method="post">
 
-											<div class="box box-primary">
+											
 											<div class="box-body">
 										 		<div class="col-md-6">
                                                 
@@ -119,14 +119,17 @@ function show_sub2(str)
 													</select>
 											  	</div>
 											  
-											   <div class="form-group">
+											 
+											  
+											</div>
+                                            <div class="col-md-6">
+                                              <div class="form-group">
 												<label>Negara</label>
 												<select class="form-control"  id="fom" name="i_country_id">
 											   
 												</select>
 												</div>
-											  
-											</div>
+                                                </div>
 
 										<div class="col-md-12">
 											
@@ -140,7 +143,14 @@ function show_sub2(str)
 												</div><!-- /.input group -->
 											</div><!-- /.form group -->
                                             
-										 </div>
+                                          <br />
+                                <div class="box-footer">
+                                <input class="btn btn-default" type="submit" value="Search"/>
+                                </div>
+                                <br />
+                                </div>
+                                            
+										 
 											
 											
 										
@@ -153,12 +163,9 @@ function show_sub2(str)
 										   
 										</div><!-- /.box-body -->
 									 
-					  
-                                <div class="box-footer">
-                                <input class="btn btn-default" type="submit" value="Search"/>
-                                </div>
+					   
                             
-                            </div><!-- /.box -->
+                            
                              
                             
                        </form>
@@ -168,8 +175,8 @@ function show_sub2(str)
                                   	<div class="tab-pane <?php if($type == 2){ ?>active<?php }?>" id="tab_2">
 										<form role="form" action="<?= $action2?>" method="post">
 
-											<div class="box box-primary">
-											<div class="box-body">
+										
+											
 										 		<div class="col-md-6">
                                                 
 													<div class="form-group">
@@ -188,14 +195,18 @@ function show_sub2(str)
 													</select>
 											  	</div>
 											  
-											   <div class="form-group">
+											 
+											  
+											</div>
+                                            
+                                            <div class="col-md-6">
+                                              <div class="form-group">
 												<label>Negara</label>
 												<select class="form-control"  id="fom2" name="i_country_id">
 											   
 												</select>
 												</div>
-											  
-											</div>
+                                            </div>
 
 										<div class="col-md-12">
 										
@@ -232,31 +243,33 @@ function show_sub2(str)
 											   $year = date("Y");
 											   for($iy = $year; $iy >= $year - 5; $iy--){
 												?>
-												 <option value="<?= $iy ?>" <?php if($iy == $row->master_year){ ?> selected="selected"<?php }?>><?= $iy ?></option>
+												 <option value="<?= $iy ?>"><?= $iy ?></option>
 												<?php
 												}
 												?>
 												  
 												</select>
 											  </div>
-                                                 
+                                              
+                                                    
 											</div>
-											
-											
+											<div class="col-md-12">
+											 <div class="box-footer">
+                                <input class="btn btn-default" type="submit" value="Search"/>
+                                </div>
+                                      <br />    
+                                      </div>
 											
 										  <div style="clear:both;"></div>
 											   
 										   
 										   
-										</div><!-- /.box-body -->
+										
 									 
 					  
-                                <div class="box-footer">
-                                <input class="btn btn-default" type="submit" value="Search"/>
-                                </div>
+                                
                             
-                            </div><!-- /.box -->
-                             
+                           
                             
                        </form>
 					   

@@ -118,7 +118,7 @@ switch ($page) {
 		$i_master_img = get_isset($_FILES['i_master_img']['name']);
 		
 		$path = '../img/master_img/';
-		echo $i_master_img;
+		//echo $i_master_img;
 		if($i_master_img!=""){
 			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
 			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);

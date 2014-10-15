@@ -1278,7 +1278,7 @@ body > .header .logo .icon {
   -moz-border-radius: 3px;
   border-radius: 3px !important;
   width: 100%;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  
 }
 .box.box-primary {
   border-top-color: #3c8dbc;
@@ -2090,8 +2090,8 @@ Component: timeline
 /* NAV TABS */
 .nav-tabs-custom {
   margin-bottom: 20px;
-  background: #fff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   background:url(../img/bg-noise.png) repeat #f4f09a;
 }
 .nav-tabs-custom > .nav-tabs {
   margin: 0;
@@ -2101,6 +2101,7 @@ Component: timeline
   border-top: 3px solid transparent;
   margin-bottom: -2px;
   margin-right: 5px;
+  
 }
 .nav-tabs-custom > .nav-tabs > li > a {
   -webkit-border-radius: 0 !important;
@@ -2122,7 +2123,7 @@ Component: timeline
 }
 .nav-tabs-custom > .nav-tabs > li.active > a,
 .nav-tabs-custom > .nav-tabs > li.active:hover > a {
-  background-color: #fff;
+  background:url(../img/bg-noise.png) repeat #FCF9B6;
 }
 .nav-tabs-custom > .nav-tabs > li.active > a {
   border-top: 0;
@@ -2162,7 +2163,7 @@ Component: timeline
   margin-right: 10px;
 }
 .nav-tabs-custom > .tab-content {
-  background: #fff;
+   background:url(../img/bg-noise.png) repeat #FCF9B6;
   padding: 10px;
 }
 /* PAGINATION */
