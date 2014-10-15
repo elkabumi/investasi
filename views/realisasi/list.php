@@ -62,21 +62,23 @@
                             <div class="box">
                              
                                 <div class="box-body2 table-responsive">
-                                    <table id="example1" class="table  table-striped">
-                                        <thead>
-                                            <tr>
-                                            <th width="5%">No</th>
+                                   <?php
+                               include '../views/layout/search.php';
+							   ?>
+                                 <table data-filter="#filter" class="footable" data-page-size="10" id="new_table">
+      <thead>
+        <tr>
+                                            <th data-class="expand" data-sort-initial="true">No</th>
                                             	<th>Nama Perusahaan</th>
-                                                <th>Alamat</th>
-                                                <th>NO IP</th>
-                                                <th>NO IU</th>
-                                                <th>Investasi</th>
-                                                <th>Tenaga Kerja</th>
-                                                <th>Negara</th>
-                                                <th>Lokasi</th>
-                                                <th>NPWP</th>
-                                                <th>Bidang Usaha</th>
-                                                <th>Config</th>
+                                            <th data-hide="phone">Alamat</th>
+                                                <th data-hide="phone">NO IP</th>
+                                                <th data-hide="phone">NO IU</th>
+                                              
+                                                <th data-hide="phone">Negara</th>
+                                                <th data-hide="phone,tablet">Lokasi</th>
+                                                <th data-hide="phone,tablet">NPWP</th>
+                                                <th data-hide="phone,tablet">Bidang Usaha</th>
+                                                <th width="10%">Config</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -90,8 +92,7 @@
                                                 <td><?= $row['alamat']?></td>
                                                 <td><?= $row['no_ip']?></td>
                                                 <td><?= $row['no_iu']?></td>
-                                                <td><?= $row['investasi']?></td>
-                                                <td><?= $row['tenaga_kerja']?></td>
+                                             
                                                 <td><?= $row['country_name']?></td>
                                                 <td><?= $row['city_name']?></td>
                                                 <td><?= $row['npwp']?></td>
@@ -110,12 +111,11 @@
                                            
                                           
                                         </tbody>
-                                          <tfoot>
-                                            <tr>
-                                                <th colspan="7"><a href="<?= $add_button ?>" class="btn btn-default" >Add</a></th>
-                                                
-                                            </tr>
-                                        </tfoot>
+                                           <tfoot class="footable-pagination">
+        <tr>
+          <td colspan="12"><div class="pagination pagination-centered"></div></td>
+        </tr>
+      </tfoot>
                                     </table>
 
                                 </div><!-- /.box-body -->
