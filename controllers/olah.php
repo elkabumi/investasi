@@ -1,0 +1,84 @@
+<?php
+include '../lib/config.php';
+include '../lib/function.php';
+include '../models/olah_model.php';
+$page = null;
+$page = (isset($_GET['page'])) ? $_GET['page'] : "form";
+
+$_SESSION['menu_active'] = 1;
+$title ='Olah';
+switch ($page) {
+	case 'form':
+		get_header();
+		$action = 'olah.php?page=form_action';
+		
+		include '../views/olah/form.php';
+		
+		if(isset($_GET['preview'])){
+				
+				$type = 1;
+				$i_tenaga = $_GET['tenaga'];
+				
+				$i_investsai = $_GET['investsai'];
+				
+				$i_tenaga = str_replace(" ","", $i_tenaga);
+				$tenaga = explode("-", $i_tenaga);
+				
+				$i_investsai = str_replace(" ","", $i_investsai);
+				$investsai = explode("-", $i_investsai);
+			-
+				$category = (isset($_GET['category'])) ? $_GET['category'] : null;
+				$country = (isset($_GET['country'])) ? $_GET['country'] : null;
+				$city = (isset($_GET['city'])) ? $_GET['city'] : null;
+				$busines = (isset($_GET['busines'])) ? $_GET['busines'] : null;
+				
+				$tenaga1 = $tenaga[0];
+				$tenaga2 = $tenaga[1];
+				
+				$investsai1 = $investsai[0];
+				$investsai2 = $investsai[1];
+				
+		
+				$query = select($category,$country,$city,$busines,$tenaga1,$tenaga2,$investsai1,$investsai2);
+				
+						
+				include '../views/olah/list_result.php';
+			
+		}
+		
+		
+		get_footer();
+	break;
+	
+	case 'form_action':
+		
+		extract($_POST);
+		
+		$i_master_category_id = get_isset($i_master_category_id);
+		$i_country_id = get_isset($i_country_id);
+		$i_city_id = get_isset($i_city_id);
+		$i_business_type_id = get_isset($i_business_type_id);
+		
+		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
+		$i_tenaga_kerja2 = get_isset($i_tenaga_kerja2);
+		
+		$i_investasi = get_isset($i_investasi);
+		$i_investasi2 = get_isset($i_investasi2);
+		$tenaga =  $i_tenaga_kerja." - ".$i_tenaga_kerja2;
+		$investsai =  $i_investasi." - ". $i_investasi2;
+		
+		if($i_tenaga_kerja2 < $i_tenaga_kerja){
+			header("Location: olah.php?page=form&err=1");
+		}
+		else if($i_investasi2 < $i_investasi){
+			header("Location: olah.php?page=form&err=2");
+		}
+		else{
+		
+		header("Location: olah.php?page=form&preview=1&category=".$i_master_category_id."&country=".$i_country_id."&city=".$i_city_id."&busines=".$i_business_type_id."&tenaga=".$tenaga."&investsai=".$investsai."");
+		}
+	break;
+	
+	}
+
+?>
