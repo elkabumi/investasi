@@ -52,7 +52,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> PMA</a></li>
+                                <li><a href="realisasi.php?page=list"><i class="fa fa-chevron-circle-right"></i> PMA</a></li>
                                 <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> PMDN</a></li>
                                 <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> Non Fas</a></li>
                                <li><a href="user.php?page=list"><i class="fa fa-chevron-circle-right"></i> IU</a></li>
