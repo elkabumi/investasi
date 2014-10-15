@@ -111,7 +111,7 @@ function show_sub2(str)
 													$query_owner = mysql_query("select * from master_categories where master_category_id <= 5");
 													while($row_owner = mysql_fetch_array($query_owner)){
 													?>
-													 <option value="<?= $row_owner['master_category_id']?>">Realisai <?= $row_owner['master_category_name'] ?></option>
+													 <option value="<?= $row_owner['master_category_id']?>">Realisasi <?= $row_owner['master_category_name'] ?></option>
 													<?php
 														}
 													?>
