@@ -59,13 +59,10 @@
                              
                                 <div class="box-body2 table-responsive">
                                  
-                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><a href="<?= $add_button ?>" class="btn btn-danger" >Tambah Data</a></td>
-    <td align="right"><input id="filter" type="text" class="search_new" placeholder="Cari disini" size="30" /></td>
-  </tr>
-</table>
-                                 <table data-filter="#filter" class="footable" data-page-size="10">
+                               <?php
+                               include '../views/layout/search.php';
+							   ?>
+                                 <table data-filter="#filter" class="footable" data-page-size="10" id="new_table">
       <thead>
         <tr>
          
@@ -75,7 +72,7 @@
                                                 <th data-hide="phone">NO IP</th>
                                                 <th data-hide="phone">NO IU</th>
                                                 
-                                                <th data-hide="phone,tablet">Negara</th>
+                                                <th data-hide="phone">Negara</th>
                                                 <th data-hide="phone,tablet">Lokasi</th>
                                                 <th data-hide="phone,tablet">NPWP</th>
                                                 <th data-hide="phone,tablet">Bidang Usaha</th>
@@ -109,7 +106,7 @@
       </tbody>
       <tfoot class="footable-pagination">
         <tr>
-          <td colspan="12"><ul id="pagination" class="footable-nav" /></td>
+          <td colspan="12"><div class="pagination pagination-centered"></div></td>
         </tr>
       </tfoot>
     </table>

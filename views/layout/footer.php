@@ -40,7 +40,17 @@
                 });*/
 				
 				$(function() {
-				  $('table').footable();
+				  $('#new_table').footable();
+				});
+				
+				$('.footable').data('limit-navigation', 5);
+				$('.footable').trigger('footable_initialized');
+						
+				$('#change-page-size').change(function (e) {
+						e.preventDefault();
+						var pageSize = $(this).val();
+						$('.footable').data('page-size', pageSize);
+						$('.footable').trigger('footable_initialized');
 				});
 					
                 //Datemask dd/mm/yyyy

@@ -44,19 +44,19 @@ if(!$_SESSION['login']){
         <![endif]-->
         
         <!-- footable -->
-          <link href="../css/footable/footable-0.1.css" rel="stylesheet" type="text/css" />
-          <link href="../css/footable/footable.sortable-0.1.css" rel="stylesheet" type="text/css" />
-          <link href="../css/footable/footable.paginate.css" rel="stylesheet" type="text/css" />
-       
-          <script src="../js/jquery.js"></script>
-          <script src="../js/footable/footable.js" type="text/javascript"></script>
-          <script src="../js/footable/footable.sortable.js" type="text/javascript"></script>
-          <script src="../js/footable/footable.filter.js" type="text/javascript"></script>
-          <script src="../js/footable/footable.paginate.js" type="text/javascript"></script>
+           <link href="../css/footable/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css"/>
+            <link href="../css/footable/footable.standalone.css" rel="stylesheet" type="text/css"/>
+            <script src="../js/jquery.js"></script>
+           
+            <script src="../js/footable/footable.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/bootstrap-tab.js" type="text/javascript"></script>
          
 
         <!-- jQuery 2.0.2 -->
-       
+      
         <script src="../js/function.js" type="text/javascript"></script>
         <!-- Bootstrap -->
         <script src="../js/bootstrap.min.js" type="text/javascript"></script>

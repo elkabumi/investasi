@@ -2748,3 +2748,14 @@ Component: timeline
 	margin-top:8px;
 	margin-left:10px;
 }
+.page_new{
+	border:none;
+	margin-bottom:10px;
+	height:32px;
+	padding:5px;
+	margin-top:8px;
+	margin-left:10px;
+}
+#new_table{
+	background:url(../img/bg-noise.png) repeat #FCF9B6;
+}

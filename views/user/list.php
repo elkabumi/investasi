@@ -62,62 +62,59 @@
                             <div class="box">
                              
                                 <div class="box-body2 table-responsive">
-                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><a href="<?= $add_button ?>" class="btn btn-danger" >Tambah Data</a></td>
-    <td align="right"><input id="filter" type="text" class="search_new" placeholder="Cari disini" size="30" /></td>
-  </tr>
-</table>
-                                    <table data-filter="#filter" class="footable" data-page-size="10">
-                                        <thead>
-                                            <tr>
-                                            <th  data-sort-initial="true"  data-class="expand">No</th>
-                                                <th>Code</th>
-                                                <th>Name</th>
-                                                  <th data-hide="phone">Type</th>
-                                                   <th data-hide="phone">Phone</th> 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                           $no = 1;
-                                            while($row = mysql_fetch_array($query)){
-                                            ?>
-                                            <tr>
-                                            <td><?= $no?></td>
-                                                <td><?= $row['user_code']?></td>
-                                                <td><?= $row['user_name']?></td>
-                                                <?php
-												if($row['user_type_id'] == 1){?>
-                                                    <td>Admin</td>
-                                                    <? }else{ ?>
-                                                    <td>Eksternal</td>
-                                                    <?
-													}
-                                                ?>
-                                                 <td><?= $row['user_phone']?></td>
-                                               
-                                               <!-- <td style="text-align:center;">
-
-                                                    <a href="user.php?page=form&id=<?= $row['user_id']?>" class="btn btn-danger" ><i class="fa fa-pencil"></i></a>
-                                                    <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['user_id']; ?>,'user.php?page=delete&id=')" class="btn btn-danger" ><i class="fa fa-trash-o"></i></a>
-
-                                                </td> -->
-                                            </tr>
-                                            <?php
-											$no++;
-                                            }
-                                            ?>
-
-                                           
-                                          
-                                        </tbody>
-                                         <tfoot class="footable-pagination">
-        <tr>
-          <td colspan="5"><ul id="pagination" class="footable-nav" /></td>
-        </tr>
-      </tfoot>
-                                    </table>
+                               
+                               
+                               
+         
+              
+        
+           <?php
+                               include '../views/layout/search.php';
+							   ?>
+            <table class="footable metro-blue" data-filter="#filter" data-page-size="10" id="new_table">
+                <thead>
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th data-hide="phone">
+                        Job Title
+                    </th>
+                    <th data-hide="phone">
+                        DOB
+                    </th>
+                    <th data-hide="phone">
+                        Status
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                for($i=0; $i<=200; $i++){
+                ?>
+                <tr>
+                    <td>Isidra</td>
+                    <td><a href="#">Boudreaux</a></td>
+                    <td>Traffic Court Referee</td>
+                    <td data-value="78025368997">22 Jun 1972</td>
+                    <td data-value="1"><span class="status-metro status-active" title="Active">Active</span></td>
+                </tr>
+               <?php
+				}
+			   ?>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <div class="pagination pagination-centered"></div>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+                               
 
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
