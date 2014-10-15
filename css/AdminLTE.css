@@ -1273,7 +1273,6 @@ body > .header .logo .icon {
 */
 .box {
   position: relative;
-  background:url(../img/bg-noise.png) repeat #FCF9B6;
   margin-bottom: 20px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1360,6 +1359,7 @@ body > .header .logo .icon {
   border-bottom-left-radius: 3px;
   background:url(../img/bg-noise.png) repeat #FCF9B6;
   border-radius:3px;
+  padding-bottom:20px;
 }
 .box .box-body2 {
   
@@ -1375,7 +1375,6 @@ body > .header .logo .icon {
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  background:url(../img/bg-noise.png) repeat #FCF9B6;
 }
 .box .box-body > table,
 .box .box-body > .table {
@@ -1449,8 +1448,19 @@ body > .header .logo .icon {
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+   background-color: #dce9f9;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+  background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: -o-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: linear-gradient(to bottom, #ebf3fc, #dce9f9);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+  border-top: 1px solid #ccc;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
   padding: 10px;
-  background:url(../img/bg-noise.png) repeat #f1ed8c;
 }
 .box.box-solid {
   border-top: 0px;
@@ -2729,4 +2739,23 @@ Component: timeline
 .result_report{
 	font-size:32px;
 	font-weight:bold;
+}
+.search_new{
+	border:none;
+	margin-bottom:10px;
+	height:32px;
+	padding:5px;
+	margin-top:8px;
+	margin-left:10px;
+}
+.page_new{
+	border:none;
+	margin-bottom:10px;
+	height:32px;
+	padding:5px;
+	margin-top:8px;
+	margin-left:10px;
+}
+#new_table{
+	background:url(../img/bg-noise.png) repeat #FCF9B6;
 }

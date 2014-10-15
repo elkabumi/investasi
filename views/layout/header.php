@@ -16,8 +16,8 @@ if(!$_SESSION['login']){
         <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
         <link href="../css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- DATA TABLES -->
-        <link href="../css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <!-- DATA TABLES 
+        <link href="../css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />-->
         <!-- Theme style -->
         <link href="../css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <!-- Popup Modal -->
@@ -42,15 +42,27 @@ if(!$_SESSION['login']){
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+        
+        <!-- footable -->
+           <link href="../css/footable/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css"/>
+            <link href="../css/footable/footable.standalone.css" rel="stylesheet" type="text/css"/>
+            <script src="../js/jquery.js"></script>
+           
+            <script src="../js/footable/footable.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+            <script src="../js/footable/bootstrap-tab.js" type="text/javascript"></script>
+         
 
         <!-- jQuery 2.0.2 -->
-        <script src="../js/jquery.js"></script>
+      
         <script src="../js/function.js" type="text/javascript"></script>
         <!-- Bootstrap -->
         <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- DATA TABES SCRIPT -->
+        <!-- DATA TABES SCRIPT 
         <script src="../js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="../js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+        <script src="../js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>-->
        	<!-- date-range-picker -->
         <script src="../js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
         <!-- InputMask -->

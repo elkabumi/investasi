@@ -19,7 +19,7 @@
  <!-- page script -->
         <script type="text/javascript">
             $(function() {
-                $("#example1").dataTable();
+               /* $("#example1").dataTable();
                 $('#example2').dataTable({
                     "bPaginate": true,
                     "bLengthChange": false,
@@ -37,7 +37,22 @@
                     "bSort": false,
                     "bInfo": false,
                     "bAutoWidth": false
-                });
+                });*/
+				
+				$(function() {
+				  $('#new_table').footable();
+				});
+				
+				$('.footable').data('limit-navigation', 5);
+				$('.footable').trigger('footable_initialized');
+						
+				$('#change-page-size').change(function (e) {
+						e.preventDefault();
+						var pageSize = $(this).val();
+						$('.footable').data('page-size', pageSize);
+						$('.footable').trigger('footable_initialized');
+				});
+					
                 //Datemask dd/mm/yyyy
                 $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
                 //Datemask2 mm/dd/yyyy

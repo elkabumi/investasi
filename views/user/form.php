@@ -52,6 +52,7 @@
                                             <label>Code</label>
                                             <input required type="text" name="i_code" class="form-control" placeholder="Enter code ..." value="<?= $row->user_code ?>"/>
                                         </div>-->
+                                        <div class="col-md-12">
                                         
                                         <div class="form-group">
                                             <label>Name</label>
@@ -91,6 +92,8 @@
                                          <label>Images</label>
                                            <input type="file" name="i_img" id="i_img" />
                                         </div>
+                                        </div>
+                                        <div style="clear:both;"></div>
                                      
                                 </div><!-- /.box-body -->
                                 <div class="box-footer">
