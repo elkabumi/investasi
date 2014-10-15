@@ -108,7 +108,7 @@ function show_sub2(str)
 													<select id="basic" name="i_master_category_id" class="selectpicker show-tick form-control" data-live-search="true"  onChange="show_sub(this.value)" >
 											   
 												   <?php
-													$query_owner = mysql_query("select * from master_categories ");
+													$query_owner = mysql_query("select * from master_categories where master_category_id <= 5");
 													while($row_owner = mysql_fetch_array($query_owner)){
 													?>
 													 <option value="<?= $row_owner['master_category_id']?>">Realisai <?= $row_owner['master_category_name'] ?></option>
@@ -184,7 +184,7 @@ function show_sub2(str)
 													<select id="basic" name="i_master_category_id" class="selectpicker show-tick form-control" data-live-search="true"  onChange="show_sub2(this.value)" >
 											   
 												   <?php
-													$query_owner = mysql_query("select * from master_categories ");
+													$query_owner = mysql_query("select * from master_categories where master_category_id <= 5");
 													while($row_owner = mysql_fetch_array($query_owner)){
 													?>
 													 <option value="<?= $row_owner['master_category_id']?>">Realisai <?= $row_owner['master_category_name'] ?></option>
