@@ -46,6 +46,8 @@ switch ($page) {
 			}else{
 				header('Location: report_detail.php?page=list');
 			}*/
+
+
 			
 			header("Location: master.php?page=list");
 			
