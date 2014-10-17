@@ -76,6 +76,23 @@
                                           
                                         </select>
                                       </div>
+                                      
+                                       <div class="form-group">
+                                        <label>Proses Ip</label>
+                                        <select id="basic" name="i_master_type_ip_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                       
+                                           <?php
+                                        $query_owner = mysql_query("select * from  master_ip_types where master_ip_type_id <> 1 ");
+                                        while($row_owner = mysql_fetch_array($query_owner)){
+                                        ?>
+                                         <option value="<?= $row_owner['master_ip_type_id']?>" <?php if($row_owner['master_ip_type_id'] == $row->master_ip_type_id){ ?> selected="selected"<?php }?>><?= $row_owner['master_ip_type_name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                          
+                                        </select>
+                                      </div>
+                                      
                                     
                                             <div class="form-group">
                                         <label>Kategori</label>
@@ -89,10 +106,11 @@
                                         <?php
                                         }
                                         ?>
-                                          
+                  
                                         </select>
+                                        
                                       </div>
-                                     
+                                                                                    <input type="hidden" name="row_id" class="form-control" placeholder="Enter ..." value="<?= $id  ?>"/>
                                         
                                        
                                         <!-- text input -->
@@ -101,7 +119,7 @@
                                             <input required type="text" name="i_nama_perusahaan" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
                                         </div>
                                       
-                                                      <input type="hidden" name="row_id" class="form-control" placeholder="Enter ..." value="<?= $id  ?>"/>
+                                    
                                         
                                          <div class="form-group">
                                             <label>Alamat</label>
@@ -110,13 +128,13 @@
                                         
                                          <div class="form-group">
                                             <label>No IP</label>
-                                            <input required readonly="readonly" type="text" name="i_no_ip" class="form-control" placeholder="Enter ..." value="<?= $row->no_ip ?>"/>
+                                            <input required type="text" name="i_no_ip" class="form-control" placeholder="Enter ..." value="<?php if($type == '1'){ echo $row->no_ip; } ?>"/>
                                         </div>
                                         
-                                         <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>No IU</label>
-                                            <input required type="text" name="i_no_iu" class="form-control" placeholder="Enter ..." value="<?= $row->no_iu ?>"/>
-                                        </div>
+                                            <input required type="text" name="i_no_iu" class="form-control" placeholder="Enter ..." value="<?//= $row->no_iu ?>"/>
+                                        </div>-->
                                        
                                          <div class="form-group">
                                             <label>No Perusahaan</label>
@@ -139,10 +157,16 @@
                                         </div>
                                    
                                         
-                                       
-
-                                     
-                                       
+                                         <div class="form-group">
+                                        <label>Expired date</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" required class="form-control pull-right" id="date_picker1" name="i_expired_date" value="<?php if($type == '1'){ echo format_date($row->master_expired_date); }?>"/>
+                                        </div><!-- /.input group -->
+                                    </div><!-- /.form group -->
+                                 
                                        </div>
                                         <div class="col-md-6">
                                     
@@ -237,6 +261,9 @@
                                             <label>Lain - lain</label>
                                             <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->keterangan ?></textarea>
                                         </div>
+                                       
+                                       
+                                          
                                        
                                        </div>
                                        <div style="clear:both;"></div>

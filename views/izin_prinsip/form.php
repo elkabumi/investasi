@@ -101,7 +101,7 @@
                                             <input required type="text" name="i_nama_perusahaan" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
                                         </div>
                                       
-                                                      <input type="hidden" name="row_id" class="form-control" placeholder="Enter ..." value="<?= $id  ?>"/>
+                                    
                                         
                                          <div class="form-group">
                                             <label>Alamat</label>
@@ -110,13 +110,13 @@
                                         
                                          <div class="form-group">
                                             <label>No IP</label>
-                                            <input required readonly="readonly" type="text" name="i_no_ip" class="form-control" placeholder="Enter ..." value="<?= $row->no_ip ?>"/>
+                                            <input required type="text" name="i_no_ip" class="form-control" placeholder="Enter ..." value="<?= $row->no_ip ?>"/>
                                         </div>
                                         
-                                         <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>No IU</label>
-                                            <input required type="text" name="i_no_iu" class="form-control" placeholder="Enter ..." value="<?= $row->no_iu ?>"/>
-                                        </div>
+                                            <input required type="text" name="i_no_iu" class="form-control" placeholder="Enter ..." value="<?//= $row->no_iu ?>"/>
+                                        </div>-->
                                        
                                          <div class="form-group">
                                             <label>No Perusahaan</label>
@@ -139,10 +139,16 @@
                                         </div>
                                    
                                         
-                                       
-
-                                     
-                                       
+                                         <div class="form-group">
+                                        <label>Expired date</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="text" required class="form-control pull-right" id="date_picker1" name="i_expired_date" value="<?= format_date($row->master_expired_date)?>"/>
+                                        </div><!-- /.input group -->
+                                    </div><!-- /.form group -->
+                                 
                                        </div>
                                         <div class="col-md-6">
                                     
@@ -237,6 +243,9 @@
                                             <label>Lain - lain</label>
                                             <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->keterangan ?></textarea>
                                         </div>
+                                       
+                                       
+                                          
                                        
                                        </div>
                                        <div style="clear:both;"></div>
