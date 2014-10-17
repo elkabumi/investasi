@@ -55,7 +55,7 @@
 
                              <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
 
-                            <div class="box box-default">
+                            <div class="box box-cokelat">
                                 
                                
                                 <div class="box-body">
@@ -163,7 +163,7 @@
                                 
                                	 <div class="box-footer">
 											
-                                					<input class="btn btn-primary" type="submit" value="Search"/>
+                                					<input class="btn btn-cokelat" type="submit" value="Search"/>
                                 				
                                      		
                                      	 </div>

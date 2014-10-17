@@ -1,7 +1,7 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="test">
   <tr>
-    <td width="120"><a href="<?= $add_button ?>" class="btn btn-danger" >Tambah Data</a></td>
-    <td width="372"><a href="<?= $close ?>" class="btn btn-danger" >Close</a></td>
+    <td width="120"><a href="<?= $add_button ?>" class="btn btn-cokelat" >Tambah Data</a></td>
+    <td width="372"><a href="<?= $close ?>" class="btn btn-cokelat" >Close</a></td>
     <td width="396" align="right"><select id="change-page-size" class="page_new">
 									<option value="10">10</option>
 									<option value="25">25</option>

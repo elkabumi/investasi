@@ -111,7 +111,7 @@
                                                 <td><?= $row['master_year']?></td>
                                                  <td style="text-align:center;">
                                                                 
-                                                <a href="master.php?page=form&id=<?= $row['master_id']?>" class="btn btn-default" >Proses izin usaha(IU)</a><br />	
+                                                <a href="master.php?page=form&id=<?= $row['master_id']?>" class="btn btn-cokelat" >Proses izin usaha(IU)</a><br />	
                      
                                             </tr>
                                             <?php

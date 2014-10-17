@@ -16,7 +16,7 @@ switch ($page) {
 
 		
 		
-		$query = select($master_type_id);
+		$query = select();
 		$add_button = "master.php?page=list_izin_prinsip";
 
 
