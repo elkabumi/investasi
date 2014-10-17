@@ -2165,7 +2165,7 @@ Component: timeline
 }
 .nav-tabs-custom > .tab-content {
    background:url(../img/bg-noise.png) repeat #FCF9B6;
-  padding: 10px;
+  
 }
 /* PAGINATION */
 .pagination > li > a {

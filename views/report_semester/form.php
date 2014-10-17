@@ -68,13 +68,13 @@
                                      <div class="col-md-6">
                                         
 											<div class="form-group">
-												<label>Triwulan</label>
-												<select id="basic" name="i_triwulan" class="selectpicker show-tick form-control" data-live-search="true">
+												<label>Semester</label>
+												<select id="basic" name="i_semester" class="selectpicker show-tick form-control" data-live-search="true">
 											   
 												   <?php
-												for($i=1; $i<=4; $i++){
+												for($i=1; $i<=2; $i++){
 												?>
-												 <option value="<?=$i?>"  <?php if($i_triwulan == $i){ ?> selected="selected"<?php }?>>Triwulan <?= $i ?></option>
+												 <option value="<?=$i?>"  <?php if($i_semester == $i){ ?> selected="selected"<?php }?>>Semester <?= $i ?></option>
 												<?php
 												}
 												?>
@@ -113,8 +113,8 @@
                     
                     <div class="box-footer">
                                 <input class="btn btn-primary" type="submit" value="Preview"/>
-                             	 <?php if(isset($_GET['preview'])){ ?><a href="report_triwulan.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download Excel</a>
-								 <a href="report_triwulan.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download PDF</a>
+                             	 <?php if(isset($_GET['preview'])){ ?><a href="report_semester.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&semester=<?= $_GET['semester']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download Excel</a>
+								 <a href="report_semester.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&semester=<?= $_GET['semester']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download PDF</a>
 								 <?php } ?>
                                 </div>
                             

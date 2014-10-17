@@ -66,13 +66,13 @@
 													<label>Kategori</label>
                                                     
                                          
-													<select id="basic" name="i_master_category_id" class="selectpicker show-tick form-control" data-live-search="true"  onChange="show_sub(this.value)" >
+													<select id="basic" name="i_master_category_id" class="selectpicker show-tick form-control" data-live-search="true"  >
 											      <option value="0">-- Pilih Semua --</option>
 												   <?php
-													$query_owner = mysql_query("select * from master_categories where master_category_id ");
+													$query_owner = mysql_query("select * from master_categories order by master_type_id");
 													while($row_owner = mysql_fetch_array($query_owner)){
 													?>
-													 <option value="<?= $row_owner['master_category_id']?>">Realisasi <?= $row_owner['master_category_name'] ?></option>
+													 <option value="<?= $row_owner['master_category_id']?>" <?php if($row_owner['master_category_id'] == $category){ ?> selected="selected"<?php }?>><?php if($row_owner['master_type_id'] == 2){ echo "Realisasi "; } echo $row_owner['master_category_name'] ?></option>
 													<?php
 														}
 													?>
@@ -90,7 +90,7 @@
                                         $query_country = mysql_query("select * from countries");
                                         while($row_country = mysql_fetch_array($query_country)){
                                         ?>
-                                         <option value="<?= $row_country['country_id']?>"><?= $row_country['country_name'] ?></option>
+                                         <option value="<?= $row_country['country_id']?>" <?php if($row_country['country_id'] == $country){ ?> selected="selected"<?php }?>><?= $row_country['country_name'] ?></option>
                                         <?php
                                         }
                                         ?>
@@ -106,7 +106,7 @@
                                         $query_city = mysql_query("select * from cities");
                                         while($row_city = mysql_fetch_array($query_city)){
                                         ?>
-                                         <option value="<?= $row_city['city_id']?>" <?php if($row_city['city_id'] == $row->city_id){ ?> selected="selected"<?php }?>><?= $row_city['city_name'] ?></option>
+                                         <option value="<?= $row_city['city_id']?>" <?php if($row_city['city_id'] == $city){ ?> selected="selected"<?php }?>><?= $row_city['city_name'] ?></option>
                                         <?php
                                         }
                                         ?>
@@ -122,7 +122,7 @@
                                         $query_buss = mysql_query("select * from business_types");
                                         while($row_buss = mysql_fetch_array($query_buss)){
                                         ?>
-                                         <option value="<?= $row_buss['business_type_id']?>"><?= $row_buss['business_type_name'] ?></option>
+                                         <option value="<?= $row_buss['business_type_id']?>"  <?php if($row_buss['business_type_id'] == $busines){ ?> selected="selected"<?php }?>><?= $row_buss['business_type_name'] ?></option>
                                         <?php
                                         }
                                         ?>
@@ -136,37 +136,37 @@
 										 <div class="col-md-6">
 								   <div class="form-group">
                                             <label>Tenaga kerja</label>
-                                            <input  type="text" name="i_tenaga_kerja" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
+                                            <input  type="text" name="i_tenaga_kerja" class="form-control" placeholder="Enter ..." value="<?= $tenaga1 ?>"/>
                                              </div>
                                          <div class="form-group">
                                             <label> s/d</label>
-                                            <input  type="text" name="i_tenaga_kerja2" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
+                                            <input  type="text" name="i_tenaga_kerja2" class="form-control" placeholder="Enter ..." value="<?= $tenaga2 ?>"/>
                                         </div>
                                         
                                            <div class="form-group">
                                             <label>Investasi</label>
-                                            <input  type="text" name="i_investasi" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
+                                            <input  type="text" name="i_investasi" class="form-control" placeholder="Enter ..." value="<?= $investasi1 ?>"/>
                                             </div>
                                          <div class="form-group">
                                             <label> s/d</label>
-                                            <input  type="text" name="i_investasi2" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
+                                            <input  type="text" name="i_investasi2" class="form-control" placeholder="Enter ..." value="<?= $investasi2 ?>"/>
                                         </div>
                                    		
                                    		</div>
                                          
-                                        	<div class="col-md-12">
-											
-                                					<input class="btn btn-default" type="submit" value="Search"/>
-                                				
-                                     		 <br />    
-                                     	 </div>
+                                        
                                        <div style="clear:both;"></div>
                                        
                                    
                                    
                                 </div><!-- /.box-body -->
                                 
-                               
+                               	 <div class="box-footer">
+											
+                                					<input class="btn btn-primary" type="submit" value="Search"/>
+                                				
+                                     		
+                                     	 </div>
                             
                             </div><!-- /.box -->
                              

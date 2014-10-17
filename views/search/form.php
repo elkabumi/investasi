@@ -99,7 +99,8 @@ function show_sub2(str)
                                   	<div class="tab-pane <?php if($type == 1){ ?>active<?php }?>" id="tab_1">
 										<form role="form" action="<?= $action1?>" method="post">
 
-											
+											<div class="box box-primary">
+                                            
 											<div class="box-body">
 										 		<div class="col-md-6">
                                                 
@@ -143,11 +144,7 @@ function show_sub2(str)
 												</div><!-- /.input group -->
 											</div><!-- /.form group -->
                                             
-                                          <br />
-                                <div class="box-footer">
-                                <input class="btn btn-default" type="submit" value="Search"/>
-                                </div>
-                                <br />
+                                       
                                 </div>
                                             
 										 
@@ -164,9 +161,11 @@ function show_sub2(str)
 										</div><!-- /.box-body -->
 									 
 					   
+                               <div class="box-footer">
+                                <input class="btn btn-primary" type="submit" value="Search"/>
+                                </div>
                             
-                            
-                             
+                             </div>
                             
                        </form>
 					   
@@ -176,7 +175,9 @@ function show_sub2(str)
 										<form role="form" action="<?= $action2?>" method="post">
 
 										
-											
+											<div class="box box-primary">
+                                            
+											<div class="box-body">
 										 		<div class="col-md-6">
                                                 
 													<div class="form-group">
@@ -253,21 +254,18 @@ function show_sub2(str)
                                               
                                                     
 											</div>
-											<div class="col-md-12">
-											 <div class="box-footer">
-                                <input class="btn btn-default" type="submit" value="Search"/>
-                                </div>
-                                      <br />    
-                                      </div>
+											
 											
 										  <div style="clear:both;"></div>
 											   
+										   </div>
 										   
-										   
-										
+											 <div class="box-footer">
+                                <input class="btn btn-primary" type="submit" value="Search"/>
+                                </div>
 									 
 					  
-                                
+                                </div>
                             
                            
                             

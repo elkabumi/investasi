@@ -1,21 +1,16 @@
 <?php
 
-function select_detail($i_master_category_id, $i_triwulan, $i_master_year){
+function select_detail($i_master_category_id, $i_semester, $i_master_year){
 	if($i_master_category_id != 0){
 		$category = " AND a.master_category_id = $i_master_category_id";
 	}else{
 		$category = "";
 	}
-	if($i_triwulan == '1'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+	if($i_semester == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 6 ";
 		
-	}else if($i_triwulan == '2'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
-	}else if($i_triwulan == '3'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
-	}
-	else if($i_triwulan == '4'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}else if($i_semester == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 12 ";
 	}
 	$query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_name, g.master_category_name, h.master_ip_type_name
 							from master a
@@ -29,22 +24,17 @@ function select_detail($i_master_category_id, $i_triwulan, $i_master_year){
 	return $query;
 }
 
-function get_jumlah_data($i_master_category_id, $i_triwulan, $i_master_year){
+function get_jumlah_data($i_master_category_id, $i_semester, $i_master_year){
 	if($i_master_category_id != 0){
 		$category = " AND a.master_category_id = $i_master_category_id";
 	}else{
 		$category = "";
 	}
-	if($i_triwulan == '1'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+	if($i_semester == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 6 ";
 		
-	}else if($i_triwulan == '2'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
-	}else if($i_triwulan == '3'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
-	}
-	else if($i_triwulan == '4'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}else if($i_semester == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 12 ";
 	}
 
 	$query = mysql_query("select count(a.master_id) as jumlah
@@ -56,24 +46,19 @@ function get_jumlah_data($i_master_category_id, $i_triwulan, $i_master_year){
 	
 }
 
-function get_jumlah_investasi($i_master_category_id, $i_triwulan, $i_master_year){
+function get_jumlah_investasi($i_master_category_id, $i_semester, $i_master_year){
 	if($i_master_category_id != 0){
 		$category = " AND a.master_category_id = $i_master_category_id";
 	}else{
 		$category = "";
 	}
-	if($i_triwulan == '1'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+	if($i_semester == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 6 ";
 		
-	}else if($i_triwulan == '2'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
-	}else if($i_triwulan == '3'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}else if($i_semester == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 12 ";
 	}
-	else if($i_triwulan == '4'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
-	}
-
+	
 	$query = mysql_query("select sum(a.investasi) as jumlah
 							from master a
 							where a.master_year = $i_master_year $category AND $where 
@@ -83,24 +68,18 @@ function get_jumlah_investasi($i_master_category_id, $i_triwulan, $i_master_year
 	
 }
 
-function get_jumlah_tenaga_kerja($i_master_category_id, $i_triwulan, $i_master_year){
+function get_jumlah_tenaga_kerja($i_master_category_id, $i_semester, $i_master_year){
 	if($i_master_category_id != 0){
 		$category = " AND a.master_category_id = $i_master_category_id";
 	}else{
 		$category = "";
 	}
-	if($i_triwulan == '1'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+	if($i_semester == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 6 ";
 		
-	}else if($i_triwulan == '2'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
-	}else if($i_triwulan == '3'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}else if($i_semester == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 12 ";
 	}
-	else if($i_triwulan == '4'){
-		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
-	}
-
 	$query = mysql_query("select sum(a.tenaga_kerja) as jumlah
 							from master a
 							where a.master_year = $i_master_year $category AND $where 

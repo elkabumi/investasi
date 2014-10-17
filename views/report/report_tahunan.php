@@ -1,20 +1,49 @@
+<?php echo $format; ?>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center" style="font-size:32px; font-weight:bold;" colspan="12">Laporan Tahunan <?= $nama_category ?> </td>
+  </tr>
+  <tr>
+    <td align="center" style="font-size:22px; font-weight:bold;"  colspan="12"><?= "Tahun ".$i_master_year1." - ".$i_master_year2; ?></td>
+  </tr>
+</table>
 
+<br />
+<table border="1" cellpadding="4" cellspacing="0" class="table table-bordered"> 
+ <thead>
+                                            <tr>
+ <?php
+$title = array(
+		"Tahun",
+		"Jumlah Data",
+		"Total Investasi",
+		"Total Tenaga Kerja"
+		);
+$content = array($tanggal, $jumlah_data, $jumlah_investasi, $jumlah_tenaga_kerja);
+for($i=0; $i<=3; $i++){
+?>
+    <th <?php if($i==0 || $i ==1){ ?> colspan="2"<?php } ?> bgcolor="#dddddd"><?= $title[$i]?>&nbsp;</th>
+     <?php } ?>
+  </tr>
+  </thead>
+<tbody>
+  <tr> <?php
+for($i2=0; $i2<=3; $i2++){
+?>
+    <td <?php if($i2==0 || $i2 ==1){ ?> colspan="2"<?php } ?> style="font-size:24px;"><?= $content[$i2] ?>&nbsp;</td>
+   <?php } ?>   
+  </tr></tbody>
 
-                <!-- Main content -->
-               
-                    <div class="row">
-                        <div class="col-xs-12">
-                            
-                            
-                            <div class="box">
-                             
-                                   <?php
-                               include '../views/layout/search2.php';
-							   ?>
-                                 <table data-filter="#filter" class="footable" data-page-size="10" id="new_table">
-      <thead>
-        <tr>
-                                             <th data-class="expand" data-sort-initial="true">No</th>
+</table>             
+                   
+        
+                
+                <!-- list item -->
+                <br />
+ <table border="1" cellpadding="4" cellspacing="0" class="table table-bordered table-striped" id="example1">
+                                        <thead>
+                                            <tr bgcolor="#dddddd">
+                                                <th data-class="expand" data-sort-initial="true">No</th>
                                           		<th>Kategori</th>
                                             	<th>Nama Perusahaan</th>
                                                 <th data-hide="phone">Alamat</th>
@@ -32,16 +61,16 @@
                                                 <th data-hide="phone">Bidang Usaha</th>
                                                 <th data-hide="all">Lain-lain</th>
                                                 <th data-hide="all">Tahun</th>
-                                                
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                           $no = 1;
+                                                 <?php
+                                           $no_item = 1;
                                             while($row = mysql_fetch_array($query_item)){
-                                            ?>
+                                       ?>
                                             <tr>
-                                            	<td><?= $no ?></td>
+                                          
+                                             	<td><?= $no_item ?></td>
                                                 <td><?php
 													if($row['master_type_id'] == 2){
 													echo "Realisasi ";
@@ -66,25 +95,16 @@
                                                 <td><?= $row['business_type_name']?></td>
                                                 <td><?= $row['keterangan']?></td>
                                                 <td><?= $row['master_year']?></td>
-                                            </tr>
-                                            <?php
-											$no++;
+                                                 </tr>
+                                           
+                                        
+
+                                              <?php
+											$no_item++;
                                             }
                                             ?>
 
-                                           
                                           
                                         </tbody>
-                                      <tfoot class="footable-pagination">
-        <tr>
-          <td colspan="12"><div class="pagination pagination-centered"></div></td>
-        </tr>
-      </tfoot> 
+                                         
                                     </table>
-
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div>
-                    </div>
-
-                </section><!-- /.content -->

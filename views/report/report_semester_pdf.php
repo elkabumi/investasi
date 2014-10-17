@@ -3,11 +3,11 @@ $content = '';
 $content .= '
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" size=24>Laporan Triwulan '; $content .= $nama_category; $content .= ' </td>
+    <td align="center" size=24>Laporan Semester '; $content .= $nama_category; $content .= ' </td>
   </tr>
   
   <tr>
-    <td align="center" size=18 >'; $content .= "Triwulan ".$i_triwulan." - ".$i_master_year; $content .='</td>
+    <td align="center" size=18 >'; $content .= "Semester ".$i_semester." - ".$i_master_year; $content .='</td>
   </tr>
 </table>';
 
@@ -18,7 +18,7 @@ $content .= '
  <thead>
                                             <tr>';
 $title = array(
-		"Triwulan - Tahun",
+		"Semester - Tahun",
 		"Jumlah Data",
 		"Total Investasi",
 		"Total Tenaga Kerja"

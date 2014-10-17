@@ -12,21 +12,26 @@ switch ($page) {
 		get_header();
 		$action = 'olah.php?page=form_action';
 		
-		include '../views/olah/form.php';
-		
+		$category = "";
+		$country = "";
+		$city = "";
+		$busines = "";
+		$tenaga1 = "";
+		$tenaga2 = "";
+		$investasi1 = "";
+		$investasi2 = "";
 		if(isset($_GET['preview'])){
-				
-				$type = 1;
+			
 				$i_tenaga = $_GET['tenaga'];
 				
-				$i_investsai = $_GET['investsai'];
+				$i_investasi = $_GET['investasi'];
 				
 				$i_tenaga = str_replace(" ","", $i_tenaga);
 				$tenaga = explode("-", $i_tenaga);
 				
-				$i_investsai = str_replace(" ","", $i_investsai);
-				$investsai = explode("-", $i_investsai);
-			-
+				$i_investasi = str_replace(" ","", $i_investasi);
+				$investasi = explode("-", $i_investasi);
+			
 				$category = (isset($_GET['category'])) ? $_GET['category'] : null;
 				$country = (isset($_GET['country'])) ? $_GET['country'] : null;
 				$city = (isset($_GET['city'])) ? $_GET['city'] : null;
@@ -35,11 +40,39 @@ switch ($page) {
 				$tenaga1 = $tenaga[0];
 				$tenaga2 = $tenaga[1];
 				
-				$investsai1 = $investsai[0];
-				$investsai2 = $investsai[1];
+				$investasi1 = $investasi[0];
+				$investasi2 = $investasi[1];
+			
+		}
+		include '../views/olah/form.php';
+		
+		
+		if(isset($_GET['preview'])){
+				
+				$type = 1;
+				$i_tenaga = $_GET['tenaga'];
+				
+				$i_investasi = $_GET['investasi'];
+				
+				$i_tenaga = str_replace(" ","", $i_tenaga);
+				$tenaga = explode("-", $i_tenaga);
+				
+				$i_investasi = str_replace(" ","", $i_investasi);
+				$investasi = explode("-", $i_investasi);
+			
+				$category = (isset($_GET['category'])) ? $_GET['category'] : null;
+				$country = (isset($_GET['country'])) ? $_GET['country'] : null;
+				$city = (isset($_GET['city'])) ? $_GET['city'] : null;
+				$busines = (isset($_GET['busines'])) ? $_GET['busines'] : null;
+				
+				$tenaga1 = $tenaga[0];
+				$tenaga2 = $tenaga[1];
+				
+				$investasi1 = $investasi[0];
+				$investasi2 = $investasi[1];
 				
 		
-				$query = select($category,$country,$city,$busines,$tenaga1,$tenaga2,$investsai1,$investsai2);
+				$query = select($category,$country,$city,$busines,$tenaga1,$tenaga2,$investasi1,$investasi2);
 				
 						
 				include '../views/olah/list_result.php';
@@ -65,7 +98,7 @@ switch ($page) {
 		$i_investasi = get_isset($i_investasi);
 		$i_investasi2 = get_isset($i_investasi2);
 		$tenaga =  $i_tenaga_kerja." - ".$i_tenaga_kerja2;
-		$investsai =  $i_investasi." - ". $i_investasi2;
+		$investasi =  $i_investasi." - ". $i_investasi2;
 		
 		if($i_tenaga_kerja2 < $i_tenaga_kerja){
 			header("Location: olah.php?page=form&err=1");
@@ -75,7 +108,7 @@ switch ($page) {
 		}
 		else{
 		
-		header("Location: olah.php?page=form&preview=1&category=".$i_master_category_id."&country=".$i_country_id."&city=".$i_city_id."&busines=".$i_business_type_id."&tenaga=".$tenaga."&investsai=".$investsai."");
+		header("Location: olah.php?page=form&preview=1&category=".$i_master_category_id."&country=".$i_country_id."&city=".$i_city_id."&busines=".$i_business_type_id."&tenaga=".$tenaga."&investasi=".$investasi."");
 		}
 	break;
 	

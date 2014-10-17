@@ -67,14 +67,15 @@
                                        
                                      <div class="col-md-6">
                                         
-											<div class="form-group">
-												<label>Triwulan</label>
-												<select id="basic" name="i_triwulan" class="selectpicker show-tick form-control" data-live-search="true">
+										 <div class="form-group">
+												<label>Tahun</label>
+												<select id="basic" name="i_master_year1" class="selectpicker show-tick form-control" data-live-search="true">
 											   
 												   <?php
-												for($i=1; $i<=4; $i++){
+											   $year = date("Y");
+											   for($iy = $year; $iy >= $year - 5; $iy--){
 												?>
-												 <option value="<?=$i?>"  <?php if($i_triwulan == $i){ ?> selected="selected"<?php }?>>Triwulan <?= $i ?></option>
+												 <option value="<?= $iy ?>"  <?php if($i_master_year1 == $iy){ ?> selected="selected"<?php }?>><?= $iy ?></option>
 												<?php
 												}
 												?>
@@ -87,14 +88,14 @@
                                            <div class="col-md-6">
                                           
 											 <div class="form-group">
-												<label>Tahun</label>
-												<select id="basic" name="i_master_year" class="selectpicker show-tick form-control" data-live-search="true">
+												<label>S/d</label>
+												<select id="basic" name="i_master_year2" class="selectpicker show-tick form-control" data-live-search="true">
 											   
 												   <?php
 											   $year = date("Y");
-											   for($iy = $year; $iy >= $year - 5; $iy--){
+											   for($iy2 = $year; $iy2 >= $year - 5; $iy2--){
 												?>
-												 <option value="<?= $iy ?>"  <?php if($i_master_year == $iy){ ?> selected="selected"<?php }?>><?= $iy ?></option>
+												 <option value="<?= $iy2 ?>"  <?php if($i_master_year2 == $iy2){ ?> selected="selected"<?php }?>><?= $iy2 ?></option>
 												<?php
 												}
 												?>
@@ -113,8 +114,8 @@
                     
                     <div class="box-footer">
                                 <input class="btn btn-primary" type="submit" value="Preview"/>
-                             	 <?php if(isset($_GET['preview'])){ ?><a href="report_triwulan.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download Excel</a>
-								 <a href="report_triwulan.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download PDF</a>
+                             	 <?php if(isset($_GET['preview'])){ ?><a href="report_tahunan.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&master_year1=<?= $_GET['master_year1']?>&master_year2=<?= $_GET['master_year2']?>" class="btn btn-primary" >Download Excel</a>
+								 <a href="report_tahunan.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&master_year1=<?= $_GET['master_year1']?>&master_year2=<?= $_GET['master_year2']?>" class="btn btn-primary" >Download PDF</a>
 								 <?php } ?>
                                 </div>
                             
