@@ -113,7 +113,7 @@
                              
                     
                     <div class="box-footer">
-                                <input class="btn btn-primary" type="submit" value="Preview"/>
+                                <input class="btn btn-cokelat" type="submit" value="Preview"/>
                              	 <?php if(isset($_GET['preview'])){ ?><a href="report_tahunan.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&master_year1=<?= $_GET['master_year1']?>&master_year2=<?= $_GET['master_year2']?>" class="btn btn-primary" >Download Excel</a>
 								 <a href="report_tahunan.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&master_year1=<?= $_GET['master_year1']?>&master_year2=<?= $_GET['master_year2']?>" class="btn btn-primary" >Download PDF</a>
 								 <?php } ?>

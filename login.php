@@ -25,7 +25,7 @@
     <body>
 
         <div class="form-box" id="login-box">
-            <div class="header"><img src="img/jatim.png" style="width:70px; margin-bottom:0px;"><div class="bg-logo">BPM Jawa Timur</div></div>
+            <div class="header"><img src="img/jatim.png" style="width:60px; margin-bottom:10px;"><div class="bg-logo"><span style="font-size: 1.3em !important;"><strong>Badan Penanaman Modal Jatim</strong></span><br>Bidang Data & Sistem Informasi</div></div>
             <form action="controllers/login.php?page=login" method="post">
                 <div class="body bg-white">
 
@@ -54,7 +54,7 @@
                   
                 </div>
                 <div class="footer" >                                                               
-                    <button type="submit" class="btn bg-pink btn-block" style="margin-top:10px;">LOGIN</button>  
+                    <button type="submit" class="btn btn-cokelat btn-block" style="margin-top:10px;">LOGIN</button>  
                     
                  
                 </div>

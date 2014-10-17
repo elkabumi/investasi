@@ -1822,6 +1822,19 @@ Component: timeline
 .btn.btn-primary.hover {
   background-color: #367fa9;
 }
+
+.btn.btn-cokelat {
+  background-color: #695346;
+  color:#fff;
+ 
+ 
+}
+.btn.btn-cokelat:hover,
+.btn.btn-cokelat:active,
+.btn.btn-cokelat.hover {
+  background-color: #4F3F30;
+}
+
 .btn.btn-success {
   background-color: #00a65a;
   border-color: #008d4c;
@@ -2334,6 +2347,7 @@ Component: timeline
 .form-box {
   width: 360px;
   margin: 90px auto 0 auto;
+ box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .form-box .header {
   -webkit-border-top-left-radius: 4px;
@@ -2348,13 +2362,14 @@ Component: timeline
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #765148;
   box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.2);
   padding: 20px 10px;
   text-align: center;
-  font-size: 26px;
+  
   font-weight: 300;
   color: #fff;
+  background:url(../img/head_login.gif) repeat-x #4f3f30;
+  
 }
 .form-box .body{
 	background:url(../img/bg-noise.png) repeat #FCF9B6;
@@ -2363,10 +2378,31 @@ Component: timeline
   color: #444;
 }
 .form-box .footer {
-  padding: 10px 20px;
- background:url(../img/bg-noise.png) repeat #EEEA8D;
-  
-  color: #444;
+   border-top: 1px solid #f4f4f4;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+   background-color: #dce9f9;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+  background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: -o-linear-gradient(top, #ebf3fc, #dce9f9);
+  background-image: linear-gradient(to bottom, #ebf3fc, #dce9f9);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
+  border-top: 1px solid #ccc;
+  padding: 20px;
 }
 .form-box .body > .form-group,
 .form-box .footer > .form-group {
@@ -2723,7 +2759,6 @@ Component: timeline
 .bg-logo{
   background: url("../img/logo.png") no-repeat center;
   width:100%;
-  height:50px;
 }
 .nilai_akhir{
 	text-align:center;
