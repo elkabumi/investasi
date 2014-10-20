@@ -2,13 +2,14 @@
 
 function select(){
 	
-	$query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_name
+	$query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_name,g.*
 						from master a
-						join business_types d on d.business_type_id = a.business_type_id
-						join countries e on e.country_id = a.country_id
-						join cities f on f.city_id = a.city_id
+						LEFT join business_types d on d.business_type_id = a.business_type_id
+						LEFT join countries e on e.country_id = a.country_id
+						LEFT join cities f on f.city_id = a.city_id
+						JOIN  master_categories g on g.master_category_id 	 = a.master_sub_category_id 	 	
 						where a.master_type_id = 1 
-						and master_category_id = 6 AND master_parent_id = 0 AND master_ip_type_id 	 ='1'
+						and a.master_category_id = 6 AND a.master_parent_id = 0 AND a.master_ip_type_id 	 ='1'
 						
 						");
 	return $query;
@@ -19,10 +20,10 @@ function select_detail($id){
 	
 	$query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_name
 						from master a
-						join business_types d on d.business_type_id = a.business_type_id
-						join countries e on e.country_id = a.country_id
-						join cities f on f.city_id = a.city_id
-						where a.master_type_id = 1 
+						LEFT join business_types d on d.business_type_id = a.business_type_id
+						LEFT join countries e on e.country_id = a.country_id
+						LEFT join cities f on f.city_id = a.city_id
+						 where a.master_type_id = 1 
 						and master_category_id = 6 AND master_parent_id = '$id'
 						
 						");

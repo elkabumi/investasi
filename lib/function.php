@@ -1,5 +1,10 @@
 <?php
 
+
+function format_rupiah($angka){
+  $rupiah=number_format($angka,0,',','.');
+  return $rupiah;
+}
 function get_event_code(){
 	$query = mysql_query("select event_code from config");
 	$row = mysql_fetch_object($query);

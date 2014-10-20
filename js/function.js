@@ -44,4 +44,4 @@ function confirm_not_approved(id,control){
 	if(a==true){
 		window.location.href = control+id;
 	}
-}
+} 

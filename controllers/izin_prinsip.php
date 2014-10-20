@@ -21,6 +21,7 @@ switch ($page) {
 		include '../views/izin_prinsip/list.php';
 		get_footer();
 	break;
+	
 	case 'list_detail':
 		get_header();
 
@@ -57,6 +58,7 @@ switch ($page) {
 			$row->no_perusahaan = false;
 			$row->no_kode_proyek = false;
 			$row->investasi = false;
+			$row->investasi_dollar = false;
 			$row->tenaga_kerja = false;
 			$row->kapasitas = false;
 			$row->ekspor = false;
@@ -146,7 +148,7 @@ switch ($page) {
 			$image = "";
 		}
 		
-		$data = "'', '1', '6', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek', '$i_investasi', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','1','0','$i_expired_date'";
+		$data = "'', '1', '6', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek', '$i_investasi','', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','1','0','$i_expired_date',''";
 create($data);
 		
 		show_message("Simpan berhasil", "izin_prinsip.php?page=list&did=1");
