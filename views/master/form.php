@@ -54,7 +54,7 @@
 
                              <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
 
-                            <div class="box box-default">
+                            <div class="box box-cokelat">
                                 
                                
                                 <div class="box-body">
@@ -246,8 +246,8 @@
                                 </div><!-- /.box-body -->
                                 
                                 <div class="box-footer">
-                                <input class="btn btn-default" type="submit" value="Save"/>
-                                <a href="<?= $close_button?>" class="btn btn-default" >Close</a>
+                                <input class="btn btn-cokelat" type="submit" value="Save"/>
+                                <a href="<?= $close_button?>" class="btn btn-cokelat" >Close</a>
                                 </div>
                             
                             </div><!-- /.box -->

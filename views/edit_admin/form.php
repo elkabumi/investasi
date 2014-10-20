@@ -24,11 +24,36 @@
                 </div>
            
                 </section>
+                <?
+                }else if(isset($_GET['did']) && $_GET['did'] == 2){
+                ?>
+                <section class="content_new">
+                   
+                <div class="alert alert-info alert-dismissable">
+                <i class="fa fa-check"></i>
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <b>Edit sukses</b>
+                </div>
+           
+                </section>
+                <?php
+                }else if(isset($_GET['err']) && $_GET['err'] == 2){
+                ?>
+                <section class="content_new">
+                   
+                <div class="alert alert-info alert-dismissable">
+                <i class="fa fa-check"></i>
+                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+                <b>Mohon Gunakan</b>
+              username dengan nama lain!
+                </div>
+           
+                </section>
                 <?php
                 }
                 ?>
 
-                <!-- Main content -->
+               <!-- Main content -->
                 <section class="content">
                     <div class="row">
                       
@@ -39,25 +64,19 @@
                           
                           
 
-                             <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
+                             <form role="form" action="<?= $action?>" method="post">
 
-                            <div class="box box-cokelat">
+                            <div class="box box-primary">
                                 
                                
                                 <div class="box-body">
-                                    
-                                        <!-- text input -->
-                                        
-                                       <!--  <div class="form-group">
-                                            <label>Code</label>
-                                            <input required type="text" name="i_code" class="form-control" placeholder="Enter code ..." value="<?= $row->user_code ?>"/>
-                                        </div>-->
-                                        <div class="col-md-12">
-                                        
-                                        <div class="form-group">
+                                    	 <div class="col-md-12">
+                                      	  <div class="form-group">
                                             <label>Name</label>
                                             <input required type="text" name="i_name" class="form-control" placeholder="Enter name ..." value="<?= $row->user_name ?>"/>
-                                        </div>
+                           
+										</div>
+                                
                                         
                                         <div class="form-group">
                                         <label>Phone</label>
@@ -68,41 +87,46 @@
                                         <input required class="form-control" type="text" name="i_phone" placeholder="Enter phone ..." value="<?= $row->user_phone?>">
                                         </div>
                                         </div>
-                                        <div class="form-group">
-                                          <label>Type</label>
-                                           <select name="i_type" size="1" class="form-control"/>
-                                             <option value="2">Owner</option>
-                                           <option value="3">Checker</option>       
-                                           </select>                                    
-                                  		</div>
 
-                                          <div class="form-group">
+                                    <div class="form-group">
                                             <label>User login</label>
                                             <input required type="text" name="i_login" class="form-control" placeholder="Enter user login ..." value="<?= $row->user_login ?>"/>
                                         </div>
+                                        
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input required type="password" name="i_password" class="form-control" placeholder="Enter password ..." value=""/>
+                                            <input   type="password" name="i_password" class="form-control" placeholder="Enter password ..." value=""/>
+                                            
                                         </div>
+                                        
                                         <div class="form-group">
                                             <label>Confirm Password</label>
-                                            <input required type="password" name="i_confirm_password" class="form-control" placeholder="Enter confirm password ..." value=""/>
+                                            <input   type="password" name="i_confirm_password" class="form-control" placeholder="Enter confirm password ..." value=""/>
                                         </div>
+                                        
                                          <div class="form-group">
                                          <label>Images</label>
                                            <input type="file" name="i_img" id="i_img" />
                                         </div>
-                                        </div>
-                                        <div style="clear:both;"></div>
-                                     
+                                    </div>
+                                              
+                                              <div style="clear:both;"></div>
+
+                                       
+                                      
+                                   
                                 </div><!-- /.box-body -->
-                                <div class="box-footer">
+                             
+                    
+                    <div class="box-footer">
                                 <input class="btn btn-cokelat" type="submit" value="Save"/>
-                                <a href="<?= $close_button?>" class="btn btn-cokelat" >Close</a>
+                             	
                                 </div>
                             
                             </div><!-- /.box -->
+                             
+                            
                        </form>
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
-                </section><!-- /.content -->
+              </section>

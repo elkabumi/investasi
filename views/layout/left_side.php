@@ -39,7 +39,7 @@
                             <ul class="treeview-menu">
                                 
                                 <li><a href="izin_prinsip.php?page=list"><i class="fa fa-chevron-circle-right"></i> Izin Prinsip</a></li>
-                                <li><a href="master.php?page=list&master_type_id=7"><i class="fa fa-chevron-circle-right"></i> Izin Usaha</a></li>
+                                <li><a href="master.php?page=list"><i class="fa fa-chevron-circle-right"></i> Izin Usaha</a></li>
                              	
                             </ul>
                   </li>

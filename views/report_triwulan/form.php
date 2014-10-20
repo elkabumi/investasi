@@ -112,9 +112,9 @@
                              
                     
                     <div class="box-footer">
-                                <input class="btn btn-primary" type="submit" value="Preview"/>
-                             	 <?php if(isset($_GET['preview'])){ ?><a href="report_triwulan.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download Excel</a>
-								 <a href="report_triwulan.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-primary" >Download PDF</a>
+                                <input class="btn btn-cokelat" type="submit" value="Preview"/>
+                             	 <?php if(isset($_GET['preview'])){ ?><a href="report_triwulan.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-cokelat" >Download Excel</a>
+								 <a href="report_triwulan.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-cokelat" >Download PDF</a>
 								 <?php } ?>
                                 </div>
                             

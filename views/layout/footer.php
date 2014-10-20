@@ -47,7 +47,7 @@
 				$('.footable').trigger('footable_initialized');
 						
 				$('#change-page-size').change(function (e) {
-						e.preventDefault();
+						e.preventcokelat();
 						var pageSize = $(this).val();
 						$('.footable').data('page-size', pageSize);
 						$('.footable').trigger('footable_initialized');

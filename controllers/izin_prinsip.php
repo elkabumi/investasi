@@ -47,6 +47,7 @@ switch ($page) {
 		if($id){
 			$row = read_id($id);
 			$action = "izin_prinsip.php?page=edit&id=$id";
+			$row->master_expired_date = format_date($row->master_expired_date);
 		} else{
 			//inisialisasi
 			$row = new stdClass();

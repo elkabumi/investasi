@@ -111,8 +111,8 @@
                                                 <td><?= $row['master_year']?></td>
                                                  <td style="text-align:center;">
                     
-                                                 <a href="izin_prinsip.php?page=form_detail&id=<?= $row['master_id']?>&id_ip=<?= $id?>&type=1" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'izin_prinsip.php?page=delete&id_ip=<?= $id?>&type=1&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a></td>
+                                                 <a href="izin_prinsip.php?page=form_detail&id=<?= $row['master_id']?>&id_ip=<?= $id?>&type=1" class="btn btn-cokelat" ><i class="fa fa-pencil"></i></a>
+                                                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'izin_prinsip.php?page=delete&id_ip=<?= $id?>&type=1&id=')" class="btn btn-cokelat" ><i class="fa fa-trash-o"></i></a></td>
                                             </tr>
                                             <?php
 											$no++;

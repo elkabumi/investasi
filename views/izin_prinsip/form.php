@@ -67,7 +67,7 @@ function form_investasi(){
                           
 					<form action="<?= $action?>" name="register" method="post" enctype="multipart/form-data" role="form" onsubmit="return form_investasi()">
 
-                            <div class="box box-default">
+                            <div class="box box-cokelat">
                                 
                                
                                 <div class="box-body">
@@ -172,7 +172,7 @@ function form_investasi(){
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" required class="form-control pull-right" id="date_picker1" name="i_expired_date" value="<?= format_date($row->master_expired_date)?>"/>
+                                            <input type="text" required class="form-control pull-right" id="date_picker1" name="i_expired_date" value="<?= $row->master_expired_date ?>"/>
                                         </div><!-- /.input group -->
                                     </div><!-- /.form group -->
                                  
@@ -282,8 +282,8 @@ function form_investasi(){
                                 </div><!-- /.box-body -->
                                 
                                 <div class="box-footer">
-                                <input class="btn btn-default" type="submit" value="Save"/>
-                                <a href="<?= $close_button?>" class="btn btn-default" >Close</a>
+                                <input class="btn btn-cokelat" type="submit" value="Save"/>
+                                <a href="<?= $close_button?>" class="btn btn-cokelat" >Close</a>
                                 </div>
                             
                             </div><!-- /.box -->

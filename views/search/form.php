@@ -162,7 +162,7 @@ function show_sub2(str)
 									 
 					   
                                <div class="box-footer">
-                                <input class="btn btn-primary" type="submit" value="Search"/>
+                                <input class="btn btn-cokelat" type="submit" value="Search"/>
                                 </div>
                             
                              </div>
@@ -261,7 +261,7 @@ function show_sub2(str)
 										   </div>
 										   
 											 <div class="box-footer">
-                                <input class="btn btn-primary" type="submit" value="Search"/>
+                                <input class="btn btn-cokelat" type="submit" value="Search"/>
                                 </div>
 									 
 					  
