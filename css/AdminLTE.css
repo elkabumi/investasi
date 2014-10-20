@@ -2796,3 +2796,11 @@ Component: timeline
 #new_table{
 	background:url(../img/bg-noise.png) repeat #FCF9B6;
 }
+
+.title_page{
+	font-size:medium;
+	text-align:center;
+	font-weight:bold;
+	margin-bottom:10px;
+	text-shadow: 0 1px 1px #ffffff;
+}

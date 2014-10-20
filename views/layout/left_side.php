@@ -86,13 +86,19 @@
                   
                   
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 5){ echo "class='active'"; }?>">
-                            <a href="search.php?page=form">
+                    <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 5){ echo "active"; }?>">
+                            <a href="#">
                                 <i class="fa fa-search"></i>
-                                <span>Search</span>
-                               
+                                <span>Search Data Investasi</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            
+                            <ul class="treeview-menu">
+                                
+                                <li><a href="search_bidang_usaha.php?page=list"><i class="fa fa-chevron-circle-right"></i>Menurut Bidang Usaha</a></li>
+                                <li><a href="search_lokasi.php?page=list"><i class="fa fa-chevron-circle-right"></i>Menurut Lokasi Proyek</a></li>
+                                 <li><a href="search_negara.php?page=list"><i class="fa fa-chevron-circle-right"></i>Menurut Asal Negara</a></li>
+                             
+                            </ul>
                   </li>
                   
                   <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "class='active'"; }?>">
