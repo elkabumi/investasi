@@ -18,11 +18,12 @@ function select(){
 
 function select_detail($id){
 	
-	$query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_name
+	$query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_name, h.master_ip_type_name
 						from master a
 						LEFT join business_types d on d.business_type_id = a.business_type_id
 						LEFT join countries e on e.country_id = a.country_id
 						LEFT join cities f on f.city_id = a.city_id
+						left join master_ip_types h on h.master_ip_type_id = a.master_ip_type_id
 						 where a.master_type_id = 1 
 						and master_category_id = 6 AND master_parent_id = '$id'
 						
