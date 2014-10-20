@@ -1,3 +1,17 @@
+<script type="text/javascript">
+function form_investasi(){
+            var x=register.i_investasi.value;
+			var y=register.i_investasi_dollar.value;
+            var x1=parseInt(x);
+			var y1=parseInt(y);
+            if(register.i_investasi.value != "" && register.i_investasi_dollar.value != "" ){
+                        alert("input");
+                        register.i_investasi.focus();
+                        return false;
+            }
+   			return true; 
+}
+</script>
 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
@@ -51,8 +65,7 @@
 
                           
                           
-
-                             <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
+					<form action="<?= $action?>" name="register" method="post" enctype="multipart/form-data" role="form" onsubmit="return form_investasi()">
 
                             <div class="box box-cokelat">
                                 
@@ -127,11 +140,25 @@
                                             <label>No Kode Proyek</label>
                                             <input required type="text"  name="i_no_kode_proyek" class="form-control" placeholder="Enter ..." value="<?= $row->no_kode_proyek ?>"/>
                                         </div>
-                                       
-                                     	<div class="form-group">
-                                            <label>Investasi</label>
-                                            <input required type="text"  name="i_investasi" class="form-control" placeholder="Enter ..." value="<?= $row->investasi ?>"/>
-                                        </div>
+                       
+                              <div class="form-group">
+                                       <label>Investasi Rupiah (Rp) </label>
+                                       <div class="input-group">
+                                       <span class="input-group-addon">Rp</span>
+                                        <input type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
+                                    </div>
+                                         
+                                        <div class="form-group">
+                                        
+                                       <label>Investasi dollar ($) </label>
+                                       <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input type="text" class="form-control"  name="i_investasi_dollar" id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>"> 
+                                        <span class="input-group-addon">.00</span>
+                                    </div>
+                                    </div>
                                         
                                         <div class="form-group">
                                             <label>Tenaga Kerja</label>

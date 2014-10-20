@@ -68,6 +68,7 @@
          
          									 	<th  data-class="expand" data-sort-initial="true">No</th>
                                             	<th>Nama Perusahaan</th>
+                                                <th>kategori</th>
                                                 <th data-hide="phone">Alamat</th>
                                                 <th data-hide="phone">No IP</th>
                                                 <th data-hide="all">No IU</th>
@@ -94,12 +95,13 @@
                                             <tr>
                                             	<td><?= $no ?></td>
                                              	<td><?= $row['nama_perusahaan']?></td>
+                                                <td><?= $row['master_category_name']?></td>
                                                 <td><?= $row['alamat']?></td>
                                                 <td><?= $row['no_ip']?></td>
                                                 <td><?= $row['no_iu']?></td>
-                                                 <td><?= $row['no_perusahaan']?></td>
-                                                  <td><?= $row['no_kode_proyek']?></td>
-                                                   <td><?= $row['investasi']?></td>
+                                                <td><?= $row['no_perusahaan']?></td>
+                                                <td><?= $row['no_kode_proyek']?></td>
+                                                 <td><?= format_rupiah($row['investasi'])?></td>
                                                  <td><?= $row['tenaga_kerja']?></td>
                                                 <td><?= $row['kapasitas']?></td>
                                                 <td><?= $row['ekspor']?></td>
