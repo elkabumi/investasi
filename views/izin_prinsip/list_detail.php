@@ -67,9 +67,10 @@
         <tr>
          
          									 	<th  data-class="expand" data-sort-initial="true">No</th>
-                                            	<th>Nama Perusahaan</th>
+                                            	<th>Kategori</th>
+                                                <th>Nama Perusahaan</th>
                                                 <th data-hide="phone">Alamat</th>
-                                                <th data-hide="all">No IP</th>
+                                                <th data-hide="phone">No IP</th>
                                                 <th data-hide="all">No IU</th>
                                                 <th data-hide="all">No Perusahaan</th>
                                                 <th data-hide="all">No Kode Proyek</th>       
@@ -93,7 +94,8 @@
                                             ?>
                                             <tr>
                                             	<td><?= $no ?></td>
-                                             	<td><?= $row['nama_perusahaan']?></td>
+                                             	<td><?= $row['master_ip_type_name']?></td>
+                                                <td><?= $row['nama_perusahaan']?></td>
                                                 <td><?= $row['alamat']?></td>
                                                 <td><?= $row['no_ip']?></td>
                                                 <td><?= $row['no_iu']?></td>

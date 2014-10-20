@@ -60,7 +60,7 @@
                                 <div class="box-body2 table-responsive">
                                  
                                <?php
-                               include '../views/layout/search3.php';
+                               include '../views/layout/search4.php';
 							   ?>
                                  <table data-filter="#filter" class="footable" data-page-size="10" id="new_table">
       <thead>

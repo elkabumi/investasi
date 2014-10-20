@@ -69,7 +69,7 @@
          									 	<th  data-class="expand" data-sort-initial="true">No</th>
                                             	<th>Nama Perusahaan</th>
                                                 <th data-hide="phone">Alamat</th>
-                                                <th data-hide="all">No IP</th>
+                                                <th data-hide="phone">No IP</th>
                                                 <th data-hide="all">No IU</th>
                                                 <th data-hide="all">No Perusahaan</th>
                                                 <th data-hide="all">No Kode Proyek</th>       

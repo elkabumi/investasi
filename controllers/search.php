@@ -5,7 +5,7 @@ include '../models/search_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "form";
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 5;
 $title ='Search';
 switch ($page) {
 	case 'form':

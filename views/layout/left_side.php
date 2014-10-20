@@ -76,7 +76,7 @@
                             </ul>
                   </li>
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 4){ echo "class='active'"; }?>">
                             <a href="olah.php?page=form">
                                 <i class="fa fa-pencil-square-o"></i>
                                 <span>Olah</span>
@@ -86,7 +86,7 @@
                   
                   
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 5){ echo "class='active'"; }?>">
                             <a href="search.php?page=form">
                                 <i class="fa fa-search"></i>
                                 <span>Search</span>
@@ -95,7 +95,7 @@
                             
                   </li>
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "class='active'"; }?>">
                             <a href="user.php">
                                 <i class="fa fa-user"></i>
                                 <span>User</span>

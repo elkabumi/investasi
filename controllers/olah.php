@@ -5,7 +5,7 @@ include '../models/olah_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "form";
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 4;
 $title ='Olah';
 switch ($page) {
 	case 'form':

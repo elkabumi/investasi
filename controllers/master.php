@@ -46,7 +46,7 @@ $close = "master.php?page=list";
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		$type = (isset($_GET['type'])) ? $_GET['type'] : null;
-		$close_button = "izin_prinsip.php?page=list_detail";
+		$close_button = "master.php?page=list_izin_prinsip";
 		
 	
 			$row = read_id($id);
