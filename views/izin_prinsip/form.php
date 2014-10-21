@@ -98,7 +98,7 @@ function form_investasi(){
                                         $query_owner = mysql_query("select * from master_categories where master_category_id < 3");
                                         while($row_owner = mysql_fetch_array($query_owner)){
                                         ?>
-                                         <option value="<?= $row_owner['master_category_id']?>" <?php if($row_owner['master_category_id'] == $row->master_category_id){ ?> selected="selected"<?php }?>><?= $row_owner['master_category_name'] ?></option>
+                                         <option value="<?= $row_owner['master_category_id']?>" <?php if($row_owner['master_category_id'] == $row->master_sub_category_id 	){ ?> selected="selected"<?php }?>><?= $row_owner['master_category_name'] ?></option>
                                         <?php
                                         }
                                         ?>
@@ -142,23 +142,15 @@ function form_investasi(){
                                         </div>
                        
                               <div class="form-group">
-                                       <label>Investasi Rupiah (Rp) </label>
+                                       <label>Investasi </label>
                                        <div class="input-group">
-                                       <span class="input-group-addon">Rp</span>
+                                   
                                         <input type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
                                         <span class="input-group-addon">.00</span>
                                     </div>
                                     </div>
                                          
-                                        <div class="form-group">
-                                        
-                                       <label>Investasi dollar ($) </label>
-                                       <div class="input-group">
-                                        <span class="input-group-addon">$</span>
-                                        <input type="text" class="form-control"  name="i_investasi_dollar" id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>"> 
-                                        <span class="input-group-addon">.00</span>
-                                    </div>
-                                    </div>
+                                       
                                         
                                         <div class="form-group">
                                             <label>Tenaga Kerja</label>
