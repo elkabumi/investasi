@@ -1,17 +1,4 @@
-<script type="text/javascript">
-function form_investasi(){
-            var x=register.i_investasi.value;
-			var y=register.i_investasi_dollar.value;
-            var x1=parseInt(x);
-			var y1=parseInt(y);
-            if(register.i_investasi.value != "" && register.i_investasi_dollar.value != "" ){
-                        alert("input");
-                        register.i_investasi.focus();
-                        return false;
-            }
-   			return true; 
-}
-</script>
+
 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
@@ -143,11 +130,20 @@ function form_investasi(){
                        
                               <div class="form-group">
                                        <label>Investasi </label>
-                                       <div class="input-group">
-                                   
-                                        <input type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
-                                        <span class="input-group-addon">.00</span>
-                                    </div>
+                                       <?
+                                       if($row->master_sub_category_id  == '1'){
+                                       	$type='hidden';
+										$type2='';
+									   }else{
+										$type='';
+										$type2='hidden';
+										}
+									   ?>
+                                        <input type="<?=$type2?>" class="form-control"  name="i_investasi_dollar"  id="i_iinvestasi_dollar" value="<?= $row->investasi_dollar ?>"> 
+                                        
+                                        <input type="<?=$type?>" class="form-control"  name="i_investasi"  id="i_iinvestasi" value="<?= $row->investasi ?>"> 
+                                 
+                                 
                                     </div>
                                          
                                        

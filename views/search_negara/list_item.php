@@ -59,7 +59,7 @@
 										?>
 									 	<tr bgcolor="#eee">
                                          <td><?=$no;?></td>
-                                        <td><?=$row['country_name']?></td>
+                                        <td><?=$row['country_name'] ?></td>
                                        <?
                                      			$akhir = $i_triwulan * 3;
 												$awal = $akhir -  2;
@@ -77,14 +77,14 @@
 										?>
                                           <?
                                      		
-												$pekerja=pekerja_total($row['country_id'],$i_triwulan,$i_master_sub_category_id,$i_master_year);
-												$investasi=investasi_total($row['country_id'],$i_triwulan,$i_master_sub_category_id,$i_master_year);
+												$pekerja_total=pekerja_total($row['country_id'],$i_triwulan,$i_master_sub_category_id,$i_master_year);
+												$investasi_total=investasi_total($row['country_id'],$i_triwulan,$i_master_sub_category_id,$i_master_year);
 												
-												$jumlah=jumlah_total($row['country_id'],$i_triwulan,$i_master_sub_category_id,$i_master_year);
+												$jumlah_total=jumlah_total($row['country_id'],$i_triwulan,$i_master_sub_category_id,$i_master_year);
 										?>
-                                  		 <td><?=$jumlah?></td>
-                                         <td><?=$investasi?></td>
-                                         <td><?=$pekerja?></td>
+                                  		 <td><?=$jumlah_total?></td>
+                                         <td><?=$investasi_total?></td>
+                                         <td><?=$pekerja_total?></td>
                                         </tr>
                                         <?php
                                         $no++;
@@ -101,7 +101,7 @@
 												$pekerja=pekerja(0,$i_bulan,$i_master_sub_category_id,$i_master_year);
 												$investasi=investasi(0,$i_bulan,$i_master_sub_category_id,$i_master_year);
 												
-												$jumlah=jumlah(0,$i_bulan,$i_master_sub_category_id,$i_master_year);
+												$jumlah= jumlah(0,$i_bulan,$i_master_sub_category_id,$i_master_year);
 										?>
                                          <td><?=$jumlah?></td>
                                          <td><?=$investasi?></td>
@@ -111,14 +111,14 @@
 										?>
                                           <?
                                      		
-												$pekerja=pekerja(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
-												$investasi=investasi(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
+												$pekerja_total = pekerja_total(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
+												$investasi_total = investasi_total(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
 												
-												$jumlah=jumlah(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
+												$jumlah_total = jumlah_total(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
 										?>
-                                  		 <td><?=$jumlah?></td>
-                                         <td><?=$investasi?></td>
-                                         <td><?=$pekerja?></td>
+                                  		 <td><?=$jumlah_total?></td>
+                                         <td><?=$investasi_total?></td>
+                                         <td><?=$pekerja_total?></td>
                                         
                                               
                                          </tr>  

@@ -229,6 +229,7 @@ create($data);
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
 		$i_investasi = get_isset($i_investasi);
+		$i_investasi_dollar = get_isset($i_investasi_dollar);
 		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
 		$i_kapasitas = get_isset($i_kapasitas);
 		$i_ekspor = get_isset($i_ekspor);
@@ -267,6 +268,7 @@ create($data);
 				no_perusahaan = '$i_no_perusahaan', 
 				no_kode_proyek = '$i_no_kode_proyek', 
 				investasi = '$i_investasi',
+				investasi_dollar= '$i_investasi_dollar',
 				tenaga_kerja = '$i_tenaga_kerja',
 				kapasitas = '$i_kapasitas',
 				ekspor = '$i_ekspor',
@@ -289,6 +291,8 @@ create($data);
 				no_perusahaan = '$i_no_perusahaan', 
 				no_kode_proyek = '$i_no_kode_proyek', 
 				investasi = '$i_investasi',
+				
+				investasi_dollar= '$i_investasi_dollar',
 				tenaga_kerja = '$i_tenaga_kerja',
 				kapasitas = '$i_kapasitas',
 				ekspor = '$i_ekspor',

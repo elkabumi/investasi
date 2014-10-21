@@ -11,7 +11,7 @@ function select_country($country_id){
 }
 function jumlah($country_id,$i_bulan,$i_master_sub_category_id,$i_master_year){
 	if($i_bulan != '0'){
-		$bulan ="and DATE_FORMAT( master_date, '%m' ) = '$i_bulan'";
+		$bulan ="and DATE_FORMAT( master_date, '%m' ) = $i_bulan";
 	}else{
 		$bulan ="";
 	}
@@ -21,16 +21,18 @@ function jumlah($country_id,$i_bulan,$i_master_sub_category_id,$i_master_year){
 		$country = '';
 	}
 	$query =mysql_query("select count(*) as jumlah from master
-						where master_type_id = 1
-						and master_category_id = 6
-						and master_sub_category_id = '$i_master_sub_category_id'
-						and master_year = $i_master_year
-						$bulan
-						$country
+							where master_type_id = 1
+							and master_category_id = 6
+							and master_sub_category_id = '$i_master_sub_category_id'
+							and master_year = $i_master_year
+							$bulan
+							$country
 						");
+	
 
 	$row=mysql_fetch_array($query);
 	return $row['0'];
+	
 }
 
 function jumlah_total($country_id,$i_triwulan,$i_master_sub_category_id,$i_master_year){
@@ -69,14 +71,14 @@ function investasi($country_id,$i_bulan,$i_master_sub_category_id,$i_master_year
 		$sum='investasi';
 	}
 	if($i_bulan != '0'){
-		$bulan ="and DATE_FORMAT( master_date, '%m' ) = '$i_bulan'";
+		$bulan ="and DATE_FORMAT( master_date, '%m' ) = $i_bulan";
 	}else{
 		$bulan ="";
 	}
 	if($country_id != '0'){
-		$country_id = "and country_id = '$country_id'";
+		$country = "and country_id = $country_id";
 	}else{
-		$country_id = '';
+		$country = '';
 	}
 	$query =mysql_query("select sum($sum) as jumlah_investasi from master
 						where master_type_id = 1
@@ -110,9 +112,9 @@ function investasi_total($country_id,$i_triwulan,$i_master_sub_category_id,$i_ma
 		$triwulan = " AND DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
 	}
 	if($country_id != '0'){
-		$country_id = "and country_id = '$country_id'";
+		$country = "and country_id = '$country_id'";
 	}else{
-		$country_id = '';
+		$country = '';
 	}
 	$query =mysql_query("select sum($sum) as jumlah_investasi from master
 						where master_type_id = 1

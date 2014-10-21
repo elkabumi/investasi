@@ -11,7 +11,7 @@ function select_city($city_id){
 }
 function jumlah($city_id,$i_bulan,$i_master_sub_category_id,$i_master_year){
 	if($i_bulan != '0'){
-		$bulan ="and DATE_FORMAT( master_date, '%m' ) = '$i_bulan'";
+		$bulan ="and DATE_FORMAT( master_date, '%m' ) = $i_bulan";
 	}else{
 		$bulan ="";
 	}
@@ -68,7 +68,7 @@ function investasi($city_id,$i_bulan,$i_master_sub_category_id,$i_master_year){
 		$sum='investasi';
 	}
 	if($i_bulan != '0'){
-		$bulan ="and DATE_FORMAT( master_date, '%m' ) = '$i_bulan'";
+		$bulan ="and DATE_FORMAT( master_date, '%m' ) = $i_bulan";
 	}else{
 		$bulan ="";
 	}
@@ -127,7 +127,7 @@ function investasi_total($city_id,$i_triwulan,$i_master_sub_category_id,$i_maste
 }
 function pekerja($city_id,$i_bulan,$i_master_sub_category_id,$i_master_year){
 	if($i_bulan != '0'){
-		$bulan ="and DATE_FORMAT( master_date, '%m' ) = '$i_bulan'";
+		$bulan ="and DATE_FORMAT( master_date, '%m' ) = $i_bulan";
 	}else{
 		$bulan ="";
 	}
