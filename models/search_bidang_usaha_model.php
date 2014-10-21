@@ -30,12 +30,13 @@ function select_bu($business_parent_type_id){
 	return $query;
 }
 
-function get_data_p_parent($business_parent_type_id, $month, $master_sub_category_id){
+function get_data_p_parent($business_parent_type_id, $month, $master_sub_category_id, $i_master_year){
 
 	$query = mysql_query("select count(*) as jumlah from master a 
 						join business_types b on b.business_type_id = a.business_type_id
 						where master_type_id = 1
 						and master_category_id = 6
+						and master_year = '$i_master_year'
 						and master_sub_category_id = '$master_sub_category_id'
 						and b.business_parent_type_id = $business_parent_type_id
 						and DATE_FORMAT( master_date, '%m' ) = $month
@@ -46,12 +47,13 @@ function get_data_p_parent($business_parent_type_id, $month, $master_sub_categor
 	
 }
 
-function get_data_investasi_parent($business_parent_type_id, $month, $master_sub_category_id){
+function get_data_investasi_parent($business_parent_type_id, $month, $master_sub_category_id, $i_master_year){
 	if($master_sub_category_id == 1){
 		$query = mysql_query("select sum(investasi_dollar) as jumlah from master a 
 						join business_types b on b.business_type_id = a.business_type_id
 						where master_type_id = 1
 						and master_category_id = 6
+						and master_year = '$i_master_year'
 						and master_sub_category_id = '$master_sub_category_id'
 						and b.business_parent_type_id = $business_parent_type_id
 						and DATE_FORMAT( master_date, '%m' ) = $month
@@ -61,6 +63,7 @@ function get_data_investasi_parent($business_parent_type_id, $month, $master_sub
 						join business_types b on b.business_type_id = a.business_type_id
 						where master_type_id = 1
 						and master_category_id = 6
+						and master_year = '$i_master_year'
 						and master_sub_category_id = '$master_sub_category_id'
 						and b.business_parent_type_id = $business_parent_type_id
 						and DATE_FORMAT( master_date, '%m' ) = $month
@@ -73,15 +76,263 @@ function get_data_investasi_parent($business_parent_type_id, $month, $master_sub
 	
 }
 
-function get_data_tk_parent($business_parent_type_id, $month, $master_sub_category_id){
+function get_data_tk_parent($business_parent_type_id, $month, $master_sub_category_id, $i_master_year){
 
 	$query = mysql_query("select sum(tenaga_kerja) as jumlah from master a 
 						join business_types b on b.business_type_id = a.business_type_id
 						where master_type_id = 1
 						and master_category_id = 6
+						and master_year = '$i_master_year'
 						and master_sub_category_id = '$master_sub_category_id'
 						and b.business_parent_type_id = $business_parent_type_id
 						and DATE_FORMAT( master_date, '%m' ) = $month
+						");
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_p($business_type_id, $month, $master_sub_category_id, $i_master_year){
+
+	$query = mysql_query("select count(*) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and DATE_FORMAT( master_date, '%m' ) = $month
+						");
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_investasi($business_type_id, $month, $master_sub_category_id, $i_master_year){
+
+	if($master_sub_category_id == 1){
+		$query = mysql_query("select sum(investasi_dollar) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and DATE_FORMAT( master_date, '%m' ) = $month
+						");
+	}else{
+		$query = mysql_query("select sum(investasi) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and DATE_FORMAT( master_date, '%m' ) = $month
+						");
+	}
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_tk($business_type_id, $month, $master_sub_category_id, $i_master_year){
+
+	$query = mysql_query("select  sum(tenaga_kerja) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and DATE_FORMAT( master_date, '%m' ) = $month
+						");
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_p_triwulan_parent($business_parent_type_id, $i_triwulan, $master_sub_category_id, $i_master_year){
+	
+	if($i_triwulan == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+		
+	}else if($i_triwulan == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
+	}else if($i_triwulan == '3'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}
+	else if($i_triwulan == '4'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}
+	$query = mysql_query("select count(*) as jumlah from master a 
+						join business_types b on b.business_type_id = a.business_type_id
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and b.business_parent_type_id = $business_parent_type_id
+						and $where
+						");
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_investasi_triwulan_parent($business_parent_type_id, $i_triwulan, $master_sub_category_id, $i_master_year){
+	
+	if($i_triwulan == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+		
+	}else if($i_triwulan == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
+	}else if($i_triwulan == '3'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}
+	else if($i_triwulan == '4'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}
+	if($master_sub_category_id == 1){
+		$query = mysql_query("select sum(investasi_dollar) as jumlah from master a 
+						join business_types b on b.business_type_id = a.business_type_id
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and b.business_parent_type_id = $business_parent_type_id
+						and $where
+						");
+	}else{
+		$query = mysql_query("select sum(investasi) as jumlah from master a 
+						join business_types b on b.business_type_id = a.business_type_id
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and b.business_parent_type_id = $business_parent_type_id
+						and $where
+						");
+	}
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_tk_triwulan_parent($business_parent_type_id, $i_triwulan, $master_sub_category_id, $i_master_year){
+	
+	if($i_triwulan == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+		
+	}else if($i_triwulan == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
+	}else if($i_triwulan == '3'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}
+	else if($i_triwulan == '4'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}
+	$query = mysql_query("select sum(tenaga_kerja) as jumlah from master a 
+						join business_types b on b.business_type_id = a.business_type_id
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and b.business_parent_type_id = $business_parent_type_id
+						and $where
+						");
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_p_triwulan($business_type_id, $i_triwulan, $master_sub_category_id, $i_master_year){
+	
+	if($i_triwulan == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+		
+	}else if($i_triwulan == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
+	}else if($i_triwulan == '3'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}
+	else if($i_triwulan == '4'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}
+	$query = mysql_query("select count(*) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and $where
+						");
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_investasi_triwulan($business_type_id, $i_triwulan, $master_sub_category_id, $i_master_year){
+	
+	if($i_triwulan == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+		
+	}else if($i_triwulan == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
+	}else if($i_triwulan == '3'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}
+	else if($i_triwulan == '4'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}
+	if($master_sub_category_id == 1){
+		$query = mysql_query("select sum(investasi_dollar) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and $where
+						");
+	}else{
+		$query = mysql_query("select sum(investasi) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and $where
+						");
+	}
+	$result = mysql_fetch_object($query);
+	return $result->jumlah;
+	//return $query;
+	
+}
+
+function get_data_tk_triwulan($business_type_id, $i_triwulan, $master_sub_category_id, $i_master_year){
+	
+	if($i_triwulan == '1'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 1 AND 3 ";
+		
+	}else if($i_triwulan == '2'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 4 AND 6 ";
+	}else if($i_triwulan == '3'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 7 AND 9 ";
+	}
+	else if($i_triwulan == '4'){
+		$where = " DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
+	}
+	$query = mysql_query("select sum(tenaga_kerja) as jumlah from master a 
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_year = '$i_master_year'
+						and master_sub_category_id = '$master_sub_category_id'
+						and a.business_type_id = $business_type_id
+						and $where
 						");
 	$result = mysql_fetch_object($query);
 	return $result->jumlah;
