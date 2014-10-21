@@ -24,4 +24,27 @@ function select_detail($i_master_category_id, $i_semester, $i_master_year){
 	return $query;
 }
 
+function select_bu($business_parent_type_id){
+	$query = mysql_query("select * from business_types where business_parent_type_id = '$business_parent_type_id'
+						");
+	return $query;
+}
+
+function get_data_p_parent($business_parent_type_id, $month, $master_sub_category_id){
+
+	$query = "select count(*) as jumlah from master a 
+						join business_types b on b.business_type_id = a.business_type_id
+						where master_type_id = 1
+						and master_category_id = 6
+						and master_sub_category_id = '$master_sub_category_id'
+						and b.business_parent_type_id = $business_parent_type_id
+						and DATE_FORMAT( master_date, '%m' ) = $month
+						";
+	//$result = mysql_fetch_object($query);
+	//return $result->jumlah;
+	return $query;
+	
+}
+
+
 ?>

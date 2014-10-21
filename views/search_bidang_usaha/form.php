@@ -46,8 +46,22 @@
                                
                                 <div class="box-body">
                                     	
+                                        <div class="col-md-4">
+                                        
+											<div class="form-group">
+												<label>Kategori</label>
+												<select id="basic" name="i_master_sub_category_id" class="selectpicker show-tick form-control">
+											   
+											
+												 <option value="1" <?php if($i_master_sub_category_id == 1){ ?> selected="selected"<?php }?>>PMA</option>
+												<option value="2" <?php if($i_master_sub_category_id ==2 ){ ?> selected="selected"<?php }?>>PMDN</option>
+												  
+												</select>
+											  </div>
+                                              
+										  </div>    
                                        
-                                     <div class="col-md-6">
+                                     <div class="col-md-4">
                                         
 											<div class="form-group">
 												<label>Triwulan</label>
@@ -66,7 +80,7 @@
                                               
 										  </div>     
                                           
-                                           <div class="col-md-6">
+                                           <div class="col-md-4">
                                           
 											 <div class="form-group">
 												<label>Tahun</label>
