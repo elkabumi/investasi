@@ -57,8 +57,8 @@
                                                 for($i_bulan_td_parent = 1; $i_bulan_td_parent <= 3; $i_bulan_td_parent++){
 												?>
                                         <td><?php echo get_data_p_parent($i_parent_bu, $i_bulan_td_parent, $i_master_sub_category_id) ?></td>
-                                        <td>test</td>
-                                        <td>test</td>
+                                        <td><?php echo get_data_investasi_parent($i_parent_bu, $i_bulan_td_parent, $i_master_sub_category_id) ?></td>
+                                        <td><?php echo get_data_tk_parent($i_parent_bu, $i_bulan_td_parent, $i_master_sub_category_id) ?></td>
                                         <?php
 												}
 										?>
