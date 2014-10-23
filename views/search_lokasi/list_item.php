@@ -114,7 +114,7 @@
 												$pekerja=pekerja_total(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
 												$investasi=investasi_total(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
 												
-												$jumlah=jumlah_total(0,0,$i_master_sub_category_id,$i_master_year);
+												$jumlah=jumlah_total(0,$i_triwulan,$i_master_sub_category_id,$i_master_year);
 										?>
                                   		 <td><?=$jumlah?></td>
                                          <td><?=$investasi?></td>

@@ -17,9 +17,9 @@ switch ($page) {
 		
 		$action = "search_lokasi.php?page=form_result&preview=1";
 		
-			$i_master_category_id = "";
-			$i_semester = "";
-			$i_master_year = "";
+			$i_master_category_id = false;
+			$i_semester =  false;
+			$i_master_year = false;
 		
 		if(isset($_GET['preview'])){
 			$i_city_id = get_isset($_GET['city_id']);

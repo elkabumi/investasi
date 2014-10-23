@@ -145,16 +145,23 @@
                                             <label>No Kode Proyek</label>
                                             <input required type="text"  name="i_no_kode_proyek" class="form-control" placeholder="Enter ..." value="<?= $row->no_kode_proyek ?>"/>
                                         </div>
-                                       
-                                     	<div class="form-group">
-                                            <label>Investasi</label>
-                                            <input required type="text"  name="i_investasi" class="form-control" placeholder="Enter ..." value="<?= $row->investasi ?>"/>
-                                        </div>
+                                            <div class="form-group">
+                                       <label>Investasi </label>
+                                       <?
+                                       if($row->master_sub_category_id  == '1'){
+                                       	$type='hidden';
+										$type2='';
+									   }else{
+										$type='';
+										$type2='hidden';
+										}
+									   ?>
+                                        <input type="<?=$type2?>" class="form-control"  name="i_investasi_dollar"  id="i_iinvestasi_dollar" value="<?= $row->investasi_dollar ?>"> 
                                         
-                                        <div class="form-group">
-                                            <label>Tenaga Kerja</label>
-                                            <input required type="text"  name="i_tenaga_kerja" class="form-control" placeholder="Enter ..." value="<?= $row->tenaga_kerja ?>"/>
-                                        </div>
+                                        <input type="<?=$type?>" class="form-control"  name="i_investasi"  id="i_iinvestasi" value="<?= $row->investasi ?>"> 
+                                 
+                                 
+                                    </div>
                                    
                                         
                                          <div class="form-group">
@@ -167,13 +174,35 @@
                                         </div><!-- /.input group -->
                                     </div><!-- /.form group -->
                                  
+                                  <div class="form-group">
+                                            <label>Tenga kerja Laki-Laki </label>
+                                            <input  type="text" name="i_tk_laki" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_laki ?>"/>
+                                        </div>
+                                           <div class="form-group">
+                                            <label>Tenga kerja Perempuan </label>
+                                            <input  type="text" name="i_tk_perempuan" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_perempuan ?>"/>
+                                        </div>
+                                
+                                 
                                        </div>
                                         <div class="col-md-6">
                                     
-                                    
+                                             <div class="form-group">
+                                            <label>Tenga kerja Asing</label>
+                                            <input  type="text" name="i_tk_asing" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_asing ?>"/>
+                                        </div>
                                            
                                      
-                                        
+                                            <?php
+                                   			if($id){
+									 ?>
+                                              <div class="form-group">
+                                            <label>Total Tenaga Kerja</label>
+                                            <input  type="text"  name="i_total_tenaga_kerja" class="form-control" placeholder="Enter ..." value="<?= $row->tenaga_kerja ?>" readonly="readonly"/>
+                                        </div>
+                                       <?
+											}
+											?>
                                        
                                         <!-- text input -->
                                         <div class="form-group">
