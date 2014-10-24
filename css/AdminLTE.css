@@ -17,7 +17,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
-  background:url(../img/wood.jpg)  repeat #D0DCE4;
+   background:url(../img/bg-noise.png) repeat #D8E1E8;
 }
 a {
   color: #3c8dbc;

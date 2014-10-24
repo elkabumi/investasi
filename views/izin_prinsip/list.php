@@ -115,7 +115,13 @@
                                                                 
                                                 <a href="izin_prinsip.php?page=list_detail&id=<?= $row['master_id']?>" class="btn btn-default" >Detail</a>	
                                                  <a href="izin_prinsip.php?page=form&id=<?= $row['master_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'izin_prinsip.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a></td>
+                                                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'izin_prinsip.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
+                                                <?php
+												if($row['master_img'] != ''){
+												?>
+                                                
+                                                           <a href="izin_prinsip.php?page=download&id=<?= $row['master_id']?>"  title="Download"class="btn btn-default" ><i class="fa fa-download"></i></a>
+                                                           <?php } ?></td>
                                             </tr>
                                             <?php
 											$no++;
