@@ -129,9 +129,9 @@ function investasi_total($country_id,$i_triwulan,$i_master_sub_category_id,$i_ma
 	$row=mysql_fetch_array($query);
 	return $row['0'];
 }
-function pekerja($country_id,$i_triwulan,$i_master_sub_category_id,$i_master_year){
+function pekerja($country_id,$i_bulan,$i_master_sub_category_id,$i_master_year){
 	if($i_bulan != '0'){
-		$bulan ="and DATE_FORMAT( master_date, '%m' ) = '$i_bulan'";
+		$bulan ="and DATE_FORMAT( master_date, '%m' ) = $i_bulan";
 	}else{
 		$bulan ="";
 	}
@@ -170,11 +170,7 @@ function pekerja_total($country_id,$i_triwulan,$i_master_sub_category_id,$i_mast
 		$triwulan = " AND DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
 	}
 	
-	if($i_bulan != '0'){
-		$bulan ="and DATE_FORMAT( master_date, '%m' ) = '$i_bulan'";
-	}else{
-		$bulan ="";
-	}
+
 	if($country_id != '0'){
 		$country = "and country_id = '$country_id'";
 	}else{
