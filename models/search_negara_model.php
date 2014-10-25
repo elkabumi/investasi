@@ -169,7 +169,6 @@ function pekerja_total($country_id,$i_triwulan,$i_master_sub_category_id,$i_mast
 	else if($i_triwulan == '4'){
 		$triwulan = " AND DATE_FORMAT( master_date, '%m' ) BETWEEN 10 AND 12";
 	}
-	
 
 	if($country_id != '0'){
 		$country = "and country_id = '$country_id'";

@@ -76,7 +76,11 @@ $close = "master.php?page=list";
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
 		$i_investasi = get_isset($i_investasi);
-		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
+		$i_investasi_dollar = get_isset($i_investasi_dollar);
+		
+		
+		
+		
 		$i_kapasitas = get_isset($i_kapasitas);
 		$i_ekspor = get_isset($i_ekspor);
 		$row_id = get_isset($row_id);
@@ -84,11 +88,18 @@ $close = "master.php?page=list";
 		$i_city_id = get_isset($i_city_id);
 		$i_npwp = get_isset($i_npwp);
 		$i_business_type_id = get_isset($i_business_type_id);
+		$i_business_sub_type_id = get_isset($i_business_sub_type_id);
+		
 		$i_keterangan = get_isset($i_keterangan);
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
 		$i_master_img = get_isset($_FILES['i_master_img']['name']);
+		
+		$i_tk_laki = get_isset($i_tk_laki);
+		$i_tk_perempuan = get_isset($i_tk_perempuan);
+		$i_tk_asing = get_isset($i_tk_asing);
+		$tenaga_kerja = $i_tk_laki + $i_tk_perempuan +$i_tk_asing;
 		
 		$path = '../img/master_img/';
 		
@@ -98,8 +109,12 @@ $close = "master.php?page=list";
 		}else{
 			$image = "";
 		}
-		
-		$data = "'', '1', '7', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek', '$i_investasi', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id',''";
+		if($i_master_category_id == '1'){
+			
+			$data = "'', '1', '7', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek','0', '$i_investasi_dollar', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
+		}else{
+			$data = "'', '1', '7', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek','$i_investasir', '0', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
+		}
 		create($data);
 		
 		show_message("Simpan berhasil", "master.php?page=list&master_type_id=$master_type_id&did=1");
@@ -123,6 +138,8 @@ $close = "master.php?page=list";
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
 		$i_investasi = get_isset($i_investasi);
+		$i_investasi_dollar = get_isset($i_investasi_dollar);
+		
 		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
 		$i_kapasitas = get_isset($i_kapasitas);
 		$i_ekspor = get_isset($i_ekspor);
@@ -130,11 +147,17 @@ $close = "master.php?page=list";
 		$i_city_id = get_isset($i_city_id);
 		$i_npwp = get_isset($i_npwp);
 		$i_business_type_id = get_isset($i_business_type_id);
+		
+		$i_business_sub_type_id = get_isset($i_business_sub_type_id);
 		$i_keterangan = get_isset($i_keterangan);
 		$i_user_id = get_isset($_SESSION['user_id']);
 		$i_master_year = get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
 		$i_master_img = get_isset($_FILES['i_master_img']['name']);
+			$i_tk_laki = get_isset($i_tk_laki);
+		$i_tk_perempuan = get_isset($i_tk_perempuan);
+		$i_tk_asing = get_isset($i_tk_asing);
+		$tenaga_kerja = $i_tk_laki + $i_tk_perempuan +$i_tk_asing;
 		
 		$path = '../img/master_img/';
 		
@@ -151,6 +174,10 @@ $close = "master.php?page=list";
 			
 			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
 			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
+				}else{
+			$image = "";
+		}
+		if($i_master_category_id == '1'){
 			
 			$data = " master_sub_category_id = '$i_master_category_id',
 				nama_perusahaan = '$i_nama_perusahaan',

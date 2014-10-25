@@ -31,6 +31,14 @@ function select_detail($id){
 	return $query;
 }
 
+function select_pict($id){
+	
+	$query = mysql_query("select master_id,no_ip,master_img from master where  master_id ='$id'
+						");
+	$row=mysql_fetch_array($query);
+	return $row ;
+}
+
 
 function read_id($id){
 	$query = mysql_query("select * from master where master_id = '$id'");

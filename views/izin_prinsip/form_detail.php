@@ -170,7 +170,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="text" required class="form-control pull-right" id="date_picker1" name="i_expired_date" value="<?php if($type == '1'){ echo format_date($row->master_expired_date); }?>"/>
+                                            <input type="text"  class="form-control pull-right" id="date_picker1" name="i_expired_date" value="<?php if($type == '1'){ echo format_date($row->master_expired_date); }?>"/>
                                         </div><!-- /.input group -->
                                     </div><!-- /.form group -->
                                  
@@ -264,7 +264,11 @@
                                           
                                         </select>
                                       </div>
-                                        
+                                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>Sub Bidang Usaha</label>
+                                            <textarea class="form-control" name="i_business_sub_type_id" rows="3" placeholder="Enter ..."><?= $row-> 	business_sub_type_id ?></textarea>
+                                        </div>
                                          <div class="form-group">
                                             <label>NPWP</label>
                                             <input required type="text" name="i_npwp" class="form-control" placeholder="Enter ..." value="<?= $row->npwp ?>"/>
