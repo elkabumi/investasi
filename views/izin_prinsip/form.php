@@ -131,15 +131,19 @@
                               <div class="form-group">
                                        <label>Investasi </label>
                                        <?
+								
                                        if($row->master_sub_category_id  == '1'){
-                                       	$type='hidden';
-										$type2='';
+                                       	
+										$type='hidden';
+										$type2='text';
+										
 									   }else{
-										$type='';
+										   
+										$type='text';
 										$type2='hidden';
 										}
 									   ?>
-                                        <input type="<?=$type2?>" class="form-control"  name="i_investasi_dollar"  id="i_iinvestasi_dollar" value="<?= $row->investasi_dollar ?>"> 
+                                        <input type="<?=$type2?>" class="form-control"  name="i_investasi_dollar"  id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>"> 
                                         
                                         <input type="<?=$type?>" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
                                  

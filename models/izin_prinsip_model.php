@@ -54,6 +54,7 @@ function create($data){
 
 function update($data, $id){
 	mysql_query("update master set ".$data." where master_id = '$id'");
+	
 }
 
 function delete($id){

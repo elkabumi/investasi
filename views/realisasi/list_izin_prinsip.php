@@ -1,6 +1,8 @@
+ 
+
   <section class="content-header">
                     <h1>
-                        <?= $title ?>
+                       <?= $title?>
                         <small></small>
                     </h1>
                     <ol class="breadcrumb">
@@ -15,11 +17,9 @@
                 ?>
                 <section class="content_new">
                    
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Sukses !</b>
-               Simpan Berhasil
+               <div class="callout callout-info">
+                <h4>Sukses !</h4>
+                <p>Simpan data berhasil</p>
                 </div>
            
                 </section>
@@ -28,11 +28,9 @@
                 ?>
                 <section class="content_new">
                    
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Sukses !</b>
-               Edit Berhasil
+                <div class="callout callout-info">
+                <h4>Sukses !</h4>
+                <p>Edit data berhasil</p>
                 </div>
            
                 </section>
@@ -41,11 +39,9 @@
                 ?>
                 <section class="content_new">
                    
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Sukses !</b>
-               Delete Berhasil
+               <div class="callout callout-info">
+                <h4>Sukses !</h4>
+                <p>Hapus data berhasil</p>
                 </div>
            
                 </section>
@@ -62,33 +58,36 @@
                             <div class="box">
                              
                                 <div class="box-body2 table-responsive">
-                                   <?php
-                               include '../views/layout/search.php';
+                                 
+                               <?php
+                               include '../views/layout/search4.php';
 							   ?>
                                  <table data-filter="#filter" class="footable" data-page-size="10" id="new_table">
       <thead>
         <tr>
-                                            <th data-class="expand" data-sort-initial="true">No</th>
+         
+         									 	<th  data-class="expand" data-sort-initial="true">No</th>
                                             	<th>Nama Perusahaan</th>
-                                            <th data-hide="phone">Alamat</th>
-                                                <?php 
-												if($master_category_id != '4'){
-												?>	
-                                                <th data-hide="phone">NO IP</th>
-                                                <th data-hide="phone">NO IU</th>
-                                              
+                                                <th data-hide="phone">Alamat</th>
+                                                <th data-hide="all">No IP</th>
+                                                <th data-hide="all">No IU</th>
+                                                <th data-hide="all">No Perusahaan</th>
+                                                <th data-hide="all">No Kode Proyek</th>       
+                                                <th data-hide="all">Investasi</th>
+                                                <th data-hide="all">Tenaga Kerja</th>
+                                                <th data-hide="all">Kapasitas</th>
+                                                <th data-hide="all">Ekspor</th>                                           
                                                 <th data-hide="phone">Negara</th>
-                                                <?php 
-												}
-												?>
                                                 <th data-hide="phone,tablet">Lokasi</th>
                                                 <th data-hide="phone,tablet">NPWP</th>
                                                 <th data-hide="phone,tablet">Bidang Usaha</th>
+                                                <th data-hide="all">Lain-lain</th>
+                                                <th data-hide="all">Tahun</th>
                                                 <th width="10%">Config</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
+        </tr>
+      </thead>
+      <tbody>
+         <?php
                                            $no = 1;
                                             while($row = mysql_fetch_array($query)){
                                             ?>
@@ -96,41 +95,39 @@
                                             	<td><?= $no ?></td>
                                              	<td><?= $row['nama_perusahaan']?></td>
                                                 <td><?= $row['alamat']?></td>
-                                                 <?php 
-												if($master_category_id != '4'){
-												?>	
                                                 <td><?= $row['no_ip']?></td>
                                                 <td><?= $row['no_iu']?></td>
-                                             
+                                                <td><?= $row['no_perusahaan']?></td>
+                                                 <td><?= $row['no_kode_proyek']?></td>
+                                                  <td><?= $row['investasi']?></td>
+                                                 <td><?= $row['tenaga_kerja']?></td>
+                                                <td><?= $row['kapasitas']?></td>
+                                                <td><?= $row['ekspor']?></td>
                                                 <td><?= $row['country_name']?></td>
-                                                <?php 
-												}
-												?>
                                                 <td><?= $row['city_name']?></td>
                                                 <td><?= $row['npwp']?></td>
                                                 <td><?= $row['business_type_name']?></td>
+                                                <td><?= $row['keterangan']?></td>
+                                                <td><?= $row['master_year']?></td>
                                                  <td style="text-align:center;">
-                                             
-                                                
-                                                <a href="realisasi.php?page=form&id=<?= $row['master_id']?>&type=1&master_category_id=<?= $master_category_id ?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
-                                                <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'realisasi.php?page=delete&master_category_id=<?= $master_category_id?>&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a></td>
+                                                                
+                                        <a href="realisasi.php?page=form&id_ip=<?php echo $row['master_id']?>&master_category_id=<?php echo  $master_category_id ?>" class="btn btn-cokelat" >Proses realisasi <?php echo $title; ?>
+												
+                     
                                             </tr>
                                             <?php
 											$no++;
                                             }
                                             ?>
-
-                                           
-                                          
-                                        </tbody>
-                                           <tfoot class="footable-pagination">
+      </tbody>
+      <tfoot class="footable-pagination">
         <tr>
           <td colspan="12"><div class="pagination pagination-centered"></div></td>
         </tr>
       </tfoot>
-                                    </table>
+    </table>
 
-                                </div><!-- /.box-body -->
+                              </div><!-- /.box-body -->
                             </div><!-- /.box -->
                         </div>
                     </div>

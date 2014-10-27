@@ -102,7 +102,7 @@
                                         $query_owner = mysql_query("select * from master_categories where master_category_id < 3");
                                         while($row_owner = mysql_fetch_array($query_owner)){
                                         ?>
-                                         <option value="<?= $row_owner['master_category_id']?>" <?php if($row_owner['master_category_id'] == $row->master_category_id){ ?> selected="selected"<?php }?>><?= $row_owner['master_category_name'] ?></option>
+                                         <option value="<?= $row_owner['master_category_id']?>" <?php if($row_owner['master_category_id'] == $row->master_sub_category_id){ ?> selected="selected"<?php }?>><?= $row_owner['master_category_name'] ?></option>
                                         <?php
                                         }
                                         ?>
@@ -145,23 +145,31 @@
                                             <label>No Kode Proyek</label>
                                             <input required type="text"  name="i_no_kode_proyek" class="form-control" placeholder="Enter ..." value="<?= $row->no_kode_proyek ?>"/>
                                         </div>
-                                            <div class="form-group">
+                                          <div class="form-group">
                                        <label>Investasi </label>
                                        <?
+									   if($id != ''){
                                        if($row->master_sub_category_id  == '1'){
-                                       	$type='hidden';
-										$type2='';
+                                       	
+										$type='hidden';
+										$type2='text';
+										
 									   }else{
-										$type='';
+										   
+										$type='text';
 										$type2='hidden';
 										}
 									   ?>
-                                        <input type="<?=$type2?>" class="form-control"  name="i_investasi_dollar"  id="i_iinvestasi_dollar" value="<?= $row->investasi_dollar ?>"> 
+                                        <input type="<?=$type2?>" class="form-control"  name="i_investasi_dollar"  id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>"> 
                                         
-                                        <input type="<?=$type?>" class="form-control"  name="i_investasi"  id="i_iinvestasi" value="<?= $row->investasi ?>"> 
+                                        <input type="<?=$type?>" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
                                  
+                                 <?php }else{ ?>
                                  
+                                    =<input type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
+                                 <? } ?>
                                     </div>
+                                         
                                    
                                         
                                          <div class="form-group">

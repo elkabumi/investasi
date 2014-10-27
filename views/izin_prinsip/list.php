@@ -113,8 +113,8 @@
                                                 <td><?= $row['master_year']?></td>
                                                  <td style="text-align:center;">
                                                                 
-                                                <a href="izin_prinsip.php?page=list_detail&id=<?= $row['master_id']?>" class="btn btn-default" >Detail</a>	
-                                                 <a href="izin_prinsip.php?page=form&id=<?= $row['master_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
+                                                <a href="izin_prinsip.php?page=list_detail&id=<?= $row['master_id']?>&category=<?= $row['master_sub_category_id']?>" class="btn btn-default" >Detail</a>	
+                                                 <a href="izin_prinsip.php?page=form&id=<?= $row['master_id']?>&category=<?= $row['master_sub_category_id']?>" class="btn btn-default" ><i class="fa fa-pencil"></i></a>
                                                 <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'izin_prinsip.php?page=delete&id=')" class="btn btn-default" ><i class="fa fa-trash-o"></i></a>
                                                 <?php
 												if($row['master_img'] != ''){

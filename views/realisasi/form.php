@@ -1,3 +1,19 @@
+
+
+<script type="text/javascript">
+		function valregister(){
+         	var x=register.i_investasi.value;
+            var x1=parseInt(x);
+			var y=register.i_investasi_dollar.value;
+            var y1=parseInt(y);
+            if(register.i_investasi.value > 0 && register.i_investasi_dollar.value > 0 ){
+                        alert("mohon pilih salah satu inputan investasi dollar atau rupiah");
+                        register.i_investasi.focus();
+                        return false;
+            }
+			  return true; 
+		}
+</script>
 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
@@ -11,35 +27,6 @@
                     </ol>
                 </section>
 
-				<?php
-                if(isset($_GET['did']) && $_GET['did'] == 1){
-                ?>
-                <section class="content_new">
-                   
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Simpan Gagal !</b>
-               Nomor Polisi sudah ada
-                </div>
-           
-                </section>
-                <?php
-                }else if(isset($_GET['did']) && $_GET['did'] == 2){
-                ?>
-                <section class="content_new">
-                   
-                <div class="alert alert-info alert-dismissable">
-                <i class="fa fa-check"></i>
-                <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Simpan Gagal !</b>
-               Kode sudah digunakan
-                </div>
-           
-                </section>
-                <?php
-                }
-				?>
 				
                 <!-- Main content -->
                 <section class="content">
@@ -52,88 +39,138 @@
                           
                           
 
-                             <form action="<?= $action?>" method="post" enctype="multipart/form-data" role="form">
-
-                            <div class="box box-cokelat">
-                                
-                               
-                                <div class="box-body">
-                                    
-                                     <div class="col-md-6">
-                                    
-                                    	 <div class="form-group">
-                                        <label>Tahun</label>
-                                        <select id="basic" name="i_master_year" class="selectpicker show-tick form-control" data-live-search="true">
-                                       
-                                           <?php
+          <form name="register" action="<?php echo $action;?>" method="post" enctype="multipart/form-data" onSubmit="return valregister()">
+          
+          <div class="box box-cokelat">
+                	<div class="box-body">
+                     	<div class="col-md-6">
+                        
+                        	<div class="form-group">
+                            	<label>Tahun</label>
+                                	<select id="basic" name="i_master_year" class="selectpicker show-tick form-control" data-live-search="true">
+                                    <?php
                                        $year = date("Y");
 									   for($iy = $year; $iy >= $year - 5; $iy--){
-                                        ?>
+                                    ?>
                                          <option value="<?= $iy ?>" <?php if($iy == $row->master_year){ ?> selected="selected"<?php }?>><?= $iy ?></option>
-                                        <?php
+                                    <?php
                                         }
-                                        ?>
+                                     ?>
                                           
-                                        </select>
-                                      </div>
-                                    
-                       
+                                     </select>
+                           </div>
+                           <div class="form-group">
+                                <label>Nama Perusahaan</label>
+                                 	<input required type="text" name="i_nama_perusahaan" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
+                                <input type="hidden" name="row_id" class="form-control" placeholder="Enter ..." value="<?= $id  ?>"/> 
+                           </div>
+						<div class="form-group">
+                           <label>Alamat</label>
+                           	<input required type="text" name="i_alamat" class="form-control" placeholder="Enter ..." value="<?= $row->alamat ?>"/>						</div>
+                                        
+                        <div class="form-group">
+							<label>No IP</label>
+								<input required readonly="readonly" type="text" name="i_no_ip" class="form-control" placeholder="Enter ..." value="<?= $row->no_ip ?>"/>
+						</div>
+                        
+                        <div class="form-group">
+							<label>No Perusahaan</label>
+								<input required type="text"  name="i_no_perusahaan" class="form-control" placeholder="Enter ..." value="<?= $row->no_perusahaan ?>"/>
+                      	</div>
+                                        
+                        <div class="form-group">
+                             <label>No Kode Proyek</label>
+                                <input required type="text"  name="i_no_kode_proyek" class="form-control" placeholder="Enter ..." value="<?= $row->no_kode_proyek ?>"/>
+                          </div>
+                                        
+                           <?php 
+								if($id_ip != ''){
+									$row->investasi_dollar = '0';	
+									$row->investasi = '0';	
+								}
+										
+								if($master_category_id == '1'){
+							?>
+                                       
+									<div class="form-group">
+                                       <label>Investasi (dolar)</label>
+											<div class="input-group">
+                                            	<span class="input-group-addon">$</span>
+					
+                    								
+                    <input  type="text" class="form-control"  name="i_investasi_dollar"  id="i_investasi_dollar" value="<?php echo $row->investasi_dollar; ?> ">
+												<span class="input-group-addon">.00</span>
+											</div>
+									</div>
                                      
-                                        
+										 <input  type="hidden" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>">
+											
+                                        <?php }else  if($master_category_id == '2'){ ?>
                                        
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Nama Perusahaan</label>
-                                            <input required type="text" name="i_nama_perusahaan" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
-                                        </div>
-                                      
-                                    
+                                       <label>Investasi (Rupiah)</label>
+                                		<div class="input-group">
+											<span class="input-group-addon">Rp</span>
+										 <input  type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>">
+											<span class="input-group-addon">.00</span>
+ 										  </div>
+										</div>
+                                        		 <input type="hidden" class="form-control"  name="i_investasi_dollar"  id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>">
+                                        <?php }else{ ?>
+                                     <div class="form-group">
+                                       <label>Investasi (dolar)</label>
+                                		<div class="input-group">
+											<span class="input-group-addon">&nbsp;$&nbsp;</span>
+											 	<input   type="text" class="form-control"  name="i_investasi_dollar"  id="i_iinvestasi_dollar" value="<?= $row->investasi_dollar ?>">
+											<span class="input-group-addon">.00</span>
+ 										  </div>
+										</div>
+                                
+                                
+                                      <div class="form-group">
+                                       <label>Investasi (Rupiah)</label>
+                                		<div class="input-group">
+											<span class="input-group-addon">Rp</span>
+											 <input   type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>">
+											<span class="input-group-addon">.00</span>
+ 										  </div>
+                                          </div>
+                                 		<?php } ?>
+                                 
+                                 
                                         
-                                         <div class="form-group">
-                                            <label>Alamat</label>
-                                            <input required type="text" name="i_alamat" class="form-control" placeholder="Enter ..." value="<?= $row->alamat ?>"/>
+                                <div class="form-group">
+                                            <label>Tenga kerja Laki-Laki </label>
+                                            <input  type="text" name="i_tk_laki" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_laki ?>"/>
                                         </div>
-                                        
-                                         <div class="form-group">
-                                            <label>No IP</label>
-                                            <input required type="text" name="i_no_ip" class="form-control" placeholder="Enter ..." value="<?= $row->no_ip ?>"/>
+                                           <div class="form-group">
+                                            <label>Tenga kerja Perempuan </label>
+                                            <input  type="text" name="i_tk_perempuan" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_perempuan ?>"/>
                                         </div>
-                                        
-                                         <div class="form-group">
-                                            <label>No IU</label>
-                                            <input required type="text" name="i_no_iu" class="form-control" placeholder="Enter ..." value="<?= $row->no_iu ?>"/>
+                                
+                                      <div class="form-group">
+                                            <label>Tenga kerja Asing</label>
+                                            <input  type="text" name="i_tk_asing" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_asing ?>"/>
+                                          
                                         </div>
-                                       
-                                         <div class="form-group">
-                                            <label>No Perusahaan</label>
-                                            <input required type="text"  name="i_no_perusahaan" class="form-control" placeholder="Enter ..." value="<?= $row->no_perusahaan ?>"/>
-                                        </div>
-                                        
-                                         <div class="form-group">
-                                            <label>No Kode Proyek</label>
-                                            <input required type="text"  name="i_no_kode_proyek" class="form-control" placeholder="Enter ..." value="<?= $row->no_kode_proyek ?>"/>
-                                        </div>
-                                       
-                                     	<div class="form-group">
-                                            <label>Investasi</label>
-                                            <input required type="text"  name="i_investasi" class="form-control" placeholder="Enter ..." value="<?= $row->investasi ?>"/>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label>Tenaga Kerja</label>
-                                            <input required type="text"  name="i_tenaga_kerja" class="form-control" placeholder="Enter ..." value="<?= $row->tenaga_kerja ?>"/>
-                                        </div>
-                                   
-                                        
-                                       
-
-                                     
-                                       
+                                          
+                                           
                                        </div>
                                         <div class="col-md-6">
                                     
-                                    
+                                        
                                            
+                                     
+                                          <?php
+                                   			if($id){
+									 ?>
+                                              <div class="form-group">
+                                            <label>Total Tenaga Kerja</label>
+                                            <input  type="text"  name="i_total_tenaga_kerja" class="form-control" placeholder="Enter ..." value="<?= $row->tenaga_kerja ?>" readonly="readonly"/>
+                                        </div>
+                                       <?
+											}
+											?>
                                      
                                         
                                        
@@ -197,7 +234,16 @@
                                           
                                         </select>
                                       </div>
-                                        
+                                                            <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>Sub Bidang Usaha</label>
+                                            <textarea class="form-control" name="i_business_sub_type_id" rows="3" placeholder="Enter ..."><?= $row-> 	business_sub_type_id ?></textarea>
+                                        </div>
+                                         <div class="form-group">
+                                            <label>NPWP</label>
+                                            <input required type="text" name="i_npwp" class="form-control" placeholder="Enter ..." value="<?= $row->npwp ?>"/>
+                                          
+                                         </div>
                                          <div class="form-group">
                                             <label>NPWP</label>
                                             <input required type="text" name="i_npwp" class="form-control" placeholder="Enter ..." value="<?= $row->npwp ?>"/>
@@ -205,7 +251,6 @@
                                          </div>
                                         
                                      
-										
 										<div class="form-group">
                                         <label>Upload</label>
                                         <?php
@@ -218,7 +263,6 @@
 										?>
                                         <input type="file" name="i_master_img" id="i_master_img" />
                                         </div>
-                                   		
                                    		
                                            <!-- textarea -->
                                         <div class="form-group">
@@ -234,7 +278,8 @@
                                 </div><!-- /.box-body -->
                                 
                                 <div class="box-footer">
-                                <input class="btn btn-cokelat" type="submit" value="Save"/>
+                                <input class="btn btn-cokelat" name="save" id="save"  type="submit" value="Save" />
+                                
                                 <a href="<?= $close_button?>" class="btn btn-cokelat" >Close</a>
                                 </div>
                             

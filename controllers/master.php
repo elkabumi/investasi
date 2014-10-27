@@ -176,8 +176,8 @@ $close = "master.php?page=list";
 			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
 				}else{
 			$image = "";
-		}
-		if($i_master_category_id == '1'){
+				}
+	
 			
 			$data = " master_sub_category_id = '$i_master_category_id',
 				nama_perusahaan = '$i_nama_perusahaan',
@@ -199,27 +199,7 @@ $close = "master.php?page=list";
 				master_img = '$image'
 				
 				";
-		}else{
-			$data = " master_sub_category_id = '$i_master_category_id',
-				nama_perusahaan = '$i_nama_perusahaan',
-				alamat = '$i_alamat', 
-				no_ip = '$i_no_ip', 
-				no_iu = '$i_no_iu', 
-				no_perusahaan = '$i_no_perusahaan', 
-				no_kode_proyek = '$i_no_kode_proyek', 
-				investasi = '$i_investasi',
-				tenaga_kerja = '$i_tenaga_kerja',
-				kapasitas = '$i_kapasitas',
-				ekspor = '$i_ekspor',
-				country_id = '$i_country_id',
-				city_id = '$i_city_id',
-				npwp = '$i_npwp',
-				business_type_id = '$i_business_type_id',
-				keterangan = '$i_keterangan',
-				master_year = '$i_master_year'
-				";
-		}
-
+	
 		
 
 		update($data, $id);
