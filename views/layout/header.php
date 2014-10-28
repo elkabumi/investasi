@@ -81,7 +81,7 @@ if(!$_SESSION['login']){
       
           <!-- AdminLTE App -->
         <script src="../js/AdminLTE/app.js" type="text/javascript"></script>
-
+  <script type="text/javascript" src="../js/jquery-chart.js"></script>
 
     </head>
     <body class="skin-blue">

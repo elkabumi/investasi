@@ -92,7 +92,7 @@ $(function () {
 					$total_investasi = mysql_fetch_object($query);
 					$total_investasi->total = $total_investasi->total / 1000000000000;
 					if($total_investasi->total == ''){
-						$total_investasi->total = '0';
+						$total_investasi->total = '1';
 					}
 					if($i == '1'){
 						echo $total_investasi->total;
@@ -112,7 +112,7 @@ $(function () {
 					
 					$total_investasi2 = mysql_fetch_object($query2);
 					if($total_investasi2->total == ''){
-						$total_investasi2->total = '0';
+						$total_investasi2->total = '1';
 					}
 					$kurs_dollar = get_config_dollar();
 					$total_rupiah = $total_investasi2->total * $kurs_dollar;
@@ -186,17 +186,17 @@ FROM master WHERE master_year = '$year'");
 					$kurs_dollar = get_config_dollar();
 					$total_all_invest=mysql_fetch_object($q);
 					if($total_all_invest->investasi_dollar == ''){
-						$total_all_invest->investasi_dollar ='0';	
+						$total_all_invest->investasi_dollar ='1';	
 					}
 					if($total_all_invest->investasi_dollar == ''){
-						 $total_all_invest->investasi ='0';
+						 $total_all_invest->investasi ='1';
 					}
 					$total = $total_all_invest->investasi + $total_all_invest->investasi_dollar;
 					$total_all_invest->investasi_dollar=$total_all_invest->investasi_dollar * $kurs_dollar;
 					
 					$total_pma = ($total_all_invest->investasi_dollar * 100) / $total;
 					$total_pmdn = ($total_all_invest->investasi * 100) / $total;
-				
+					
 					?>
 					
 			
