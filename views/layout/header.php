@@ -53,8 +53,7 @@ if(!$_SESSION['login']){
             <script src="../js/footable/footable.filter.js?v=2-0-1" type="text/javascript"></script>
             <script src="../js/footable/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
             <script src="../js/footable/bootstrap-tab.js" type="text/javascript"></script>
-         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-
+       
         <!-- jQuery 2.0.2 -->
       
         <script src="../js/function.js" type="text/javascript"></script>
@@ -81,7 +80,6 @@ if(!$_SESSION['login']){
       
           <!-- AdminLTE App -->
         <script src="../js/AdminLTE/app.js" type="text/javascript"></script>
-  <script type="text/javascript" src="../js/jquery-chart.js"></script>
 
     </head>
     <body class="skin-blue">

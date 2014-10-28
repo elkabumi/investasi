@@ -47,7 +47,7 @@
 				$('.footable').trigger('footable_initialized');
 						
 				$('#change-page-size').change(function (e) {
-						e.preventcokelat();
+						//e.preventcokelat();
 						var pageSize = $(this).val();
 						$('.footable').data('page-size', pageSize);
 						$('.footable').trigger('footable_initialized');
@@ -97,5 +97,5 @@
           
         </script>
         <script src="../js/highcharts.js"></script>
-<script src="../js/modules/exporting.js"></script>
-<script src="../js/highcharts-3d.js"></script>
+		<script src="../js/modules/exporting.js"></script>
+        <script src="../js/highcharts-3d.js"></script>

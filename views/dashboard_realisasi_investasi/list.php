@@ -1,48 +1,19 @@
-
-  <section class="content-header">
-                    <h1>
-                       <?= $title?>
-                        <small></small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><?= $title ?></a></li>
-                      
-                        <li class="active">Data</li>
-                    </ol>
-                </section>
-                
-                
-                
-                
-  <section class="content">
-                    <div class="row">
-                    
-                    
-                        <div class="col-xs-12">
-		<script type="text/javascript">
+<script type="text/javascript">
 $(function () {
         $('#container').highcharts({
             chart: {
                 type: 'column'
             },
             title: {
-                text: 'PERSETUJUAN IZIN PRINSIP'
+                text: 'Stacked column chart'
             },
             xAxis: {
-                categories: [<?php for($i=4; $i>=1; $i--){
-								$year = date('Y') - $i;
-								if($i != '1'){
-									echo $year.",";
-								}else{
-									echo $year;
-								}
-							}
-							?>]
+                categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Triliun Rupiah'
+                    text: 'Total fruit consumption'
                 },
                 stackLabels: {
                     enabled: true,
@@ -83,73 +54,24 @@ $(function () {
                 }
             },
             series: [{
-				
-                name: 'PMDn',
-                data: [	<?php
-				for($i=4; $i>=1; $i--){
-					$year = date('Y') - $i;
-					$query=mysql_query("SELECT SUM(investasi) as total from master where master_sub_category_id ='2' and master_year = '$year'");
-					$total_investasi = mysql_fetch_object($query);
-					$total_investasi->total = $total_investasi->total / 1000000000000;
-					if($total_investasi->total == ''){
-						$total_investasi->total = '0';
-					}
-					if($i == '1'){
-						echo $total_investasi->total;
-					}else{
-						echo $total_investasi->total.",";
-					}
-				 }  
-				 ?>
-					]
+                name: 'John',
+                data: [5, 3, 4, 7, 2]
             }, {
-                name: 'PMA',
-                data: [<?php
-				for($i=4; $i>=1; $i--){
-					$year = date('Y') - $i;
-					$query2=mysql_query("SELECT SUM(investasi_dollar) as total from master where master_sub_category_id ='1' and master_year = '$year'");
-					
-					
-					$total_investasi2 = mysql_fetch_object($query2);
-					if($total_investasi2->total == ''){
-						$total_investasi2->total = '0';
-					}
-					$kurs_dollar = get_config_dollar();
-					$total_rupiah = $total_investasi2->total * $kurs_dollar;
-					$total_rupiah = $total_rupiah / 1000000000000;
-					if($i == '1'){
-						echo $total_rupiah;
-					}else{
-						echo $total_rupiah.",";
-					}
-				 }  
-				 ?>]
+                name: 'Jane',
+                data: [2, 2, 3, 2, 1]
+            }, {
+                name: 'Joe',
+                data: [3, 4, 4, 2, 5]
             }]
         });
     });
     
 
 		</script>
-
-
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
-</div>
-</div>
-<section>
-
-  <section class="content">
-   <div class="row">
-   <?php
-  for($i=1; $i<=2; $i++){
-	  $j=$i+1;
-	  $year = date('Y') - $i;
-	 ?>
- <div class="col-xs-6">
- 
-<script type="text/javascript">
+        
+        <script type="text/javascript">
 $(function () {
-    $('#container<?php echo $j ?>').highcharts({
+    $('#container2').highcharts({
         chart: {
             type: 'pie',
             options3d: {
@@ -159,7 +81,7 @@ $(function () {
             }
         },
         title: {
-            text: 'Tahun <?=$year?>'
+            text: 'Browser market shares at a specific website, 2014'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -177,52 +99,64 @@ $(function () {
         },
         series: [{
             type: 'pie',
-            name: 'Nilai investasi',
+            name: 'Browser share',
             data: [
-				                           	<?php
-					$q=mysql_query("SELECT SUM(investasi) as investasi , sum( investasi_dollar )as investasi_dollar
-FROM master WHERE master_year = '$year'");
-			
-					$kurs_dollar = get_config_dollar();
-					$total_all_invest=mysql_fetch_object($q);
-					if($total_all_invest->investasi_dollar == ''){
-						$total_all_invest->investasi_dollar ='0';	
-					}
-					if($total_all_invest->investasi_dollar == ''){
-						 $total_all_invest->investasi ='0';
-					}
-					$total = $total_all_invest->investasi + $total_all_invest->investasi_dollar;
-					$total_all_invest->investasi_dollar=$total_all_invest->investasi_dollar * $kurs_dollar;
-					
-					$total_pma = ($total_all_invest->investasi_dollar * 100) / $total;
-					$total_pmdn = ($total_all_invest->investasi * 100) / $total;
-				
-					?>
-					
-			
-			
-			
-			
-			
-			
-                ['PMA', <?= $total_pma ?>],
+                ['Firefox',   45.0],
+                ['IE',       26.8],
                 {
-                    name: 'PMDN',
-                    y: <?= $total_pmdn ?>,
+                    name: 'Chrome',
+                    y: 12.8,
                     sliced: true,
                     selected: true
                 },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['Others',   0.7]
             ]
         }]
     });
 });
 		</script>
+  <section class="content-header">
+                    <h1>
+                       <?= $title?>
+                        <small></small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><?= $title ?></a></li>
+                      
+                        <li class="active">Data</li>
+                    </ol>
+                </section>
+                
+                
+                
+                
+  <section class="content">
+                    <div class="row">
+                    
+                  
+                        <div class="col-xs-12">
+	
 
-
-
-<div id="container<?php echo $j ?>" style="height: 400px"></div>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 </div>
-<?php } ?>
 </div>
-<section>
+</section>
+
+             
+                
+                
+  <section class="content">
+                    <div class="row">
+                    
+                  
+                        <div class="col-xs-12">
+	
+
+<div id="container2" style="height: 400px"></div>
+
+</div>
+</div>
+</section>
