@@ -77,7 +77,7 @@ switch ($page) {
 			if($type == '1'){
 				$action = "realisasi.php?page=edit&id=$id&master_category_id=$master_category_id";
 			}else{
-				$action = "realisasi.php?page=edit&master_category_id=$master_category_id";
+				$action = "realisasi.php?page=save&master_category_id=$master_category_id";
 			}
 		
 	

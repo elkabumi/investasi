@@ -29,12 +29,18 @@ $(function () {
                 text: 'PERSETUJUAN IZIN PRINSIP'
             },
             xAxis: {
-                categories: [<?php for($i=4; $i>=1; $i--){
+                categories: [<?php
+								for($i=5; $i>=1; $i--){
 								$year = date('Y') - $i;
-								if($i != '1'){
-									echo $year.",";
-								}else{
+								if($i == '1'){
 									echo $year;
+									
+									?>
+									
+									<?
+								}else{
+									
+									echo $year.",";
 								}
 							}
 							?>]
@@ -85,16 +91,17 @@ $(function () {
             series: [{
 				
                 name: 'PMDn',
+				
                 data: [	<?php
-				for($i=4; $i>=1; $i--){
-					$year = date('Y') - $i;
+				for($y=5; $y>=1; $y--){
+					$year = date('Y') - $y;
 					$query=mysql_query("SELECT SUM(investasi) as total from master where master_sub_category_id ='2' and master_year = '$year'");
 					$total_investasi = mysql_fetch_object($query);
 					$total_investasi->total = $total_investasi->total / 1000000000000;
 					if($total_investasi->total == ''){
-						$total_investasi->total = '1';
+						$total_investasi->total = '0';
 					}
-					if($i == '1'){
+					if($y == '1'){
 						echo $total_investasi->total;
 					}else{
 						echo $total_investasi->total.",";
@@ -102,20 +109,22 @@ $(function () {
 				 }  
 				 ?>
 					]
+					
             }, {
                 name: 'PMA',
                 data: [<?php
-				for($i=4; $i>=1; $i--){
+				for($i=5; $i>=1; $i--){
 					$year = date('Y') - $i;
 					$query2=mysql_query("SELECT SUM(investasi_dollar) as total from master where master_sub_category_id ='1' and master_year = '$year'");
 					
 					
 					$total_investasi2 = mysql_fetch_object($query2);
 					if($total_investasi2->total == ''){
-						$total_investasi2->total = '1';
+						$total_investasi2->total = '0';
 					}
 					$kurs_dollar = get_config_dollar();
 					$total_rupiah = $total_investasi2->total * $kurs_dollar;
+					
 					$total_rupiah = $total_rupiah / 1000000000000;
 					if($i == '1'){
 						echo $total_rupiah;
@@ -140,13 +149,14 @@ $(function () {
 
   <section class="content">
    <div class="row">
+    <div class="col-xs-12">
    <?php
   for($i=1; $i<=2; $i++){
 	  $j=$i+1;
 	  $year = date('Y') - $i;
 	 ?>
- <div class="col-xs-6">
- 
+
+  <div class="col-xs-6">
 <script type="text/javascript">
 $(function () {
     $('#container<?php echo $j ?>').highcharts({
@@ -186,12 +196,13 @@ FROM master WHERE master_year = '$year'");
 					$kurs_dollar = get_config_dollar();
 					$total_all_invest=mysql_fetch_object($q);
 					if($total_all_invest->investasi_dollar == ''){
-						$total_all_invest->investasi_dollar ='1';	
+						$total_all_invest->investasi_dollar ='0';	
 					}
 					if($total_all_invest->investasi_dollar == ''){
-						 $total_all_invest->investasi ='1';
+						 $total_all_invest->investasi ='0';
 					}
 					$total = $total_all_invest->investasi + $total_all_invest->investasi_dollar;
+		
 					$total_all_invest->investasi_dollar=$total_all_invest->investasi_dollar * $kurs_dollar;
 					
 					$total_pma = ($total_all_invest->investasi_dollar * 100) / $total;
@@ -204,14 +215,14 @@ FROM master WHERE master_year = '$year'");
 			
 			
 			
-			
-                ['PMA', <?= $total_pma ?>],
-                {
+			{
                     name: 'PMDN',
                     y: <?= $total_pmdn ?>,
                     sliced: true,
                     selected: true
                 },
+                ['PMA', <?= $total_pma ?>],
+                
             ]
         }]
     });
@@ -224,5 +235,6 @@ FROM master WHERE master_year = '$year'");
 
 </div>
 <?php } ?>
+</div>
 </div>
 <section>
