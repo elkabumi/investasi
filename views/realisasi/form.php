@@ -116,8 +116,13 @@
  										  </div>
 										</div>
                                         		 <input type="hidden" class="form-control"  name="i_investasi_dollar"  id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>">
-                                        <?php }else{ ?>
+                                    
+                                    
+                                    
+                                     <?php }else{ ?>
+                                    
                                      <div class="form-group">
+                                    
                                        <label>Investasi (dolar)</label>
                                 		<div class="input-group">
 											<span class="input-group-addon">&nbsp;$&nbsp;</span>
@@ -239,14 +244,34 @@
                                             <label>Sub Bidang Usaha</label>
                                             <textarea class="form-control" name="i_business_sub_type_id" rows="3" placeholder="Enter ..."><?= $row-> 	business_sub_type_id ?></textarea>
                                         </div>
+                                               <?php
+											 
+                                   			if($id and $row->master_sub_category_id == '1' and  $type == '1'){
+									 ?>
+                                              <div class="form-group">
+                                            <label>harga  dollar</label>
+                                            <input  type="text"  name="i_master_dollar" class="form-control" placeholder="Enter ..." value="<?= $row->master_config_dollar ?>" />
+                                        </div>
+                                <?php
+											}else if($id and $row->investasi_dollar > '0' and  $type == '1'){
+									?>
+                                    <div class="form-group">
+                                            <label>harga  dollar</label>
+                                            <input  type="text"  name="i_master_dollar" class="form-control" placeholder="Enter ..." value="<?= $row->master_config_dollar ?>" />
+                                        </div>
+                                    <?
+									
+											}else{
+										?>
+                                               <input  type="hidden"  name="i_master_dollar" class="form-control" placeholder="Enter ..." value="<?= $master_dollar  ?>" />
+                                   <?php	
+											}
+											?>
                                          <div class="form-group">
                                             <label>NPWP</label>
                                             <input required type="text" name="i_npwp" class="form-control" placeholder="Enter ..." value="<?= $row->npwp ?>"/>
                                           
-                                         </div>
-                                         <div class="form-group">
-                                            <label>NPWP</label>
-                                            <input required type="text" name="i_npwp" class="form-control" placeholder="Enter ..." value="<?= $row->npwp ?>"/>
+                        
                                           
                                          </div>
                                         

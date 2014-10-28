@@ -79,7 +79,7 @@ switch ($page) {
 			}else{
 				$action = "realisasi.php?page=save&master_category_id=$master_category_id";
 			}
-		
+			$master_dollar =  get_config_dollar();
 	
 			include '../views/realisasi/form.php';
 		
@@ -114,7 +114,7 @@ switch ($page) {
 		$i_city_id = get_isset($i_city_id);
 		$i_npwp = get_isset($i_npwp);
 		$i_business_type_id = get_isset($i_business_type_id);
-			$i_business_sub_type_id = get_isset($i_business_sub_type_id);
+		$i_business_sub_type_id = get_isset($i_business_sub_type_id);
 		$i_expired_date = '';//format_back_date(get_isset($i_expired_date));
 		$row_id = get_isset($row_id);
 		$i_keterangan = get_isset($i_keterangan);
@@ -135,11 +135,28 @@ switch ($page) {
 			$image = "";
 		}
 		if($master_category_id == '1'){
+			$master_dollar =  get_config_dollar();
+				$data2="'0','$i_investasi_dollar'";
+				$data3="'$master_dollar'";
+		}else if($master_category_id == '2'){
+				$data2="'$i_investasi','0'";
+				$data3="'0'";
+		}else {
+			if($i_investasi_dollar > 0 and $i_investasi <='0' ){
+				$master_dollar =  get_config_dollar();
+				$data2="'0','$i_investasi_dollar'";
+				$data3="'$master_dollar'";	
+				
+			}else if($i_investasi > 0 and $i_investasi_dollar <= '0' ){
+				
+				$data2="'$i_investasi','0'";
+				$data3="'0'";	
+			}
 			
-			$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek','0','$i_investasi_dollar', '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
-		}else{
-			$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek','$i_investasi','0', '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
 		}
+		
+		$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
+		
 		create($data);
 		
 		show_message("Simpan berhasil", "realisasi.php?page=list&master_category_id=".$master_category_id."&did=1");
@@ -201,39 +218,118 @@ case 'edit':
 			
 			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
 			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
-				}else{
-			$image = "";
-				}
-	
+			if($master_category_id == '1'){
+					$i_master_dollar = get_isset($i_master_dollar);
 			
-			$data = "
+					$data2 = "investasi = '',
+						investasi_dollar= '$i_investasi',
+						master_config_dollar ='$i_master_dollar'
+				";
+			}else if($master_category_id == '2'){
+					$data2 = "investasi = '$i_investasi',
+							investasi_dollar= '',
+							master_config_dollar ='0'";
 				
+			
+			}else {
+			if($i_investasi_dollar > 0 and $i_investasi <='0' ){
+				$master_dollar =  get_config_dollar();
+					$data2 = "investasi = '',
+						investasi_dollar= '$i_investasi',
+						master_config_dollar ='$i_master_dollar'
+				";
+			}else if($i_investasi > 0 and $i_investasi_dollar <= '0' ){
+				$data2 = "investasi = '$i_investasi',
+							investasi_dollar= '',
+							master_config_dollar ='0'";	
+			}
+			
+		}
+			
+				$data = "
 					nama_perusahaan = '$i_nama_perusahaan',
 					alamat = '$i_alamat', 
 					no_ip = '$i_no_ip', 
 					no_iu = '$i_no_iu', 
 					no_perusahaan = '$i_no_perusahaan', 
 					no_kode_proyek = '$i_no_kode_proyek', 
-					investasi = '$i_investasi',
-					investasi_dollar= '$i_investasi_dollar',
-				tenaga_kerja = '$tenaga_kerja',
-				kapasitas = '$i_kapasitas',
-				ekspor = '$i_ekspor',
-				country_id = '$i_country_id',
-				city_id = '$i_city_id',
-				npwp = '$i_npwp',
-				business_type_id = '$i_business_type_id',
-				business_sub_type_id = '$i_business_sub_type_id',
-				keterangan = '$i_keterangan',
-				master_year = '$i_master_year',
-				master_img = '$image',
-				master_expired_date = '$i_expired_date',
-				master_tk_laki = '$i_tk_laki',
-				master_tk_perempuan = '$i_tk_perempuan',
-				master_tk_asing = '$i_tk_asing'
+					
+					tenaga_kerja = '$tenaga_kerja',
+					kapasitas = '$i_kapasitas',
+					ekspor = '$i_ekspor',
+					country_id = '$i_country_id',
+					city_id = '$i_city_id',
+					npwp = '$i_npwp',
+					business_type_id = '$i_business_type_id',
+					business_sub_type_id = '$i_business_sub_type_id',
+					keterangan = '$i_keterangan',
+					master_year = '$i_master_year',
+					master_img = '$image',
+					master_expired_date = '$i_expired_date',
+					master_tk_laki = '$i_tk_laki',
+					master_tk_perempuan = '$i_tk_perempuan',
+					master_tk_asing = '$i_tk_asing',
+					$data2 
 				";
-	
-
+			
+			
+		
+		}else{
+						if($master_category_id == '1'){
+					$i_master_dollar = get_isset($i_master_dollar);
+			
+					$data2 = "investasi = '',
+						investasi_dollar= '$i_investasi',
+						master_config_dollar ='$i_master_dollar'
+				";
+			}else if($master_category_id == '2'){
+					$data2 = "investasi = '$i_investasi',
+							investasi_dollar= '',
+							master_config_dollar ='0'";
+				
+			
+			}else {
+			if($i_investasi_dollar > 0 and $i_investasi <='0' ){
+				$master_dollar =  get_config_dollar();
+					$data2 = "investasi = '',
+						investasi_dollar= '$i_investasi',
+						master_config_dollar ='$i_master_dollar'
+				";
+			}else if($i_investasi > 0 and $i_investasi_dollar <= '0' ){
+				$data2 = "investasi = '$i_investasi',
+							investasi_dollar= '',
+							master_config_dollar ='0'";	
+			}
+			
+		}
+					$data = " 
+						nama_perusahaan = '$i_nama_perusahaan',
+						alamat = '$i_alamat', 
+						no_ip = '$i_no_ip', 
+						no_iu = '$i_no_iu', 
+						no_perusahaan = '$i_no_perusahaan', 
+						no_kode_proyek = '$i_no_kode_proyek', 
+					
+						tenaga_kerja = '$tenaga_kerja',
+						kapasitas = '$i_kapasitas',
+						ekspor = '$i_ekspor',
+						country_id = '$i_country_id',
+						city_id = '$i_city_id',
+						npwp = '$i_npwp',
+						business_type_id = '$i_business_type_id',
+						business_sub_type_id = '$i_business_sub_type_id',
+						keterangan = '$i_keterangan',
+						master_year = '$i_master_year',
+						
+						master_expired_date = '$i_expired_date',
+						master_tk_laki = '$i_tk_laki',
+						master_tk_perempuan = '$i_tk_perempuan',
+						master_tk_asing = '$i_tk_asing',
+					$data2 
+					";
+				
+				
+		}
 		update($data, $id);
 	
 		show_message("Edit berhasil", "realisasi.php?page=list&master_category_id=".$master_category_id."&did=2");

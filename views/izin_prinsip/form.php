@@ -263,7 +263,23 @@
                                             <textarea class="form-control" name="i_business_sub_type_id" rows="3" placeholder="Enter ..."><?= $row-> 	business_sub_type_id ?></textarea>
                                         </div>
                                         
-                                         <div class="form-group">
+                             <?php
+                                   			if($id and $row->master_sub_category_id == '1'){
+									 ?>
+                                              <div class="form-group">
+                                            <label>harga  dollar</label>
+                                            <input  type="text"  name="i_master_dollar" class="form-control" placeholder="Enter ..." value="<?= $row->master_config_dollar ?>" />
+                                        </div>
+                                <?php
+											}else{
+										?>
+                                 <input  type="hidden"  name="i_master_dollar" class="form-control" placeholder="Enter ..." value="<?= $master_dollar  ?>" />
+                                   <?php	
+											}
+											?>
+                                           
+                                          
+                                           <div class="form-group">
                                             <label>NPWP</label>
                                             <input required type="text" name="i_npwp" class="form-control" placeholder="Enter ..." value="<?= $row->npwp ?>"/>
                                           

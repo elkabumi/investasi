@@ -47,16 +47,18 @@ $close = "master.php?page=list";
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		$type = (isset($_GET['type'])) ? $_GET['type'] : null;
 		$close_button = "master.php?page=list_izin_prinsip";
-		
+		$category = (isset($_GET['category'])) ? $_GET['category'] : null;
 	
 			$row = read_id($id);
 			
 			if($type == '1'){
-			$action = "master.php?page=edit&id=$id";
+				$action = "master.php?page=edit&id=$id";
+			
 			}else{
 
-			$action = "master.php?page=save";
+				$action = "master.php?page=save";
 			}
+			$master_dollar =  get_config_dollar();
 
 		include '../views/master/form.php';
 		get_footer();
@@ -66,7 +68,14 @@ $close = "master.php?page=list";
 	case 'save':
 
 		extract($_POST);
+		$category = (isset($_GET['category'])) ? $_GET['category'] : null;
 		
+		extract($_POST);
+		if($category == '1'){
+			$i_investasi = get_isset($i_investasi_dollar);	
+		}else{
+			$i_investasi = get_isset($i_investasi);
+		}
 			
 		$i_master_category_id = get_isset($i_master_category_id);
 		$i_nama_perusahaan = get_isset($i_nama_perusahaan);
@@ -75,8 +84,6 @@ $close = "master.php?page=list";
 		$i_no_iu = get_isset($i_no_iu);
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
-		$i_investasi = get_isset($i_investasi);
-		$i_investasi_dollar = get_isset($i_investasi_dollar);
 		
 		
 		
@@ -110,11 +117,15 @@ $close = "master.php?page=list";
 			$image = "";
 		}
 		if($i_master_category_id == '1'){
-			
-			$data = "'', '1', '7', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek','0', '$i_investasi_dollar', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
+			$master_dollar =  get_config_dollar();
+				$data2="'0','$i_investasi_dollar'";
+				$data3="'$master_dollar'";	
 		}else{
-			$data = "'', '1', '7', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek','$i_investasir', '0', '$i_tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
+				$data2="'$i_investasi','0'";
+				$data3="'0'";
 		}
+			$data = "'', '1', '7', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
+		
 		create($data);
 		
 		show_message("Simpan berhasil", "master.php?page=list&master_type_id=$master_type_id&did=1");
@@ -154,7 +165,7 @@ $close = "master.php?page=list";
 		$i_master_year = get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
 		$i_master_img = get_isset($_FILES['i_master_img']['name']);
-			$i_tk_laki = get_isset($i_tk_laki);
+		$i_tk_laki = get_isset($i_tk_laki);
 		$i_tk_perempuan = get_isset($i_tk_perempuan);
 		$i_tk_asing = get_isset($i_tk_asing);
 		$tenaga_kerja = $i_tk_laki + $i_tk_perempuan +$i_tk_asing;
@@ -174,31 +185,91 @@ $close = "master.php?page=list";
 			
 			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
 			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
-				}else{
-			$image = "";
-				}
-	
 			
-			$data = " master_sub_category_id = '$i_master_category_id',
-				nama_perusahaan = '$i_nama_perusahaan',
-				alamat = '$i_alamat', 
-				no_ip = '$i_no_ip', 
-				no_iu = '$i_no_iu', 
-				no_perusahaan = '$i_no_perusahaan', 
-				no_kode_proyek = '$i_no_kode_proyek', 
-				investasi = '$i_investasi',
-				tenaga_kerja = '$i_tenaga_kerja',
-				kapasitas = '$i_kapasitas',
-				ekspor = '$i_ekspor',
-				country_id = '$i_country_id',
-				city_id = '$i_city_id',
-				npwp = '$i_npwp',
-				business_type_id = '$i_business_type_id',
-				keterangan = '$i_keterangan',
-				master_year = '$i_master_year',
-				master_img = '$image'
-				
+			if($i_master_category_id == '1'){
+				$i_master_dollar = get_isset($i_master_dollar);
+			
+					$data2 = "investasi = '',
+						investasi_dollar= '$i_investasi',
+						master_config_dollar ='$i_master_dollar'
 				";
+			}else{
+				$data2 = "investasi = '$i_investasi',
+							investasi_dollar= '',
+							master_config_dollar ='0'";
+				
+			
+			}
+				$data = " master_sub_category_id = '$i_master_category_id',
+					nama_perusahaan = '$i_nama_perusahaan',
+					alamat = '$i_alamat', 
+					no_ip = '$i_no_ip', 
+					no_iu = '$i_no_iu', 
+					no_perusahaan = '$i_no_perusahaan', 
+					no_kode_proyek = '$i_no_kode_proyek', 
+					
+					tenaga_kerja = '$tenaga_kerja',
+					kapasitas = '$i_kapasitas',
+					ekspor = '$i_ekspor',
+					country_id = '$i_country_id',
+					city_id = '$i_city_id',
+					npwp = '$i_npwp',
+					business_type_id = '$i_business_type_id',
+					business_sub_type_id = '$i_business_sub_type_id',
+					keterangan = '$i_keterangan',
+					master_year = '$i_master_year',
+					master_img = '$image',
+					master_expired_date = '$i_expired_date',
+					master_tk_laki = '$i_tk_laki',
+					master_tk_perempuan = '$i_tk_perempuan',
+					master_tk_asing = '$i_tk_asing',
+					$data2
+				";
+			
+			
+		
+		}else{
+				if($i_master_category_id == '1'){
+					$i_master_dollar = get_isset($i_master_dollar);
+					$data2 = "investasi = '',
+						investasi_dollar= '$i_investasi',
+						master_config_dollar ='$i_master_dollar'
+				";
+				}else{
+						$data2 = "investasi = '$i_investasi',
+							investasi_dollar= '',
+							master_config_dollar ='0'";
+				
+				}
+					$data = " master_sub_category_id = '$i_master_category_id',
+						nama_perusahaan = '$i_nama_perusahaan',
+						alamat = '$i_alamat', 
+						no_ip = '$i_no_ip', 
+						no_iu = '$i_no_iu', 
+						no_perusahaan = '$i_no_perusahaan', 
+						no_kode_proyek = '$i_no_kode_proyek', 
+					
+						tenaga_kerja = '$tenaga_kerja',
+						kapasitas = '$i_kapasitas',
+						ekspor = '$i_ekspor',
+						country_id = '$i_country_id',
+						city_id = '$i_city_id',
+						npwp = '$i_npwp',
+						business_type_id = '$i_business_type_id',
+						business_sub_type_id = '$i_business_sub_type_id',
+						keterangan = '$i_keterangan',
+						master_year = '$i_master_year',
+						
+						master_expired_date = '$i_expired_date',
+						master_tk_laki = '$i_tk_laki',
+						master_tk_perempuan = '$i_tk_perempuan',
+						master_tk_asing = '$i_tk_asing',
+							$data2
+						 
+					";
+				
+				
+			}
 	
 		
 

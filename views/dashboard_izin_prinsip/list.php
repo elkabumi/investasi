@@ -90,7 +90,7 @@ $(function () {
             },
             series: [{
 				
-                name: 'PMDn',
+                name: 'PMDN',
 				
                 data: [	<?php
 				for($y=5; $y>=1; $y--){
@@ -108,7 +108,8 @@ $(function () {
 					}
 				 }  
 				 ?>
-					]
+					],
+				color: '#f9c'
 					
             }, {
                 name: 'PMA',
@@ -132,7 +133,9 @@ $(function () {
 						echo $total_rupiah.",";
 					}
 				 }  
-				 ?>]
+				 ?>],
+				color: '#933'
+				 
             }]
         });
     });
@@ -151,7 +154,7 @@ $(function () {
    <div class="row">
     <div class="col-xs-12">
    <?php
-  for($i=1; $i<=2; $i++){
+  for($i=2; $i>=1; $i--){
 	  $j=$i+1;
 	  $year = date('Y') - $i;
 	 ?>
@@ -221,9 +224,11 @@ FROM master WHERE master_year = '$year'");
                     name: 'PMDN',
                     y: <?= $total_pmdn ?>,
                     sliced: true,
-                    selected: true
+                    selected: true,
+					color: '#f9c'
                 },
-                ['PMA', <?= $total_pma ?>],
+                {name:'PMA'
+				,y: <?= $total_pma ?>, color: '#933'},
                 
             ]
         }]

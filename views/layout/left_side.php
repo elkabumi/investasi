@@ -43,6 +43,15 @@
                              	
                             </ul>
                   </li>
+                   <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "class='active'"; }?>">
+                            <a href="config.php">
+                                <i class="fa fa-user"></i>
+                                <span>config</span>
+                               
+                            </a>
+                            
+                  </li>
+                  
                      
                           <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 1){ echo "active"; }?>">
                             <a href="#">

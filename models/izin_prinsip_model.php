@@ -66,6 +66,11 @@ function get_img($id){
 	$r_img = mysql_fetch_object($q_img);
 	return $r_img->master_img;
 }
-
+function get_config_dollar(){
+	$query = mysql_query("SELECT config_dollar  from configs");
+	$row = mysql_fetch_array($query);
+	$result = $row['0'];
+	return $result;
+}
 
 ?>

@@ -151,22 +151,22 @@
 									   if($id != ''){
                                        if($row->master_sub_category_id  == '1'){
                                        	
-										$type='hidden';
-										$type2='text';
+										$type_input='hidden';
+										$type_input2='text';
 										
 									   }else{
 										   
-										$type='text';
-										$type2='hidden';
+										$type_input='text';
+										$type_input2='hidden';
 										}
 									   ?>
-                                        <input type="<?=$type2?>" class="form-control"  name="i_investasi_dollar"  id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>"> 
+                                        <input type="<?=$type_input2?>" class="form-control"  name="i_investasi_dollar"  id="i_investasi_dollar" value="<?= $row->investasi_dollar ?>"> 
                                         
-                                        <input type="<?=$type?>" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
+                                        <input type="<?=$type_input?>" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
                                  
                                  <?php }else{ ?>
                                  
-                                    =<input type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
+                                    <input type="text" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>"> 
                                  <? } ?>
                                     </div>
                                          
@@ -277,6 +277,23 @@
                                             <label>Sub Bidang Usaha</label>
                                             <textarea class="form-control" name="i_business_sub_type_id" rows="3" placeholder="Enter ..."><?= $row-> 	business_sub_type_id ?></textarea>
                                         </div>
+                                        
+                                        
+                                              <?php
+											 
+                                   			if($id and $row->master_sub_category_id == '1' and  $type == '1'){
+									 ?>
+                                              <div class="form-group">
+                                            <label>harga  dollar</label>
+                                            <input  type="text"  name="i_master_dollar" class="form-control" placeholder="Enter ..." value="<?= $row->master_config_dollar ?>" />
+                                        </div>
+                                <?php
+											}else{
+										?>
+                                  <input  type="hidden"  name="i_master_dollar" class="form-control" placeholder="Enter ..." value="<?= $master_dollar  ?>" />
+                                   <?php	
+											}
+											?>
                                          <div class="form-group">
                                             <label>NPWP</label>
                                             <input required type="text" name="i_npwp" class="form-control" placeholder="Enter ..." value="<?= $row->npwp ?>"/>

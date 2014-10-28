@@ -110,7 +110,7 @@
                                                 <td><?= $row['keterangan']?></td>
                                                 <td><?= $row['master_year']?></td>
                                                  <td style="text-align:center;">
-                                                    <a href="master.php?page=form&id=<?= $row['master_id']?>&type=1" class="btn btn-cokelat" ><i class="fa fa-pencil"></i></a>
+                                                    <a href="master.php?page=form&id=<?= $row['master_id']?>&type=1&category=<?= $row['master_sub_category_id']?>" class="btn btn-cokelat" ><i class="fa fa-pencil"></i></a>
                                                 <a href="javascript:void(0)" onclick="confirm_delete(<?= $row['master_id']; ?>,'master.php?page=delete&id=')" class="btn btn-cokelat" ><i class="fa fa-trash-o"></i></a></td>
                                             </tr>
                                             <?php
