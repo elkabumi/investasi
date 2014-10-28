@@ -169,7 +169,7 @@ switch ($page) {
 		
 			$data = "'', '1', '6', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek','$i_investasi','0', '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','1','0','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
 		}
-	echo $data;	
+	
 	create($data);
 	
 	show_message("Simpan berhasil", "izin_prinsip.php?page=list&did=1");

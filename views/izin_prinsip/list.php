@@ -101,7 +101,11 @@
                                                 <td><?= $row['no_iu']?></td>
                                                 <td><?= $row['no_perusahaan']?></td>
                                                 <td><?= $row['no_kode_proyek']?></td>
-                                                 <td><?= format_rupiah($row['investasi'])?></td>
+                                                 <td><?php if($row['master_sub_category_id'] == '1'){ 
+												 		echo "&nbsp;$.&nbsp".format_rupiah($row['investasi_dollar']); 
+														}else{
+														echo "Rp.&nbsp;".format_rupiah($row['investasi']);
+														}?></td>
                                                  <td><?= $row['tenaga_kerja']?></td>
                                                 <td><?= $row['kapasitas']?></td>
                                                 <td><?= $row['ekspor']?></td>
@@ -127,10 +131,11 @@
 											$no++;
                                             }
                                             ?>
+                 
       </tbody>
       <tfoot class="footable-pagination">
         <tr>
-          <td colspan="12"><div class="pagination pagination-centered"></div></td>
+          <td colspan="19"><div class="pagination pagination-centered"></div></td>
         </tr>
       </tfoot>
     </table>
