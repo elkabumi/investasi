@@ -30,6 +30,20 @@
                    <?php //if(isset($_SESSION['menu_active'])) { echo $_SESSION['menu_active']; }?>
                     <ul class="sidebar-menu">
                      
+                      <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 7){ echo "active"; }?>">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Dashboard</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="dashboard_kinerja_investasi.php"><i class="fa fa-chevron-circle-right"></i>Kinerja Investasi</a></li>
+                                <li><a href="dashboard_realisasi_investasi.php"><i class="fa fa-chevron-circle-right"></i>Realisasi Investasi</a></li>
+                                <li><a href="dashboard_izin_prinsip.php"><i class="fa fa-chevron-circle-right"></i>Persetujuan Izin Prinsip</a></li>
+                             	
+                            </ul>
+                  </li>
+                     
                           <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 1){ echo "active"; }?>">
                             <a href="#">
                                 <i class="fa fa-briefcase"></i>
