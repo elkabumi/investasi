@@ -202,7 +202,9 @@ FROM master WHERE master_year = '$year'");
 						 $total_all_invest->investasi ='0';
 					}
 					$total = $total_all_invest->investasi + $total_all_invest->investasi_dollar;
-		
+					if($total == '0'){
+						$total = '1';
+					}
 					$total_all_invest->investasi_dollar=$total_all_invest->investasi_dollar * $kurs_dollar;
 					
 					$total_pma = ($total_all_invest->investasi_dollar * 100) / $total;
