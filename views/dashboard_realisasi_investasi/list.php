@@ -5,15 +5,22 @@ $(function () {
                 type: 'column'
             },
             title: {
-                text: 'Stacked column chart'
+                text: 'Realisasi Investasi'
             },
             xAxis: {
-                categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                categories: [
+				<?php
+				$year = date("Y") - 4;
+				for($y=$year; $y<=date("Y"); $y++){
+					echo "'".$y."'"; if($y!=date("Y")){ echo ","; }
+				}
+				?>
+				]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Total fruit consumption'
+                    text: 'Trilyun Rupiah'
                 },
                 stackLabels: {
                     enabled: true,
@@ -48,20 +55,50 @@ $(function () {
                         enabled: true,
                         color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
                         style: {
-                            textShadow: '0 0 3px black, 0 0 3px black'
+                            textShadow: '0 0 1px black, 0 0 1px black'
                         }
                     }
                 }
             },
             series: [{
-                name: 'John',
-                data: [5, 3, 4, 7, 2]
+                name: 'Non Fas',
+                data: [
+					<?php
+					$year = date("Y") - 4;
+					for($y=$year; $y<=date("Y"); $y++){
+						$data = get_data(3, $y);
+						echo $data;
+						if($y!=date("Y")){ echo ","; }
+					}
+					?>
+				],
+				color: '#ff0'
             }, {
-                name: 'Jane',
-                data: [2, 2, 3, 2, 1]
+                name: 'PMDN',
+                data: [
+				<?php
+					$year = date("Y") - 4;
+					for($y=$year; $y<=date("Y"); $y++){
+						$data = get_data(2, $y);
+						echo $data;
+						if($y!=date("Y")){ echo ","; }
+					}
+					?>
+				],
+				color: '#f9c',
             }, {
-                name: 'Joe',
-                data: [3, 4, 4, 2, 5]
+                name: 'PMA',
+                data: [
+				<?php
+					$year = date("Y") - 4;
+					for($y=$year; $y<=date("Y"); $y++){
+						$data = get_data_dollar(1, $y);
+						echo $data;
+						if($y!=date("Y")){ echo ","; }
+					}
+					?>
+				],
+				color: '#933'
             }]
         });
     });

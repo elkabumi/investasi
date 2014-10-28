@@ -140,16 +140,16 @@
                                  
                                         
                                 <div class="form-group">
-                                            <label>Tenga kerja Laki-Laki </label>
+                                            <label>Tenaga kerja Laki-Laki </label>
                                             <input  type="text" name="i_tk_laki" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_laki ?>"/>
                                         </div>
                                            <div class="form-group">
-                                            <label>Tenga kerja Perempuan </label>
+                                            <label>Tenaga kerja Perempuan </label>
                                             <input  type="text" name="i_tk_perempuan" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_perempuan ?>"/>
                                         </div>
                                 
                                       <div class="form-group">
-                                            <label>Tenga kerja Asing</label>
+                                            <label>Tenaga kerja Asing</label>
                                             <input  type="text" name="i_tk_asing" class="form-control" placeholder="Enter ..." value="<?= $row->master_tk_asing ?>"/>
                                           
                                         </div>

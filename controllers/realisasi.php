@@ -98,7 +98,7 @@ switch ($page) {
 		
 		extract($_POST);
 		
-		$i_master_type_ip_id = get_isset($i_master_type_ip_id);
+		//$i_master_type_ip_id = get_isset($_GET['master_category_id']);
 		$i_nama_perusahaan = get_isset($i_nama_perusahaan);
 		$i_alamat = get_isset($i_alamat);
 		$i_no_ip = get_isset($i_no_ip);
@@ -115,7 +115,7 @@ switch ($page) {
 		$i_npwp = get_isset($i_npwp);
 		$i_business_type_id = get_isset($i_business_type_id);
 			$i_business_sub_type_id = get_isset($i_business_sub_type_id);
-		$i_expired_date = format_back_date(get_isset($i_expired_date));
+		$i_expired_date = '';//format_back_date(get_isset($i_expired_date));
 		$row_id = get_isset($row_id);
 		$i_keterangan = get_isset($i_keterangan);
 		$i_user_id = get_isset($_SESSION['user_id']);
@@ -134,11 +134,11 @@ switch ($page) {
 		}else{
 			$image = "";
 		}
-		if($i_master_category_id == '1'){
+		if($master_category_id == '1'){
 			
-			$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek','0','$i_investasi_dollar', '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','$i_master_type_ip_id','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
+			$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek','0','$i_investasi_dollar', '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
 		}else{
-			$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek','$i_investasi','0', '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','$i_master_type_ip_id','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
+			$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek','$i_investasi','0', '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing'";
 		}
 		create($data);
 		
