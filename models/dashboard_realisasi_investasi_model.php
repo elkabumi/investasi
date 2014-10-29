@@ -7,6 +7,7 @@ function get_config_dollar(){
 	return $result;
 }
 
+
 function get_data($category, $year){
 	$query = mysql_query("select sum(investasi) as jumlah from master where master_sub_category_id = '$category' and master_year = '$year' and master_type_id = '2'");
 	$row = mysql_fetch_array($query);

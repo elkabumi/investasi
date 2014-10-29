@@ -118,7 +118,7 @@ $close = "master.php?page=list";
 		}
 		if($i_master_category_id == '1'){
 			$master_dollar =  get_config_dollar();
-				$data2="'0','$i_investasi_dollar'";
+				$data2="'0','$i_investasi'";
 				$data3="'$master_dollar'";	
 		}else{
 				$data2="'$i_investasi','0'";

@@ -131,7 +131,8 @@
 											$no++;
                                             }
                                             ?>
-                 
+       
+			?>
       </tbody>
       <tfoot class="footable-pagination">
         <tr>
