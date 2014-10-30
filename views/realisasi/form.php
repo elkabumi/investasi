@@ -62,7 +62,7 @@
                            <div class="form-group">
                                 <label>Nama Perusahaan</label>
                                  	<input required type="text" name="i_nama_perusahaan" class="form-control" placeholder="Enter ..." value="<?= $row->nama_perusahaan ?>"/>
-                                <input type="hidden" name="row_id" class="form-control" placeholder="Enter ..." value="<?= $id  ?>"/> 
+                                <input type="hidden" name="row_id" class="form-control" placeholder="Enter ..." value="<?= $id_ip  ?>"/> 
                            </div>
 						<div class="form-group">
                            <label>Alamat</label>

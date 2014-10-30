@@ -74,14 +74,14 @@
                                   
                                        
                                 </div><!-- /.box-body -->
-                              <div style="clear:both;"></div>
-                                <div class="box-footer">
-                                <input class="btn btn-cokelat" type="submit" value="Save"/>
-                                <a href="<?= $close_button?>" class="btn btn-cokelat" >Close</a>
-                                </div>
+                               <div style="clear:both;"></div>
                             
                             </div><!-- /.box -->
-                             
+                            
+                                <div class="box-footer">
+                                <input class="btn btn-cokelat" type="submit" value="Save"/>
+                               
+                                </div>
                             
                        </form>
                         </div><!--/.col (right) -->

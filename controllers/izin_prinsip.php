@@ -55,6 +55,7 @@ switch ($page) {
 			//inisialisasi
 			$row = new stdClass();
 			$row->master_category_id = false;
+			$row->master_sub_category_id = false;
 			$row->nama_perusahaan = false;
 			$row->alamat = false;
 			$row->no_ip = false;
@@ -129,7 +130,7 @@ switch ($page) {
 		$i_nama_perusahaan = get_isset($i_nama_perusahaan);
 		$i_alamat = get_isset($i_alamat);
 		$i_no_ip = get_isset($i_no_ip);
-		$i_no_iu = get_isset($i_no_iu);
+		//$i_no_iu = get_isset($i_no_iu);
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
 		
@@ -173,7 +174,7 @@ switch ($page) {
 				$data2="'$i_investasi','0'";
 				$data3="'0'";
 		}
-		$data = "'', '1', '6', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','1','0','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
+		$data = "'', '1', '6', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','1','0','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
 	
 	create($data);
 	
@@ -270,12 +271,12 @@ switch ($page) {
 		$i_nama_perusahaan = get_isset($i_nama_perusahaan);
 		$i_alamat = get_isset($i_alamat);
 		$i_no_ip = get_isset($i_no_ip);
-		$i_no_iu = get_isset($i_no_iu);
+		//$i_no_iu = get_isset($i_no_iu);
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
 		
 		
-		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
+		//$i_tenaga_kerja = get_isset($i_tenaga_kerja);
 		$i_kapasitas = get_isset($i_kapasitas);
 		$i_ekspor = get_isset($i_ekspor);
 		$i_country_id = get_isset($i_country_id);
@@ -329,7 +330,7 @@ switch ($page) {
 					nama_perusahaan = '$i_nama_perusahaan',
 					alamat = '$i_alamat', 
 					no_ip = '$i_no_ip', 
-					no_iu = '$i_no_iu', 
+					no_iu = '', 
 					no_perusahaan = '$i_no_perusahaan', 
 					no_kode_proyek = '$i_no_kode_proyek', 
 					
@@ -367,7 +368,7 @@ switch ($page) {
 						nama_perusahaan = '$i_nama_perusahaan',
 						alamat = '$i_alamat', 
 						no_ip = '$i_no_ip', 
-						no_iu = '$i_no_iu', 
+						no_iu = '', 
 						no_perusahaan = '$i_no_perusahaan', 
 						no_kode_proyek = '$i_no_kode_proyek', 
 						
@@ -427,12 +428,12 @@ switch ($page) {
 		$i_nama_perusahaan = get_isset($i_nama_perusahaan);
 		$i_alamat = get_isset($i_alamat);
 		$i_no_ip = get_isset($i_no_ip);
-		$i_no_iu = get_isset($i_no_iu);
+		//$i_no_iu = get_isset($i_no_iu);
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
 		
 		
-		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
+		//$i_tenaga_kerja = get_isset($i_tenaga_kerja);
 		$i_kapasitas = get_isset($i_kapasitas);
 		$i_ekspor = get_isset($i_ekspor);
 		$i_country_id = get_isset($i_country_id);
@@ -447,6 +448,10 @@ switch ($page) {
 		$i_master_date = date("Y-m-d");
 		$i_master_img = get_isset($_FILES['i_master_img']['name']);
 		$i_expired_date = get_isset($i_expired_date);
+		$i_tk_laki = get_isset($i_tk_laki);
+		$i_tk_perempuan = get_isset($i_tk_perempuan);
+		$i_tk_asing = get_isset($i_tk_asing);
+		$tenaga_kerja = $i_tk_laki + $i_tk_perempuan +$i_tk_asing;
 		$path = '../img/master_img/';
 		
 		if($i_master_img!=""){
@@ -482,7 +487,7 @@ switch ($page) {
 					nama_perusahaan = '$i_nama_perusahaan',
 					alamat = '$i_alamat', 
 					no_ip = '$i_no_ip', 
-					no_iu = '$i_no_iu', 
+					no_iu = '', 
 					no_perusahaan = '$i_no_perusahaan', 
 					no_kode_proyek = '$i_no_kode_proyek', 
 				
@@ -524,7 +529,7 @@ switch ($page) {
 						nama_perusahaan = '$i_nama_perusahaan',
 						alamat = '$i_alamat', 
 						no_ip = '$i_no_ip', 
-						no_iu = '$i_no_iu', 
+						no_iu = '', 
 						no_perusahaan = '$i_no_perusahaan', 
 						no_kode_proyek = '$i_no_kode_proyek', 
 						

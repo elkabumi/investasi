@@ -77,7 +77,7 @@ switch ($page) {
 			if($type == '1'){
 				$action = "realisasi.php?page=edit&id=$id&master_category_id=$master_category_id";
 			}else{
-				$action = "realisasi.php?page=save&master_category_id=$master_category_id";
+				$action = "realisasi.php?page=save&master_category_id=$master_category_id&id_ip=$id_ip";
 			}
 			$master_dollar =  get_config_dollar();
 	
@@ -95,6 +95,7 @@ switch ($page) {
 	case 'save':
 
 		$master_category_id = (isset($_GET['master_category_id'])) ? $_GET['master_category_id'] : null;
+		$id_ip = (isset($_GET['id_ip'])) ? $_GET['id_ip'] : null;
 		
 		extract($_POST);
 		
@@ -155,7 +156,7 @@ switch ($page) {
 			
 		}
 		
-		$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
+		$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$id_ip','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
 		
 		create($data);
 		
@@ -178,13 +179,13 @@ case 'edit':
 		$i_nama_perusahaan = get_isset($i_nama_perusahaan);
 		$i_alamat = get_isset($i_alamat);
 		$i_no_ip = get_isset($i_no_ip);
-		$i_no_iu = get_isset($i_no_iu);
+		//$i_no_iu = get_isset($i_no_iu);
 		$i_no_perusahaan = get_isset($i_no_perusahaan);
 		$i_no_kode_proyek = get_isset($i_no_kode_proyek);
 		$i_investasi = get_isset($i_investasi);
 		$i_investasi_dollar = get_isset($i_investasi_dollar);
 		
-		$i_tenaga_kerja = get_isset($i_tenaga_kerja);
+		//$i_tenaga_kerja = get_isset($i_tenaga_kerja);
 		$i_kapasitas = get_isset($i_kapasitas);
 		$i_ekspor = get_isset($i_ekspor);
 		$i_country_id = get_isset($i_country_id);
@@ -250,7 +251,7 @@ case 'edit':
 					nama_perusahaan = '$i_nama_perusahaan',
 					alamat = '$i_alamat', 
 					no_ip = '$i_no_ip', 
-					no_iu = '$i_no_iu', 
+					
 					no_perusahaan = '$i_no_perusahaan', 
 					no_kode_proyek = '$i_no_kode_proyek', 
 					
@@ -265,7 +266,7 @@ case 'edit':
 					keterangan = '$i_keterangan',
 					master_year = '$i_master_year',
 					master_img = '$image',
-					master_expired_date = '$i_expired_date',
+					
 					master_tk_laki = '$i_tk_laki',
 					master_tk_perempuan = '$i_tk_perempuan',
 					master_tk_asing = '$i_tk_asing',
@@ -306,7 +307,7 @@ case 'edit':
 						nama_perusahaan = '$i_nama_perusahaan',
 						alamat = '$i_alamat', 
 						no_ip = '$i_no_ip', 
-						no_iu = '$i_no_iu', 
+						
 						no_perusahaan = '$i_no_perusahaan', 
 						no_kode_proyek = '$i_no_kode_proyek', 
 					
@@ -321,7 +322,7 @@ case 'edit':
 						keterangan = '$i_keterangan',
 						master_year = '$i_master_year',
 						
-						master_expired_date = '$i_expired_date',
+						
 						master_tk_laki = '$i_tk_laki',
 						master_tk_perempuan = '$i_tk_perempuan',
 						master_tk_asing = '$i_tk_asing',

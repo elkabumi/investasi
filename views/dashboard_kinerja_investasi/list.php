@@ -17,9 +17,9 @@
   <section class="content">
   
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                         <div class="box box-danger">
-                         <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tabel_manual" style="font-size:22px;">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tabel_manual" style="font-size:20px;">
                             <tr>
                               <td>&nbsp;</td>
                             </tr>
@@ -123,10 +123,10 @@
                         </div>
                         
                         <div class="box box-danger">
-                         <table width="100%" border="0" cellspacing="0" cellpadding="10" class="tabel_manual" id="new_table">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="10" class="tabel_manual" id="">
                       
                           <tr>
-                           <td  style="background-color:#FFFF00">PMDN Non Fas.:</td>
+                           <td  style="background-color:#FFFF00">PMDN Non Fas :</td>
                            <?php
 								$data_proyek = get_data_proyek_realisasi(3,$year1);
 								$data_investasi = get_data_investasi_realisasi(3,$year1);
@@ -142,11 +142,11 @@
                         </table>
                         </div>
                     	</div>
-                          <div class="col-md-12">
+                          <div class="col-md-6">
                           
                           
                          <div class="box box-danger">
-                         <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tabel_manual" style="font-size:22px;">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tabel_manual" style="font-size:20px;">
                             <tr>
                               <td>&nbsp;</td>
                             </tr>
@@ -198,7 +198,7 @@
                         </div>
                         
                            <div class="box box-danger">
-                         <table width="100%" border="0" cellspacing="0" cellpadding="10" class="tabel_manual" id="new_table">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="10" class="tabel_manual" id="new_table2">
                           <thead>
                         <tr>
                             <td><strong>Type</strong></td>
@@ -210,6 +210,7 @@
                                           
                           </tr>
                             </thead>
+                          
                           <tr>
                             <td style="background-color:#FF99CC">PMA</td>
                            <?php
@@ -244,7 +245,7 @@
                             <td><strong><?=$data_investasi;?>  Trilyun</strong></td>
                              <td><strong><?=$data_pekerja;?>  Tng Kerja</strong></td>
                           </tr>
-                          <tr>
+                        
                         
                         </table>
                         </div>

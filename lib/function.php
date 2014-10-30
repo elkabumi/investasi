@@ -25,7 +25,7 @@ function get_footer(){
 }
 
 function get_isset($data){
-	$result = (isset($data)) ? $data : null;
+	$result = (isset($data)) ? $data : "";
 	return $result;
 }
 

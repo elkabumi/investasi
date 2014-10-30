@@ -69,7 +69,7 @@
          									 	<th  data-class="expand" data-sort-initial="true">No</th>
                                             	<th>Nama Perusahaan</th>
                                                 <th>kategori</th>
-                                                <th data-hide="phone">Alamat</th>
+                                                <th data-hide="all">Alamat</th>
                                                 <th data-hide="phone">No IP</th>
                                                 <th data-hide="all">No IU</th>
                                                 <th data-hide="all">No Perusahaan</th>
@@ -80,11 +80,11 @@
                                                 <th data-hide="all">Ekspor</th>                                           
                                                 <th data-hide="phone">Negara</th>
                                                 <th data-hide="phone,tablet">Lokasi</th>
-                                                <th data-hide="phone,tablet">NPWP</th>
+                                                <th data-hide="all">NPWP</th>
                                                 <th data-hide="phone,tablet">Bidang Usaha</th>
                                                 <th data-hide="all">Lain-lain</th>
                                                 <th data-hide="all">Tahun</th>
-                                                <th width="20%">Config</th>
+                                                <th width="25%">Config</th>
         </tr>
       </thead>
       <tbody>
@@ -132,7 +132,7 @@
                                             }
                                             ?>
        
-			?>
+			
       </tbody>
       <tfoot class="footable-pagination">
         <tr>

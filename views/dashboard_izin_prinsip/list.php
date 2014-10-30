@@ -12,7 +12,7 @@ $(function () {
 								$year = date("Y") - 4;
                                 for($y=$year; $y<=date("Y"); $y++){
 							
-								if($i == '1'){
+								if($y == '1'){
 									echo $y;
 									
 									?>
@@ -117,7 +117,7 @@ $(function () {
 						$total_rupiah = $total_investasi2->investasi_dollar + $total_rupiah;
 					}
 						$total_rupiah = $total_rupiah / 1000000000000;
-					if($i == '1'){
+					if($y == '1'){
 						echo $total_rupiah;
 					}else{
 						echo $total_rupiah.",";

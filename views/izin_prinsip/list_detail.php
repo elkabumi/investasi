@@ -94,7 +94,20 @@
                                             ?>
                                             <tr>
                                             	<td><?= $no ?></td>
-                                             	<td><?= $row['master_ip_type_name']?></td>
+                                             	<td><?php
+                                                
+												if($row['master_type_id'] == 1){
+													if($row['master_category_id'] == 6){
+														$kategori = "IP (".$row['master_ip_type_name'].")";
+													}else{
+														$kategori = "Izin Usaha";
+													}
+												}else{
+													$kategori = "Realisasi ".$row['master_sub_category_name'];
+												}
+												echo $kategori;
+												
+												?></td>
                                                 <td><?= $row['nama_perusahaan']?></td>
                                                 <td><?= $row['alamat']?></td>
                                                 <td><?= $row['no_ip']?></td>
