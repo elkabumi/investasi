@@ -5,7 +5,7 @@ include '../models/dashboard_izin_prinsip_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 7;
 $title = "Dashboard Izin Prinsip";
 
 switch ($page) {

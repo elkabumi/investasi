@@ -5,7 +5,7 @@ include '../models/dashboard_kinerja_investasi_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 7;
 $title = "Dashboard Kinerja Investasi";
 
 switch ($page) {

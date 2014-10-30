@@ -370,11 +370,13 @@ $(function () {
 		  $persen = $persen - 100;
 		  $persen = number_format($persen, 2);
 		  echo "meningkat <span style='color:#F00'> + ".$persen." %</span>";
-	  }else{
+	  }else if($total1 < $total2){
 		  $persen = ($total2 / $total1) * 100;
 		  $persen = $persen - 100;
 		   $persen = number_format($persen, 2);
 		  echo "menurun <span style='color:#F00'> - ".$persen." %</span>";
+	  }else{
+		  echo "Sama <span style='color:#F00'>0%</span>";
 	  }
 	  ?>
         </strong></td>

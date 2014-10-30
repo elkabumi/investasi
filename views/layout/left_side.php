@@ -43,10 +43,10 @@
                              	
                             </ul>
                   </li>
-                   <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "class='active'"; }?>">
+                   <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 8){ echo "class='active'"; }?>>
                             <a href="config.php">
                                 <i class="fa fa-user"></i>
-                                <span>config</span>
+                                <span>Config</span>
                                
                             </a>
                             

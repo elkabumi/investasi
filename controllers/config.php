@@ -6,7 +6,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "form";
 $title = ucfirst("harga");
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 8;
 
 switch ($page) {
 	

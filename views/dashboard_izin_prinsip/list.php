@@ -165,7 +165,7 @@ $(function () {
                 depth: 35,
                 dataLabels: {
                     enabled: true,
-                    format: '{point.name}'
+                     format: '<b>{point.name}</b>: {point.percentage:.1f} %',
                 },
 				showInLegend: true
             }
