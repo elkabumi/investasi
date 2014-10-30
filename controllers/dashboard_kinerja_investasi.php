@@ -18,7 +18,7 @@ switch ($page) {
 		}else{
 			$year = date('Y');
 		}
-			ECHO $year;
+			
 		include '../views/dashboard_kinerja_investasi/list.php';
 		
 		get_footer();

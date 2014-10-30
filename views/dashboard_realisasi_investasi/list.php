@@ -10,9 +10,9 @@ $(function () {
             xAxis: {
                 categories: [
 				<?php
-				$year = date("Y") - 4;
-				for($y=$year; $y<=date("Y"); $y++){
-					echo "'".$y."'"; if($y!=date("Y")){ echo ","; }
+				$year = $year_default - 4;
+				for($y=$year; $y<=$year_default; $y++){
+					echo "'".$y."'"; if($y!=$year_default){ echo ","; }
 				}
 				?>
 				]
@@ -64,11 +64,11 @@ $(function () {
                 name: 'Non Fas',
                 data: [
 					<?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						$data = get_data(3, $y);
 						echo $data;
-						if($y!=date("Y")){ echo ","; }
+						if($y!=$year_default){ echo ","; }
 					}
 					?>
 				],
@@ -77,11 +77,11 @@ $(function () {
                 name: 'PMDN',
                 data: [
 				<?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						$data = get_data(2, $y);
 						echo $data;
-						if($y!=date("Y")){ echo ","; }
+						if($y!=$year_default){ echo ","; }
 					}
 					?>
 				],
@@ -90,11 +90,11 @@ $(function () {
                 name: 'PMA',
                 data: [
 				<?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						$data = get_data_dollar(1, $y);
 						echo $data;
-						if($y!=date("Y")){ echo ","; }
+						if($y!=$year_default){ echo ","; }
 					}
 					?>
 				],
@@ -118,7 +118,7 @@ $(function () {
             }
         },
         title: {
-            text: 'Tahun <?= date("Y") - 1; ?>'
+            text: 'Tahun <?= $year_default - 1; ?>'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -143,8 +143,8 @@ $(function () {
 				{
                     name: 'Non Fas',
                     y: <?php
-						$year_last = date("Y") - 1;
-						$data_non_fas = 10;//get_data(3, $year_last);
+						$year_last = $year_default - 1;
+						$data_non_fas = get_data(3, $year_last);
 						
 						echo $data_non_fas;
 					
@@ -157,7 +157,7 @@ $(function () {
                     y:
 				<?php
 						
-						$data_pmdn = 20;//get_data(2, $year_last);					
+						$data_pmdn = get_data(2, $year_last);					
 						
 						echo $data_pmdn;
 					
@@ -167,7 +167,7 @@ $(function () {
                {
                     name: 'PMA',
                     y: <?php
-						$data_pma = 10;//get_data(1, $year_last);						
+						$data_pma = get_data_dollar(1, $year_last);						
 						
 						echo $data_pma;
 				
@@ -193,7 +193,7 @@ $(function () {
             }
         },
         title: {
-            text: 'Tahun <?= date("Y"); ?>'
+            text: 'Tahun <?= $year_default; ?>'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -217,7 +217,7 @@ $(function () {
 				{
                     name: 'Non Fas',
                     y: <?php
-						$year_now = date("Y");
+						$year_now = $year_default;
 						$data_non_fas = get_data(3, $year_now);
 						
 						echo $data_non_fas;
@@ -270,6 +270,68 @@ $(function () {
                 
                 
   <section class="content">
+  <div class="row">
+                      
+                        <!-- right column -->
+                        <div class="col-md-12">
+                            <!-- general form elements disabled -->
+
+                          
+                          
+
+                             <form role="form" action="<?= $action?>" method="post">
+
+                            <div class="box box-primary">
+                                
+                               
+                                <div class="box-body">
+                                    	
+                   
+                                       
+                                     <div class="col-md-12">
+                                          <form role="form" action="<?= $action?>" method="post">
+											<div class="form-group">
+												<label>Tahun</label>
+												<select id="basic" name="i_year" class="selectpicker show-tick form-control" data-live-search="true">
+											   
+												   <?php
+												$year_select = $year_default - 4;
+												
+                   								for($y=date("Y"); $y>=$year_select; $y--){
+													$y2=$y-1;
+												?>
+												
+												 <option value="<?php echo $y;?>" <?php if($y == $year_default){?> selected="selected"<?php } ?>><?php echo $y2." vs ".$y;?></option>
+												<?php
+												}
+												?>
+												  
+												</select>
+                                              
+											  	</div>
+                                              </form>
+										  </div>     
+                                          
+                              
+                                              
+                                              <div style="clear:both;"></div>
+
+                                       
+                                      
+                                   
+                                </div><!-- /.box-body -->
+                             
+                    <div class="box-footer">
+                                <input class="btn btn-cokelat" type="submit" value="Preview"/>
+                                </div>
+                  
+                            
+                            </div><!-- /.box -->
+                             
+                            
+                       </form>
+                        </div><!--/.col (right) -->
+                    </div>   <!-- /.row -->
                     <div class="row">
                     
                   
@@ -291,14 +353,14 @@ $(function () {
     </tr>
     <tr>
       <td><strong>Tahun 
-        <?= date("Y") ?> vs <?= date("Y") - 1; ?>
+        <?= $year_default ?> vs <?= $year_default - 1; ?>
       </strong></td>
     </tr>
     <tr>
       <td >
         <strong>
         <?php
-      $year1 = date("Y");
+      $year1 = $year_default;
 	  $year2 = $year1 - 1;
 	  $total1 = (get_data_total($year1) == 0) ? 1 : get_data_total($year1);
 	  $total2 = (get_data_total($year2) == 0) ? 1 : get_data_total($year2);
@@ -331,8 +393,8 @@ $(function () {
     <td>TAHUN</td>
     
     				<?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						
 						echo "<td align='center'>".$y."</td>";
 						
@@ -344,8 +406,8 @@ $(function () {
     <td style="background-color:#FFFF00">Non Fas</td>
     
     				<?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						$data = get_data(3, $y);
 						echo "<td align='center'>".$data."</td>";
 						
@@ -355,8 +417,8 @@ $(function () {
   <tr>
     <td style="background-color:#FF99CC">PMDN</td>
    <?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						$data = get_data(2, $y);
 						echo "<td align='center'>".$data."</td>";
 						
@@ -366,8 +428,8 @@ $(function () {
   <tr>
     <td style="background-color:#993333">PMA</td>
    <?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						$data = get_data_dollar(1, $y);
 						echo "<td align='center'>".$data."</td>";
 					}
@@ -376,8 +438,8 @@ $(function () {
   <tr>
     <td><b>TOTAL</b></td>
    <?php
-					$year = date("Y") - 4;
-					for($y=$year; $y<=date("Y"); $y++){
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
 						$data = get_data_total($y);
 						echo "<td align='center'><b>".$data."</b></td>";
 					}
