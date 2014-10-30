@@ -349,7 +349,7 @@ $(function () {
 								}
                               $persen = number_format($persen, 2);
                               echo "meningkat <span style='color:#F00'> + ".$persen." %</span>";
-                          }else{
+                          }else if($total1 < $total2){
                               $persen = ($total2 / $total1) * 100;
                               $persen = $persen - 100;
 							   if($asli_total1  == '0' and $persen != '0'){
@@ -357,7 +357,9 @@ $(function () {
 								  }
                               $persen = number_format($persen, 2);
                               echo "menurun <span style='color:#F00'> - ".$persen." %</span>";
-                          }
+                          }else{
+						  		echo "sama <span style='color:#F00'>0%</span>";
+						  }
                           ?>
                             </strong></td>
                         </tr>
