@@ -70,7 +70,7 @@
                                         $query_city = mysql_query("select * from cities");
                                         while($row_city = mysql_fetch_array($query_city)){
                                         ?>
-                                         <option value="<?= $row_city['city_id']?>" <?php if($row_city['city_id'] == $row->city_id){ ?> selected="selected"<?php }?>><?= $row_city['city_name'] ?></option>
+                                         <option value="<?= $row_city['city_id']?>" <?php if($row_city['city_id'] == $i_city_id){ ?> selected="selected"<?php }?>><?= $row_city['city_name'] ?></option>
                                         <?php
                                         }
                                         ?>

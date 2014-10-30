@@ -57,7 +57,7 @@
 										$no=1;
 										while($row=mysql_fetch_array($query)){
 										?>
-									 	<tr bgcolor="#eee">
+									 	<tr>
                                          <td><?=$no;?></td>
                                         <td><?=$row['city_name']?></td>
                                        <?

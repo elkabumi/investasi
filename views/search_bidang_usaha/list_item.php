@@ -58,13 +58,21 @@
                                                 for($i_bulan_th = 1; $i_bulan_th <= 3; $i_bulan_th++){
 												?>
                                              <th>P</th>
-                                              <th>Investasi</th>
+                                              <th><?php if($i_master_sub_category_id == '1'){
+												  $mata_uang = '$';
+												  }else{
+												  $mata_uang = 'Rp';}
+												  ?>Investasi <?=$mata_uang?></th>
                                               <th>TK </th>
                                               <?php
 												}
 											  ?>
                                               <th>P</th>
-                                              <th>Investasi</th>
+                                              <th><?php if($i_master_sub_category_id == '1'){
+												  $mata_uang = '$';
+												  }else{
+												  $mata_uang = 'Rp';}
+												  ?>Investasi <?=$mata_uang?></th>
                                               <th>TK</th>
                                                 
                                             </tr>

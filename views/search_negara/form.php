@@ -70,7 +70,7 @@
                                         $query_country = mysql_query("select * from countries");
                                         while($row_country = mysql_fetch_array($query_country)){
                                         ?>
-                                         <option value="<?= $row_country['country_id']?>" <?php if($row_country['country_id'] == $row->country_id){ ?> selected="selected"<?php }?>><?= $row_country['country_name'] ?></option>
+                                         <option value="<?= $row_country['country_id']?>" <?php if($row_country['country_id'] == $i_country_id){ ?> selected="selected"<?php }?>><?= $row_country['country_name'] ?></option>
                                         <?php
                                         }
                                         ?>

@@ -6,7 +6,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Data Investasi Berdasarkan Asal negara");
 
-$_SESSION['menu_active'] = 3;
+$_SESSION['menu_active'] = 5;
 
 switch ($page) {
 	
@@ -17,9 +17,10 @@ switch ($page) {
 		
 		$action = "search_Negara.php?page=form_result&preview=1";
 		
-			$i_master_category_id = false;
-			$i_semester = false;
+			$i_master_sub_category_id = false;
+			$i_triwulan = false;
 			$i_master_year = false;
+			$i_country_id = false;
 		
 		if(isset($_GET['preview'])){
 			$i_country_id = get_isset($_GET['country_id']);
