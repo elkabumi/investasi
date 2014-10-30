@@ -3,7 +3,7 @@
 $title = array(
 		$nama_category,
 		"Jumlah Data",
-		"Total Investasi",
+		"Total Investasi (Trilyun)",
 		"Total Tenaga Kerja"
 		);
 $content = array($tanggal, $jumlah_data, $jumlah_investasi, $jumlah_tenaga_kerja);

@@ -44,10 +44,11 @@
                                             	<td><?= $no ?></td>
                                                 <td><?php
 													if($row['master_type_id'] == 2){
-													echo "Realisasi ";
+													echo "Realisasi ".$row['master_sub_category_name'];
 													}
+													
+												if($row['master_category_id'] == 6 && $row['master_type_id'] == 1){
 													echo $row['master_category_name'];
-												if($row['master_category_id'] == 6){
 													echo " ( ".$row['master_ip_type_name']." )";
 												} ?></td>
                                              	<td><?= $row['nama_perusahaan']?></td>
