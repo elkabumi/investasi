@@ -103,7 +103,7 @@
                               if($total1 > $total2){
                                   $persen = ($total1 / $total2) * 100;
                                   $persen = $persen - 100;
-								  if($asli_total2  == '0'){
+								  if($asli_total2  == '0' and $persen != '0'){
 								  	$persen = $persen + 100 ;
 								  }
                                   $persen = number_format($persen, 2);
@@ -112,7 +112,7 @@
                               }else{
                                   $persen = ($total2 / $total1) * 100;
                                   $persen = $persen - 100;
-								  if($asli_total1  == '0'){
+								  if($asli_total1  == '0' and $persen != '0'){
 								  	$persen = $persen + 100 ;
 								  }
                                    $persen = number_format($persen, 2);
@@ -230,7 +230,7 @@
                               if($total1 > $total2){
                                   $persen = ($total1 / $total2) * 100;
                                   $persen = $persen - 100;
-								  if($asli_total2  == '0'){
+								  if($asli_total2  == '0' and $persen != '0'){
 								  	$persen = $persen + 100 ;
 								  }
                                   $persen = number_format($persen, 2);
@@ -238,7 +238,7 @@
                               }else{
                                   $persen = ($total2 / $total1) * 100;
                                   $persen = $persen - 100;
-								   if($asli_total1  == '0'){
+								   if($asli_total1  == '0' and $persen != '0'){
 								  	$persen = $persen + 100 ;
 								  }
                                    $persen = number_format($persen, 2);
