@@ -14,12 +14,31 @@ switch ($page) {
 
 		
 		
+		$action = "dashboard_izin_prinsip.php?page=form_result&preview=1";
 		
-		$add_button = "izin_prinsip.php?page=form";
-
+		if(isset($_GET['preview'])){
+			$year = $_GET['year'];
+		}else{
+			$year = date('Y');
+		}
+		
 
 		include '../views/dashboard_izin_prinsip/list.php';
 		get_footer();
+		
+		
+	break;
+	
+	case 'form_result':
+	
+		if(isset($_GET['preview'])){
+			
+			extract($_POST);
+			$year = (isset($_POST['i_year'])) ? $_POST['i_year'] : null;
+			echo $year;
+		}
+		
+		header("Location: dashboard_izin_prinsip.php?page=list&preview=1&year=$year");
 	break;
 }
 

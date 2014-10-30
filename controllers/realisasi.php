@@ -143,7 +143,7 @@ switch ($page) {
 				$data2="'$i_investasi','0'";
 				$data3="'0'";
 		}else {
-			if($i_investasi_dollar > 0 and $i_investasi <='0' ){
+		if($i_investasi_dollar > 0 and $i_investasi <='0' ){
 				$master_dollar =  get_config_dollar();
 				$data2="'0','$i_investasi_dollar'";
 				$data3="'$master_dollar'";	
@@ -220,14 +220,14 @@ case 'edit':
 			$image = $path.$i_master_date."_".$_FILES['i_master_img']['name'];
 			move_uploaded_file($_FILES['i_master_img']['tmp_name'], $image);
 			if($master_category_id == '1'){
-					$i_master_dollar = get_isset($i_master_dollar);
+				$i_master_dollar = get_isset($i_master_dollar);
 			
-					$data2 = "investasi = '',
-						investasi_dollar= '$i_investasi',
+				$data2 = "investasi = '',
+						investasi_dollar= '$i_investasi_dollar',
 						master_config_dollar ='$i_master_dollar'
 				";
 			}else if($master_category_id == '2'){
-					$data2 = "investasi = '$i_investasi',
+				$data2 = "investasi = '$i_investasi',
 							investasi_dollar= '',
 							master_config_dollar ='0'";
 				
@@ -236,7 +236,7 @@ case 'edit':
 			if($i_investasi_dollar > 0 and $i_investasi <='0' ){
 				$master_dollar =  get_config_dollar();
 					$data2 = "investasi = '',
-						investasi_dollar= '$i_investasi',
+						investasi_dollar= '$i_investasi_dollar',
 						master_config_dollar ='$i_master_dollar'
 				";
 			}else if($i_investasi > 0 and $i_investasi_dollar <= '0' ){
@@ -276,11 +276,11 @@ case 'edit':
 			
 		
 		}else{
-						if($master_category_id == '1'){
+					if($master_category_id == '1'){
 					$i_master_dollar = get_isset($i_master_dollar);
 			
 					$data2 = "investasi = '',
-						investasi_dollar= '$i_investasi',
+						investasi_dollar= '$i_investasi_dollar',
 						master_config_dollar ='$i_master_dollar'
 				";
 			}else if($master_category_id == '2'){
@@ -293,7 +293,7 @@ case 'edit':
 			if($i_investasi_dollar > 0 and $i_investasi <='0' ){
 				$master_dollar =  get_config_dollar();
 					$data2 = "investasi = '',
-						investasi_dollar= '$i_investasi',
+						investasi_dollar= '$i_investasi_dollar',
 						master_config_dollar ='$i_master_dollar'
 				";
 			}else if($i_investasi > 0 and $i_investasi_dollar <= '0' ){

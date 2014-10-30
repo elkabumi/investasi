@@ -9,8 +9,8 @@ $(function () {
             },
             xAxis: {
                 categories: [<?php
-								$year = date("Y") - 4;
-                                for($y=$year; $y<=date("Y"); $y++){
+								$year_1 = $year - 4;
+                                for($y=$year_1; $y<=$year; $y++){
 							
 								if($y == '1'){
 									echo $y;
@@ -73,23 +73,23 @@ $(function () {
                 name: 'PMDN',
 				
                 data: [	<?php
-					$year = date("Y") - 4;
-                     for($y=$year; $y<=date("Y"); $y++){
-					$query=mysql_query("SELECT SUM(investasi) as total from master 
+					$year_2 = $year - 4;
+                     for($y=$year_2; $y<=$year; $y++){
+						$query=mysql_query("SELECT SUM(investasi) as total from master 
 											where master_category_id = '6' 
 											and master_type_id='1'
 											and master_sub_category_id ='2' 
 											and master_year = '$y'");
-					$total_investasi = mysql_fetch_object($query);
+						$total_investasi = mysql_fetch_object($query);
 					
-					if($total_investasi->total == ''){
-						$total_investasi->total = '0';
-					}
-					$total_investasi->total = $total_investasi->total / 1000000000000;
-					if($y == '1'){
-						echo $total_investasi->total;
-					}else{
-						echo $total_investasi->total.",";
+						if($total_investasi->total == ''){
+							$total_investasi->total = '0';
+						}
+						$total_investasi->total = $total_investasi->total / 1000000000000;
+						if($y == '1'){
+							echo $total_investasi->total;
+						}else{
+							echo $total_investasi->total.",";
 					}
 				 }  
 				 ?>
@@ -99,15 +99,15 @@ $(function () {
             }, {
                 name: 'PMA',
                 data: [<?php
-				$year = date("Y") - 4;
-                for($y=$year; $y<=date("Y"); $y++){
+				$year_3 = $year - 4;
+                for($y=$year_3; $y<=$year; $y++){
 					$total_rupiah= '0';
 					$query2=mysql_query("SELECT * from master
-											 where master_category_id = '6'
+										where master_category_id = '6'
 											  
-											  and master_type_id='1'
-											   and master_sub_category_id ='1' 
-											   and master_year = '$y'");
+										and master_type_id='1'
+										and master_sub_category_id ='1' 
+										and master_year = '$y'");
 					while($total_investasi2 = mysql_fetch_object($query2)){
 						if($total_investasi2->investasi_dollar == ''){
 							$total_investasi2->investasi_dollar = '0';
@@ -132,17 +132,18 @@ $(function () {
     
 
 		</script>
-
-  <?php
-  for($i=1; $i>=0; $i--){
-	  $j=$i+1;
-	  $year = date('Y') - $i;
-	 ?>
+<?php
+  
+  
+  for($i=2; $i>=1; $i--){
+	  	$j=$i - 1;
+		$year_4 = $year - $j;  
+?>
 
  
 <script type="text/javascript">
 $(function () {
-    $('#container<?php echo $j ?>').highcharts({
+    $('#container<?php echo $i ?>').highcharts({
         chart: {
             type: 'pie',
             options3d: {
@@ -152,7 +153,7 @@ $(function () {
             }
         },
         title: {
-            text: 'Tahun <?=$year?>'
+            text: 'Tahun <?=$year_4?>'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -176,7 +177,7 @@ $(function () {
 				$total_data ='0';
 				$total_pma ='0';
 				$total_pmdn ='0';
-				$q=mysql_query("SELECT * from master where  master_category_id ='6' and master_type_id='1'  and master_year = '$year'");			
+				$q=mysql_query("SELECT * from master where  master_category_id ='6' and master_type_id='1'  and master_year = '$year_4'");			
 					
 				while($total_all_invest=mysql_fetch_object($q)){
 						
@@ -243,6 +244,68 @@ $(function () {
                 
                 
   <section class="content">
+  
+   <div class="row">
+                      
+                        <!-- right column -->
+                        <div class="col-md-12">
+                            <!-- general form elements disabled -->
+
+                          
+                          
+
+                             <form role="form" action="<?= $action?>" method="post">
+
+                            <div class="box box-primary">
+                                
+                               
+                                <div class="box-body">
+                                    	
+                   
+                                       
+                                     <div class="col-md-12">
+                                          <form role="form" action="<?= $action?>" method="post">
+											<div class="form-group">
+												<label>Tahun</label>
+												<select id="basic" name="i_year" class="selectpicker show-tick form-control" data-live-search="true">
+											   
+												   <?php
+												$year_select = date("Y") - 4;
+												
+                   								for($y=date("Y"); $y>=$year_select; $y--){
+													$y2=$y-1;
+												?>
+												
+												 <option value="<?php echo $y;?>" <?php if($y == $year){?> selected="selected"<?php } ?>><?php echo $y2." vs ".$y;?></option>
+												<?php
+												}
+												?>
+												  
+												</select>
+											  	</div>
+                                              </form>
+										  </div>     
+                                          
+                              
+                                              
+                                              <div style="clear:both;"></div>
+
+                                       
+                                      
+                                   
+                                </div><!-- /.box-body -->
+                             
+                    <div class="box-footer">
+                                <input class="btn btn-cokelat" type="submit" value="Preview"/>
+                                </div>
+                  
+                            
+                            </div><!-- /.box -->
+                             
+                            
+                       </form>
+                        </div><!--/.col (right) -->
+                    </div>   <!-- /.row -->
            <div class="row">
                     
                   
@@ -264,17 +327,17 @@ $(function () {
                         </tr>
                         <tr>
                           <td><strong>Tahun 
-                            <?= date("Y") ?> vs <?= date("Y") - 1; ?>
+                            <?= $year ?> vs <?= $year-1; ?>
                           </strong></td>
                         </tr>
                         <tr>
                           <td >
                             <strong>
                             <?php
-                          $year1 = date("Y");
-                          $year2 = $year1 - 1;
+                          $year1 =$year;
+                          $year2 = $year - 1;
 						  $asli_total1 = get_data_total($year1);
-						 $asli_total2 = get_data_total($year2);
+						  $asli_total2 = get_data_total($year2);
                           $total1 = (get_data_total($year1) == 0) ? 1: get_data_total($year1);
                           $total2 = (get_data_total($year2) == 0) ? 1 : get_data_total($year2);
                          
@@ -312,8 +375,8 @@ $(function () {
                         <td>TAHUN</td>
                         
                                         <?php
-                                        $year = date("Y") - 4;
-                                        for($y=$year; $y<=date("Y"); $y++){
+                                        $year_5 = $year - 4;
+                                        for($y=$year_5 ; $y<=$year; $y++){
                                             
                                             echo "<td align='center'>".$y."</td>";
                                             
@@ -324,8 +387,8 @@ $(function () {
                       <tr>
                         <td style="background-color:#FF99CC">PMDN</td>
                        <?php
-                                        $year = date("Y") - 4;
-                                        for($y=$year; $y<=date("Y"); $y++){
+                                        $year_5 = $year - 4;
+                                       	for($y=$year_5 ; $y<=$year; $y++){
                                             $data = get_data($y);
                                             echo "<td align='center'>".$data."</td>";
                                             
@@ -335,8 +398,8 @@ $(function () {
                       <tr>
                         <td style="background-color:#993333">PMA</td>
                        <?php
-                                        $year = date("Y") - 4;
-                                        for($y=$year; $y<=date("Y"); $y++){
+                                        $year_5 = $year - 4;
+                                       	for($y=$year_5 ; $y<=$year; $y++){
                                             $data = get_data_dollar($y);
                                             echo "<td align='center'>".$data."</td>";
                                         }
@@ -345,8 +408,8 @@ $(function () {
                       <tr>
                         <td><b>TOTAL</b></td>
                        <?php
-                                        $year = date("Y") - 4;
-                                        for($y=$year; $y<=date("Y"); $y++){
+                                         $year_5 = $year - 4;
+                                       	for($y=$year_5 ; $y<=$year; $y++){
                                             $data = get_data_total($y);
                                             echo "<td align='center'><b>".$data."</b></td>";
                                         }
