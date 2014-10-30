@@ -119,7 +119,7 @@
 								   
                                   echo "menurun <span style='color:#F00'> - ".$persen." %</span>";
                              }else{
-						  		 echo "sama <span style='color:#F00'>0.00%</span>";
+						  		 echo "sama <span style='color:#F00'>0%</span>";
 						  	 }
                               ?>
                               dibanding Tahun  <?= $year - 1; ?> (Rp.<?=$asli_total2?>) Trilyun
@@ -246,7 +246,7 @@
                                    $persen = number_format($persen, 2);
                                   echo "menurun <span style='color:#F00'> - ".$persen." %</span>";
                             }else{
-						  		 echo "sama <span style='color:#F00'>0.00%</span>";
+						  		 echo "sama <span style='color:#F00'>0%</span>";
 						  	 }
                               ?>
                               dibanding Tahun   <?= $year - 1; ?>  (Rp.<?=$asli_total2?>) Trilyun
