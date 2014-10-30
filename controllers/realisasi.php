@@ -120,7 +120,7 @@ switch ($page) {
 		$row_id = get_isset($row_id);
 		$i_keterangan = get_isset($i_keterangan);
 		$i_user_id = get_isset($_SESSION['user_id']);
-		$i_master_year = date('Y');
+		$i_master_year =get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
 		$i_master_img = get_isset($_FILES['i_master_img']['name']);
 		$i_tk_laki = get_isset($i_tk_laki);
