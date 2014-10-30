@@ -120,7 +120,7 @@ switch ($page) {
 		$row_id = get_isset($row_id);
 		$i_keterangan = get_isset($i_keterangan);
 		$i_user_id = get_isset($_SESSION['user_id']);
-		$i_master_year = date('Y');
+		$i_master_year =get_isset($i_master_year);
 		$i_master_date = date("Y-m-d");
 		$i_master_img = get_isset($_FILES['i_master_img']['name']);
 		$i_tk_laki = get_isset($i_tk_laki);
@@ -135,11 +135,11 @@ switch ($page) {
 		}else{
 			$image = "";
 		}
-		if($master_category_id == '1'){
+		if($master_category_id == '1' ){
 			$master_dollar =  get_config_dollar();
 				$data2="'0','$i_investasi_dollar'";
 				$data3="'$master_dollar'";
-		}else if($master_category_id == '2'){
+		}else if($master_category_id == '2' or $master_category_id == '3'){
 				$data2="'$i_investasi','0'";
 				$data3="'0'";
 		}else {
@@ -226,7 +226,7 @@ case 'edit':
 						investasi_dollar= '$i_investasi_dollar',
 						master_config_dollar ='$i_master_dollar'
 				";
-			}else if($master_category_id == '2'){
+			}else if($master_category_id == '2' or $master_category_id == '3'){
 				$data2 = "investasi = '$i_investasi',
 							investasi_dollar= '',
 							master_config_dollar ='0'";
@@ -276,14 +276,14 @@ case 'edit':
 			
 		
 		}else{
-					if($master_category_id == '1'){
+			if($master_category_id == '1'){
 					$i_master_dollar = get_isset($i_master_dollar);
 			
 					$data2 = "investasi = '',
 						investasi_dollar= '$i_investasi_dollar',
 						master_config_dollar ='$i_master_dollar'
 				";
-			}else if($master_category_id == '2'){
+			}else if($master_category_id == '2' or $master_category_id == '3'){
 					$data2 = "investasi = '$i_investasi',
 							investasi_dollar= '',
 							master_config_dollar ='0'";

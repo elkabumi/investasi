@@ -105,7 +105,7 @@
                                      
 										 <input  type="hidden" class="form-control"  name="i_investasi"  id="i_investasi" value="<?= $row->investasi ?>">
 											
-                                        <?php }else  if($master_category_id == '2'){ ?>
+                                        <?php }else  if($master_category_id == '2' or $master_category_id == '3' ){ ?>
                                        
                                         <div class="form-group">
                                        <label>Investasi (Rupiah)</label>
