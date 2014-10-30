@@ -214,8 +214,7 @@ $(function () {
 			{
                     name: 'PMDN',
                     y: <?=$total_result_pmdn ?>,
-                    sliced: true,
-                    selected: true,
+                   
 					color: '#f9c'
                 },
                 {name:'PMA'
