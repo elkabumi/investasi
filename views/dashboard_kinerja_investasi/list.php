@@ -92,7 +92,7 @@
 								  $total1 = (get_data_total(1,$year1) == 0) ? 1 : get_data_total(1,$year1);
 								  $total2 = (get_data_total(1,$year2) == 0) ? 1 : get_data_total(1,$year2);
                              ?>
-                             <td><strong>Total Realisasi Investasi Tahun <?= $year?> sebesar  Rp.<?=$asli_total1?>  </strong>
+                             <td><strong>Total Realisasi Investasi Tahun <?= $year?> sebesar  Rp.<?=$asli_total1?>  Trilyun </strong>
                            
 								
                             </td>
@@ -120,7 +120,7 @@
                                   echo "menurun <span style='color:#F00'> - ".$persen." %</span>";
                               }
                               ?>
-                              dibanding Tahun  <?= $year - 1; ?> (Rp.<?=$asli_total2?>)
+                              dibanding Tahun  <?= $year - 1; ?> (Rp.<?=$asli_total2?>) Trilyun
                                 
                               </strong></td>
                             </tr>
@@ -219,7 +219,7 @@
 								  $total1 = (get_data_total(2,$year1) == 0) ? 1 : get_data_total(2,$year1);
 								  $total2 = (get_data_total(2,$year2) == 0) ? 1: get_data_total(2,$year2);
                              ?>
-                             <td><strong>Total Nilai Izin Prinsip Investasi Tahun <?= $year?>  sebesar  Rp.<?=$asli_total1?>  </strong>
+                             <td><strong>Total Nilai Izin Prinsip Investasi Tahun <?= $year?>  sebesar  Rp.<?=$asli_total1?> Trilyun </strong>
                            
 								
                             </td>
@@ -245,7 +245,7 @@
                                   echo "menurun <span style='color:#F00'> - ".$persen." %</span>";
                               }
                               ?>
-                              dibanding Tahun   <?= $year - 1; ?>  (Rp.<?=$asli_total2?>)
+                              dibanding Tahun   <?= $year - 1; ?>  (Rp.<?=$asli_total2?>) Trilyun
                                 
                               </strong></td>
                             </tr>
