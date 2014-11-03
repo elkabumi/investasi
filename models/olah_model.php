@@ -54,6 +54,21 @@ $query = mysql_query("select a.*, d.business_type_name, e.country_name, f.city_n
 }
 
 
+function get_master_category($i_master_category_id){
+
+	$query = mysql_query("select master_category_name from master_categories where master_category_id = '$i_master_category_id'
+						");
+	$result = mysql_fetch_object($query);
+	
+	if($i_master_category_id < 6){
+		$hasil = "Realisasi ".$result->master_category_name;
+	}else{
+		$hasil = $result->master_category_name;
+	}
+	return $hasil;
+	
+}
+
 
 
 ?>

@@ -254,6 +254,96 @@ $(function () {
     });
 });
 		</script>
+        
+        	<script type="text/javascript">
+$(function () {
+        $('#container4').highcharts({
+            title: {
+                text: 'Grafik Realisasi investasi ',
+                x: -20 //center
+            },
+            subtitle: {
+                text: '',
+                x: -20
+            },
+            xAxis: {
+                categories: [<?php
+				$year = $year_default - 4;
+				for($y=$year; $y<=$year_default; $y++){
+					echo "'".$y."'"; if($y!=$year_default){ echo ","; }
+				}
+				?>
+				]
+            },
+            yAxis: {
+                title: {
+                    text: 'Trilyun Rupiah'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '°C'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Non Fas',
+                data: [
+				<?php
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
+						$data = get_data(3, $y);
+						echo $data;
+						if($y!=$year_default){ echo ","; }
+					}
+					?>
+				],
+					color: '#FFFF00',
+            }, {
+                name: 'PMDN',
+                data: [<?php
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
+						$data = get_data(2, $y);
+						echo $data;
+						if($y!=$year_default){ echo ","; }
+					}
+					?>
+					],
+				color: '#f9c',
+            }, {
+                name: 'PMA',
+                data: [<?php
+					$year = $year_default - 4;
+					for($y=$year; $y<=$year_default; $y++){
+						$data = get_data_dollar(1, $y);
+						echo $data;
+						if($y!=$year_default){ echo ","; }
+					}
+					?>],
+				color: '#933'
+            }]
+        });
+    });
+    
+
+		</script>
+        
+        
+        
+        
+        
+        
+        
+        
  <section class="content-header">
                     <h1>
                        <?= $title?>
@@ -270,70 +360,65 @@ $(function () {
                 
                 
   <section class="content">
-  <div class="row">
+	<div class="row">
+                      
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- general form elements disabled -->
+				<form role="form" action="<?= $action?>" method="post">
+					<div class="box box-primary">
+                        <div class="box-body">
+                            <div class="col-md-12">
+									<div class="form-group">
+										<label>Tahun</label>
+										<select id="basic" name="i_year" class="selectpicker show-tick form-control" data-live-search="true">
+											   
+										<?php
+											$year_select = $year_default - 4;
+												
+                   							for($y=date("Y"); $y>=$year_select; $y--){
+												$y2=$y-1;
+										?>
+												
+											<option value="<?php echo $y;?>" <?php if($y == $year_default){?> selected="selected"<?php } ?>><?php echo $y2." vs ".$y;?></option>
+										<?php
+											}
+										?>
+												  
+										</select>
+                                              
+									</div>
+                                   </div>
+                            <div style="clear:both;"></div>
+						</div>
+					
+                    <div class="box-footer">
+                        <input class="btn btn-cokelat" type="submit" value="Preview"/>
+                    </div>
+				</div>
+			   </form>
+        </div><!--/.col (right) -->
+	</div>   <!-- /.row -->
+
+
+
+<div class="row">
                       
                         <!-- right column -->
                         <div class="col-md-12">
                             <!-- general form elements disabled -->
-
+ <div class="box box-danger">
                           
-                          
+            <div id="container4" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
-                             <form role="form" action="<?= $action?>" method="post">
-
-                            <div class="box box-primary">
-                                
-                               
-                                <div class="box-body">
-                                    	
-                   
-                                       
-                                     <div class="col-md-12">
-                                          <form role="form" action="<?= $action?>" method="post">
-											<div class="form-group">
-												<label>Tahun</label>
-												<select id="basic" name="i_year" class="selectpicker show-tick form-control" data-live-search="true">
-											   
-												   <?php
-												$year_select = $year_default - 4;
-												
-                   								for($y=date("Y"); $y>=$year_select; $y--){
-													$y2=$y-1;
-												?>
-												
-												 <option value="<?php echo $y;?>" <?php if($y == $year_default){?> selected="selected"<?php } ?>><?php echo $y2." vs ".$y;?></option>
-												<?php
-												}
-												?>
-												  
-												</select>
-                                              
-											  	</div>
-                                              </form>
-										  </div>     
-                                          
-                              
-                                              
-                                              <div style="clear:both;"></div>
-
-                                       
-                                      
-                                   
-                                </div><!-- /.box-body -->
-                             
-                    <div class="box-footer">
-                                <input class="btn btn-cokelat" type="submit" value="Preview"/>
-                                </div>
-                  
-                            
-                            </div><!-- /.box -->
-                             
-                            
-                       </form>
+</div>
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
-                    <div class="row">
                     
+					
+					
+					<div class="row">
+                   
                   
                         <div class="col-md-6">
 	
@@ -474,4 +559,9 @@ $(function () {
 </div>
 </div>
 </div>
+
+
+
+  
+
 </section>

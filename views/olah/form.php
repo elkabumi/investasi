@@ -165,7 +165,9 @@
 											
                                 					<input class="btn btn-cokelat" type="submit" value="Search"/>
                                 				
-                                     		
+                                     		  	 <?php if(isset($_GET['preview'])){ ?><a href="olah.php?page=download&category=<?= $category?>&country=<?= $country?>&city=<?= $city?>&busines=<?=$busines?>&tenaga=<?=$tenaga1."-".$tenaga2?>&investasi=<?=$investasi1."-".$investasi2?>" class="btn btn-cokelat" >Download Excel</a>
+								<a href="olah.php?page=download_pdf&category=<?= $category?>&country=<?= $country?>&city=<?= $city?>&busines=<?=$busines?>&tenaga=<?=$tenaga1."-".$tenaga2?>&investasi=<?=$investasi1."-".$investasi2?>"  class="btn btn-cokelat" >Download PDF</a>
+                                 <? } ?>
                                      	 </div>
                             
                             </div><!-- /.box -->
