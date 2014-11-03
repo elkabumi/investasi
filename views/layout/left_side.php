@@ -40,6 +40,9 @@
                                 <li><a href="dashboard_kinerja_investasi.php"><i class="fa fa-chevron-circle-right"></i>Kinerja Investasi</a></li>
                                 <li><a href="dashboard_realisasi_investasi.php"><i class="fa fa-chevron-circle-right"></i>Realisasi Investasi</a></li>
                                 <li><a href="dashboard_izin_prinsip.php"><i class="fa fa-chevron-circle-right"></i>Persetujuan Izin Prinsip</a></li>
+                                 <li><a href="dashboard_realisasi_investasi_non_fas.php"><i class="fa fa-chevron-circle-right"></i><div class="menu_new">Perkembangan Realisasi PMDN Non Fas</div></a></li>
+                             <li><a href="dashboard_realisasi_investasi_triwulan.php"><i class="fa fa-chevron-circle-right"></i><div class="menu_new">Realisasi Investasi PMA, PMDN dan Non Fas</div></a></li>     
+                               <li><a href="dashboard_izin_prinsip_triwulan.php"><i class="fa fa-chevron-circle-right"></i><div class="menu_new">Realisasi Izin Prinsip PMA dan PMDN</div></a></li>     
                              	
                             </ul>
                   </li>

@@ -177,7 +177,7 @@ $(function () {
         <td>TAHUN</td>
         <td>UNIT USAHA</td>
         <td>INVESTASI (Rp. Trilyun)</td>
-        <td>TENAGA KERJA()</td>
+        <td>TENAGA KERJA(Orang)</td>
                     
      </tr>
    </thead>

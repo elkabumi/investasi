@@ -6,7 +6,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
 $_SESSION['menu_active'] = 7;
-$title = "Dashboard Izin Prinsip";
+$title = "Persetujuan Izin Prinsip";
 
 switch ($page) {
 	case 'list':

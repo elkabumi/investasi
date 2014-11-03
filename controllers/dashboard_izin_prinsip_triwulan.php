@@ -1,18 +1,18 @@
 <?php
 include '../lib/config.php';
 include '../lib/function.php';
-include '../models/dashboard_realisasi_investasi_non_fas_model.php';
+include '../models/dashboard_izin_prinsip_triwulan_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 1;
-$title = "Realisasi Investasi PMDN Non Fas";
+$_SESSION['menu_active'] = 7;
+$title = "Realisasi Izin Prinsip PMA dan PMDN";
 
 switch ($page) {
 	case 'list':
 		get_header();
 		
-		$action = "dashboard_realisasi_investasi_non_fas.php?page=form_result&preview=1";
+		$action = "dashboard_izin_prinsip_triwulan.php?page=form_result&preview=1";
 		
 		if(isset($_GET['preview'])){
 			$year_default = $_GET['year'];
@@ -21,7 +21,7 @@ switch ($page) {
 		}
 		
 		
-		include '../views/dashboard_realisasi_investasi_non_fas/list.php';
+		include '../views/dashboard_izin_prinsip_triwulan/list.php';
 		
 		get_footer();
 	break;
@@ -35,7 +35,7 @@ switch ($page) {
 			echo $year;
 		}
 		
-		header("Location: dashboard_realisasi_investasi_non_fas.php?page=list&preview=1&year=$year");
+		header("Location: dashboard_izin_prinsip_triwulan.php?page=list&preview=1&year=$year");
 	break;
 }
 

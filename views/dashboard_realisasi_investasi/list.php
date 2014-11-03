@@ -279,6 +279,7 @@ $(function () {
                 title: {
                     text: 'Trilyun Rupiah'
                 },
+				 min: 0,
                 plotLines: [{
                     value: 0,
                     width: 1,
@@ -286,7 +287,7 @@ $(function () {
                 }]
             },
             tooltip: {
-                valueSuffix: '°C'
+                valueSuffix: ''
             },
             legend: {
                 layout: 'vertical',
