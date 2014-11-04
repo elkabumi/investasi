@@ -14,7 +14,7 @@
                                  <table data-filter="#filter" class="footable" data-page-size="10" id="new_table">
       <thead>
         <tr>
-                                            <th data-class="expand" data-sort-initial="true">No</th>
+                                            <th data-class="expand" data-sort-initial="true" data-type="numeric">No</th>
                                             	<th>Nama Perusahaan</th>
                                             <th data-hide="phone">Alamat</th>
                                                 <th data-hide="phone">NO IP</th>

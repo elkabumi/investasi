@@ -100,7 +100,7 @@
             <table class="footable metro-blue" data-filter="#filter" data-page-size="10" id="new_table">
                 <thead>
                 <tr>
-                     <th data-class="expand" data-sort-initial="true">No</th>
+                     <th data-class="expand" data-sort-initial="true" data-type="numeric">No</th>
                                                 
                                                 <th >Name</th>
                                                   <th data-hide="phone">Type</th>

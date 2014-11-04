@@ -66,7 +66,7 @@
       <thead>
         <tr>
          
-         									 	<th  data-class="expand" data-sort-initial="true">No</th>
+         									 	<th  data-class="expand" data-sort-initial="true" data-type="numeric">No</th>
                                             	<th>Nama kabupaten/kota</th>
                                                 <th>keterangan</th>
                                                 <th width="25%">Config</th>
