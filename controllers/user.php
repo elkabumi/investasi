@@ -2,6 +2,9 @@
 include '../lib/config.php';
 include '../lib/function.php';
 include '../models/user_model.php';
+
+log_data(1, 0, $_SESSION['user_id'], "menu user");
+
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("user");
@@ -93,7 +96,8 @@ switch ($page) {
 					'$i_name', 
 					'$i_code', 
 					'$i_phone', 
-					'$i_img'
+					'$i_img',
+					'1'
 			";
 
 			create($data);
@@ -174,6 +178,26 @@ switch ($page) {
 		delete($id);
 
 		header('Location: user.php?page=list&did=3');
+
+	break;
+	
+	case 'actived':
+
+		$id = get_isset($_GET['id']);	
+
+		actived($id);
+
+		header('Location: user.php?page=list&did=4');
+
+	break;
+	
+	case 'deactived':
+
+		$id = get_isset($_GET['id']);	
+
+		deactived($id);
+
+		header('Location: user.php?page=list&did=5');
 
 	break;
 }

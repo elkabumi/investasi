@@ -1,5 +1,38 @@
 <?php
 
+function get_ip() {
+   $ipaddress = '';
+      if (getenv('HTTP_CLIENT_IP'))
+          $ipaddress = getenv('HTTP_CLIENT_IP');
+      else if(getenv('HTTP_X_FORWARDED_FOR'))
+          $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+      else if(getenv('HTTP_X_FORWARDED'))
+          $ipaddress = getenv('HTTP_X_FORWARDED');
+      else if(getenv('HTTP_FORWARDED_FOR'))
+          $ipaddress = getenv('HTTP_FORWARDED_FOR');
+      else if(getenv('HTTP_FORWARDED'))
+          $ipaddress = getenv('HTTP_FORWARDED');
+      else if(getenv('REMOTE_ADDR'))
+          $ipaddress = getenv('REMOTE_ADDR');
+      else
+          $ipaddress = 'UNKNOWN';
+
+      return $ipaddress;
+ 
+}
+
+function log_data($type, $data_id, $user_id, $desc){
+	$ip = get_ip();
+	$data = "'',
+					'".date("Y-m-d H:m:s")."', 
+					'$ip',
+					'$user_id', 
+					'$type', 
+					'$data_id', 
+					'$desc'
+			";
+	$query = mysql_query("insert into log_data values($data)");
+}
 
 function format_rupiah($angka){
   $rupiah=number_format($angka,0,',','.');
@@ -117,10 +150,10 @@ function get_user_data(){
 
 	switch($row_user->user_type_id){
 		case 1: $type = "Admin"; break;
-		case 2: $type = "Owner "; break;
-		case 3: $type = "Checker"; break;
-		case 4: $type = "PBD"; break;
-		case 5: $type = "RDH"; break;
+		case 2: $type = "Kepala Bidang "; break;
+		case 3: $type = "Staf Input"; break;
+		case 4: $type = "View Data"; break;
+		case 5: $type = "-"; break;
 	}
 	
 	$user_img = $row_user->user_img;
