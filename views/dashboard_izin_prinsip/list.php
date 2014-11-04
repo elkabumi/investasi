@@ -75,23 +75,10 @@ $(function () {
                 data: [	<?php
 					$year_2 = $year - 4;
                      for($y=$year_2; $y<=$year; $y++){
-						$query=mysql_query("SELECT SUM(investasi) as total from master 
-											where master_category_id = '6' 
-											and master_type_id='1'
-											and master_sub_category_id ='2' 
-											and master_year = '$y'");
-						$total_investasi = mysql_fetch_object($query);
-					
-						if($total_investasi->total == ''){
-							$total_investasi->total = '0';
-						}
-						$total_investasi->total = $total_investasi->total / 1000000000000;
-						if($y == '1'){
-							echo $total_investasi->total;
-						}else{
-							echo $total_investasi->total.",";
-					}
-				 }  
+						$data = get_data($y,$country_id,$city_id,$business_id,$sub_business_id);
+						echo $data;
+						if($y!=$year_default){ echo ","; }
+				 	}  
 				 ?>
 					],
 				color: '#f9c'
@@ -101,27 +88,9 @@ $(function () {
                 data: [<?php
 				$year_3 = $year - 4;
                 for($y=$year_3; $y<=$year; $y++){
-					$total_rupiah= '0';
-					$query2=mysql_query("SELECT * from master
-										where master_category_id = '6'
-											  
-										and master_type_id='1'
-										and master_sub_category_id ='1' 
-										and master_year = '$y'");
-					while($total_investasi2 = mysql_fetch_object($query2)){
-						if($total_investasi2->investasi_dollar == ''){
-							$total_investasi2->investasi_dollar = '0';
-						}
-						
-						$total_investasi2->investasi_dollar = $total_investasi2->investasi_dollar * $total_investasi2->master_config_dollar;
-						$total_rupiah = $total_investasi2->investasi_dollar + $total_rupiah;
-					}
-						$total_rupiah = $total_rupiah / 1000000000000;
-					if($y == '1'){
-						echo $total_rupiah;
-					}else{
-						echo $total_rupiah.",";
-					}
+					$data = get_data_dollar($y,$country_id,$city_id,$business_id,$sub_business_id);
+						echo $data;
+						if($y!=$year_default){ echo ","; }
 				 }  
 				 ?>],
 				color: '#933'
@@ -175,36 +144,12 @@ $(function () {
             name: 'Nilai investasi',
             data: [
 				  <?php
-				$total_data ='0';
-				$total_pma ='0';
-				$total_pmdn ='0';
-				$q=mysql_query("SELECT * from master where  master_category_id ='6' and master_type_id='1'  and master_year = '$year_4'");			
-					
-				while($total_all_invest=mysql_fetch_object($q)){
-						
-						if($total_all_invest->investasi_dollar == ''){
-							$total_all_invest->investasi_dollar ='0';	
-						}
-						if($total_all_invest->investasi == ''){
-							$total_all_invest->investasi ='0';
-						}
-						
-						$total_all_invest->investasi_dollar = $total_all_invest->investasi_dollar * $total_all_invest->master_config_dollar;
-						
-						$total_pma =$total_all_invest->investasi_dollar + $total_pma ;
-						$total_pmdn = $total_all_invest->investasi + $total_pmdn;
-						$total_data = $total_data+($total_all_invest->investasi_dollar + $total_all_invest->investasi);
-						
-			
-					}
-					
-					if($total_data == '0'){
-						$total_data = '1';
-					}
-					
-					$total_result_pma = ($total_pma * 100) / $total_data;
-					$total_result_pmdn = ($total_pmdn * 100) / $total_data;
-			?>
+				  
+				   $data_pmdn = get_data($year_4,$country_id,$city_id,$business_id,$sub_business_id);
+				   $data_pma = get_data_dollar($year_4,$country_id,$city_id,$business_id,$sub_business_id);
+				   
+				  
+					?>
 					
 			
 			
@@ -213,12 +158,12 @@ $(function () {
 			
 			{
                     name: 'PMDN',
-                    y: <?=$total_result_pmdn ?>,
+                    y: <?=$data_pmdn ?>,
                    
 					color: '#f9c'
                 },
                 {name:'PMA'
-				,y: <?=$total_result_pma ?>, color: '#933'},
+				,y: <?=$data_pma ?>, color: '#933'},
                 
             ]
         }]
@@ -252,9 +197,7 @@ $(function () {
                             <!-- general form elements disabled -->
 
                           
-                          
-
-                             <form role="form" action="<?= $action?>" method="post">
+                           <form role="form" action="<?= $action?>" method="post">
 
                             <div class="box box-primary">
                                 
@@ -263,7 +206,8 @@ $(function () {
                                     	
                    
                                        
-                                     <div class="col-md-12">
+                                    <div class="col-md-4"> 
+                                     
                                           <form role="form" action="<?= $action?>" method="post">
 											<div class="form-group">
 												<label>Tahun</label>
@@ -283,8 +227,77 @@ $(function () {
 												  
 												</select>
 											  	</div>
+                                                </div>
+                                      <div class="col-md-4"> 
+                                                <div class="form-group">
+                                        <label>Negara</label>
+                                        <select id="basic" name="i_country_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                        <option value="0">-- PILIH SEMUA --</option>
+                                       
+                                       
+                                           <?php
+                                        $query_country = mysql_query("select * from countries");
+                                        while($row_country = mysql_fetch_array($query_country)){
+                                        ?>
+                                         <option value="<?= $row_country['country_id']?>" <?php if($row_country['country_id'] == $country_id){ ?> selected="selected"<?php }?>><?= $row_country['country_name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                          
+                                        </select>
+                                      </div>
+                                      
+                                      </div>
+                                      <div class="col-md-4"> 
+                                      <div class="form-group">
+                                        <label>Lokasi</label>
+                                        <select id="basic" name="i_city_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                        <option value="0">-- PILIH SEMUA --</option>
+                                       
+                                           <?php
+                                        $query_city = mysql_query("select * from cities");
+                                        while($row_city = mysql_fetch_array($query_city)){
+                                        ?>
+                                         <option value="<?= $row_city['city_id']?>" <?php if($row_city['city_id'] == $city_id){ ?> selected="selected"<?php }?>><?= $row_city['city_name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                          
+                                        </select>
+                                      </div>
+                                      </div>
+                                      
+                                      
+                                       <div class="col-md-4"> 
+                                   
+                                               <div class="form-group">
+                                        <label>Bidang Usaha</label>
+                                        <select id="basic" name="i_business_type_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                        <option value="0">-- PILIH SEMUA --</option>
+                                       
+                                           <?php
+                                        $query_buss = mysql_query("select * from business_types");
+                                        while($row_buss = mysql_fetch_array($query_buss)){
+                                        ?>
+                              <option value="<?= $row_buss['business_type_id']?>" <?php if($row_buss['business_type_id'] == $business_id) 		{ ?> selected="selected"<?php }?>><?= $row_buss['business_type_name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                          
+                                        </select>
+                                      </div>
+                                      </div>
+                                      
+                                       <div class="col-md-8"> 
+                                   
+                                               <div class="form-group">
+                                        <label>Bidang Usaha</label>
+                                         <input  type="text" name="i_sub_business_type_id" class="form-control" placeholder="Enter ..." value="<?= $sub_business_id ?>"/>
+                                      </div>
+                                      </div>
                                               </form>
-										  </div>     
+									
+                                                 
                                           
                               
                                               
@@ -299,13 +312,12 @@ $(function () {
                                 <input class="btn btn-cokelat" type="submit" value="Preview"/>
                                 </div>
                   
-                            
-                            </div><!-- /.box -->
-                             
-                            
-                       </form>
+                      
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
+                    
+                    
+                    
            <div class="row">
                     
                   
@@ -336,10 +348,10 @@ $(function () {
                             <?php
                           $year1 =$year;
                           $year2 = $year - 1;
-						  $asli_total1 = get_data_total($year1);
-						  $asli_total2 = get_data_total($year2);
-                          $total1 = (get_data_total($year1) == 0) ? 1: get_data_total($year1);
-                          $total2 = (get_data_total($year2) == 0) ? 1 : get_data_total($year2);
+						  $asli_total1 = get_data_total($year1,$country_id,$city_id,$business_id,$sub_business_id);
+						  $asli_total2 = get_data_total($year2,$country_id,$city_id,$business_id,$sub_business_id);
+                          $total1 = (get_data_total($year1,$country_id,$city_id,$business_id,$sub_business_id) == 0) ? 1: get_data_total($year1,$country_id,$city_id,$business_id,$sub_business_id);
+                          $total2 = (get_data_total($year2,$country_id,$city_id,$business_id,$sub_business_id) == 0) ? 1 : get_data_total($year2,$country_id,$city_id,$business_id,$sub_business_id);
                          
                           if($total1 > $total2){
                               $persen = ($total1 / $total2) * 100;
@@ -391,7 +403,7 @@ $(function () {
                        <?php
                                         $year_5 = $year - 4;
                                        	for($y=$year_5 ; $y<=$year; $y++){
-                                            $data = get_data($y);
+                                            $data = get_data($y,$country_id,$city_id,$business_id,$sub_business_id);
                                             echo "<td align='center'>".$data."</td>";
                                             
                                         }
@@ -402,7 +414,7 @@ $(function () {
                        <?php
                                         $year_5 = $year - 4;
                                        	for($y=$year_5 ; $y<=$year; $y++){
-                                            $data = get_data_dollar($y);
+                                            $data = get_data_dollar($y,$country_id,$city_id,$business_id,$sub_business_id);
                                             echo "<td align='center'>".$data."</td>";
                                         }
                                         ?>
@@ -412,7 +424,7 @@ $(function () {
                        <?php
                                          $year_5 = $year - 4;
                                        	for($y=$year_5 ; $y<=$year; $y++){
-                                            $data = get_data_total($y);
+                                            $data = get_data_total($y,$country_id,$city_id,$business_id,$sub_business_id);
                                             echo "<td align='center'><b>".$data."</b></td>";
                                         }
                                         ?>
