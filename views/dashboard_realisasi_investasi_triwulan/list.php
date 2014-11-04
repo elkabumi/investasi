@@ -65,11 +65,11 @@ $(function () {
 				$year = $year_default - 4;
 				for($y_d=$year; $y_d<=$year_default; $y_d++){
 							if($m_c_d == 1){
-								$data = get_data_dollar($m_c_d, $y_d);
+								$data = get_data_dollar($m_c_d, $y_d, $country_id, $city_id, $business_type_id, $sub_business_type);
 							}elseif($m_c_d == 4){
-								$data = get_data_total($y_d);
+								$data = get_data_total($y_d, $country_id, $city_id, $business_type_id, $sub_business_type);
 							}else{
-								$data = get_data($m_c_d, $y_d);
+								$data = get_data($m_c_d, $y_d, $country_id, $city_id, $business_type_id, $sub_business_type);
 							}
 							echo $data; if($y_d!=$year_default){ echo ","; }
 						}
@@ -106,14 +106,117 @@ $(function () {
                 
   <section class="content">
 
-					<div class="row">
-                   
-                  
-        
+<div class="row">
+                      
+        <!-- right column -->
+        <div class="col-md-12">
+            <!-- general form elements disabled -->
+				<form role="form" action="<?= $action?>" method="post">
+					<div class="box box-primary">
+                        <div class="box-body">
 
+                                   <div class="col-md-4">
+									<div class="form-group">
+										<label>Tahun</label>
+										<select id="basic" name="i_year" class="selectpicker show-tick form-control" data-live-search="true">
+											   
+										<?php
+											$year_select = $year_default - 4;
+												
+                   							for($y=date("Y"); $y>=$year_select; $y--){
+												$y2=$y-4;
+										?>
+												
+											<option value="<?php echo $y;?>" <?php if($y == $year_default){?> selected="selected"<?php } ?>><?php echo $y2." - ".$y;?></option>
+										<?php
+											}
+										?>
+												  
+										</select>
+                                              
+									</div>
+                                   </div>
+                                   
+                                   
+                                    <div class="col-md-4">
+									<div class="form-group">
+										<label>Negara</label>
+                                        <select id="basic" name="i_country_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                       <option value="0">- Pilih Semua -</option>
+                                           <?php
+                                        $query_country = mysql_query("select * from countries");
+                                        while($row_country = mysql_fetch_array($query_country)){
+                                        ?>
+                                         <option value="<?= $row_country['country_id']?>" <?php if($row_country['country_id'] == $country_id){ ?> selected="selected"<?php }?>><?= $row_country['country_name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                          
+                                        </select>
+                                              
+									</div>
+                                   </div>
+                                   
+                                    <div class="col-md-4">
+									<div class="form-group">
+									  <label>Lokasi</label>
+                                        <select id="basic" name="i_city_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                         <option value="0">- Pilih Semua -</option>
+                                           <?php
+                                        $query_city = mysql_query("select * from cities");
+                                        while($row_city = mysql_fetch_array($query_city)){
+                                        ?>
+                                         <option value="<?= $row_city['city_id']?>" <?php if($row_city['city_id'] == $city_id){ ?> selected="selected"<?php }?>><?= $row_city['city_name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                          
+                                        </select>
+                                              
+									</div>
+                                   </div>
+                                   
+                                     <div class="col-md-4">
+									<div class="form-group">
+									  <label>Bidang Usaha</label>
+                                        <select id="basic" name="i_business_type_id" class="selectpicker show-tick form-control" data-live-search="true">
+                                         <option value="0">- Pilih Semua -</option>
+                                           <?php
+                                        $query_buss = mysql_query("select * from business_types");
+                                        while($row_buss = mysql_fetch_array($query_buss)){
+                                        ?>
+                                         <option value="<?= $row_buss['business_type_id']?>" <?php if($row_buss['business_type_id'] == $business_type_id){ ?> selected="selected"<?php }?>><?= $row_buss['business_type_name'] ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                          
+                                        </select>
+                                              
+									</div>
+                                   </div>
+                                   
+                                   
+                                     <div class="col-md-8">
+									<div class="form-group">
+									  <label>Sub Bidang Usaha</label>
+                                            <input  type="text" name="i_sub_business_type" class="form-control" placeholder="Enter ..." value="<?= $sub_business_type ?>"/>
+                                              
+									</div>
+                                   </div>
+                                   
+                            <div style="clear:both;"></div>
+						</div>
+					
+                    <div class="box-footer">
+                        <input class="btn btn-cokelat" type="submit" value="Preview"/>
+                    </div>
+				</div>
+			   </form>
+        </div><!--/.col (right) -->
+	</div>   <!-- /.row -->
+
+<div class="row">
 <div class="col-md-12">
-
-
 <div class="box box-danger">
 <table data-filter="#filter" class="footable">  <thead>
 <tr>
@@ -158,9 +261,9 @@ $(function () {
 						
 						for($m_cat=1; $m_cat<=3; $m_cat++){
 							if($m_cat == 1){
-								$data = get_data_dollar_triwulan($t, $m_cat, $y);
+								$data = get_data_dollar_triwulan($t, $m_cat, $y, $country_id, $city_id, $business_type_id, $sub_business_type);
 							}else{
-								$data = get_data_triwulan($t, $m_cat, $y);
+								$data = get_data_triwulan($t, $m_cat, $y, $country_id, $city_id, $business_type_id, $sub_business_type);
 							}
 							echo "<td align='center'>".$data."</td>";
 						}
@@ -183,9 +286,9 @@ $(function () {
 						
 						for($m_cat=1; $m_cat<=3; $m_cat++){
 							if($m_cat == 1){
-								$data = get_data_total_dollar_triwulan($m_cat, $y);
+								$data = get_data_total_dollar_triwulan($m_cat, $y, $country_id, $city_id, $business_type_id, $sub_business_type);
 							}else{
-								$data = get_data_total_triwulan($m_cat, $y);
+								$data = get_data_total_triwulan($m_cat, $y, $country_id, $city_id, $business_type_id, $sub_business_type);
 							}
 							echo "<td align='center'>".$data."</td>";
 						}
