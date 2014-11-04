@@ -30,17 +30,7 @@ $(function () {
                     }
                 }
             },
-            legend: {
-                align: 'right',
-                x: -70,
-                verticalAlign: 'top',
-                y: 20,
-                floating: true,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-                borderColor: '#CCC',
-                borderWidth: 1,
-                shadow: false
-            },
+           
             tooltip: {
                 formatter: function() {
                     return '<b>'+ this.x +'</b><br/>'+
