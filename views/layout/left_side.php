@@ -54,9 +54,22 @@
                             </a>
                             
                   </li>
+                         <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 1){ echo "active"; }?>">
+                            <a href="#">
+                                <i class="fa fa-briefcase"></i>
+                                <span>Master</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="city.php?page=list"><i class="fa fa-chevron-circle-right"></i>Kabupaten/Kota</a></li>
+                                <li><a href="country.php?page=list"><i class="fa fa-chevron-circle-right"></i>Negara</a></li>
+                                <li><a href="business_type.php?page=list"><i class="fa fa-chevron-circle-right"></i> BIdang Usaha</a></li>
+   
+                            </ul>
+                      </li>
                   
                      
-                          <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 1){ echo "active"; }?>">
+                          <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 2){ echo "active"; }?>">
                             <a href="#">
                                 <i class="fa fa-briefcase"></i>
                                 <span>Izin</span>
@@ -71,7 +84,7 @@
                   </li>
                   
                 
-                         <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 2){ echo "active"; }?>">
+                         <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
                             <a href="#">
                                 <i class="fa fa-briefcase"></i>
                                 <span>Realisasi</span>
@@ -87,7 +100,7 @@
                       </li>
                   
                         
-                     <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
+                     <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 4){ echo "active"; }?>">
                             <a href="#">
                                 <i class="fa fa-book"></i>
                                 <span>Laporan</span>
@@ -102,7 +115,7 @@
                             </ul>
                   </li>
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 4){ echo "class='active'"; }?>">
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 5){ echo "class='active'"; }?>">
                             <a href="olah.php?page=form">
                                 <i class="fa fa-pencil-square-o"></i>
                                 <span>Olah</span>
@@ -112,7 +125,7 @@
                   
                   
                   
-                    <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 5){ echo "active"; }?>">
+                    <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "active"; }?>">
                             <a href="#">
                                 <i class="fa fa-search"></i>
                                 <span>Search Data Investasi</span>
@@ -127,7 +140,7 @@
                             </ul>
                   </li>
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "class='active'"; }?>">
+                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 7){ echo "class='active'"; }?>">
                             <a href="user.php">
                                 <i class="fa fa-user"></i>
                                 <span>User</span>
