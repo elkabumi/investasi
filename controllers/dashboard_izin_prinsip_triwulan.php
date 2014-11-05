@@ -7,7 +7,7 @@ include '../models/dashboard_izin_prinsip_triwulan_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 7;
+$_SESSION['menu_active'] = 1;
 $title = "Realisasi Izin Prinsip PMA dan PMDN";
 
 switch ($page) {

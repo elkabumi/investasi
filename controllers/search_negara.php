@@ -7,7 +7,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Data Investasi Berdasarkan Asal negara");
 
-$_SESSION['menu_active'] = 5;
+$_SESSION['menu_active'] = 7;
 
 switch ($page) {
 	

@@ -5,7 +5,7 @@ include '../models/realisasi_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 2;
+$_SESSION['menu_active'] = 4;
 $master_category_id = (isset($_GET['master_category_id'])) ? $_GET['master_category_id'] : 1;
 		if($master_category_id == 1){
 			$title = "PMA";

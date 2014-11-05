@@ -7,7 +7,7 @@ include '../models/dashboard_realisasi_investasi_triwulan_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 7;
+$_SESSION['menu_active'] = 1;
 $title = "Realisasi Investasi PMA, PMDN & Non Fas";
 
 switch ($page) {

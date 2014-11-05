@@ -71,7 +71,7 @@
                                         <div class="form-group">
                                           <label>Type</label>
                                            <select name="i_type" size="1" class="form-control"/>
-                                             <option value="2">Kepala Bidang</option>
+                                           <option value="2">Kepala Bidang</option>
                                            <option value="3">Staf Input</option>
                                            <option value="4">View Data</option>
                                                   

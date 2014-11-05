@@ -6,7 +6,7 @@ include '../models/log_data_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "form";
 
-$_SESSION['menu_active'] = 4;
+$_SESSION['menu_active'] = 8;
 $title ='Log Data';
 switch ($page) {
 	case 'form':

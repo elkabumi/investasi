@@ -8,7 +8,7 @@ include '../models/business_type_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 2;
 $title = "BIdang Usaha";
 
 switch ($page) {

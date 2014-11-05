@@ -5,7 +5,7 @@ include '../models/master_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 
-$_SESSION['menu_active'] = 1;
+$_SESSION['menu_active'] = 3;
 
 			$title = "Izin Usaha";
 

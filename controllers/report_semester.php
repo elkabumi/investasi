@@ -8,7 +8,7 @@ $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Laporan Semester");
 
-$_SESSION['menu_active'] = 3;
+$_SESSION['menu_active'] = 5;
 
 switch ($page) {
 	
