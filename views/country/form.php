@@ -65,7 +65,7 @@
                                        
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Nama Kabupaten/kota</label>
+                                            <label>Nama negara</label>
                                             <input required type="text" name="i_nama" class="form-control" placeholder="Enter ..." value="<?= $row->country_name ?>"/>
                                         </div>
                                       
@@ -76,7 +76,7 @@
                                            <!-- textarea -->
                                         <div class="form-group">
                                             <label>Lain - lain</label>
-                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->country_desc ?></textarea>
+                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->country_description ?></textarea>
                                         </div>
                                        
                                        

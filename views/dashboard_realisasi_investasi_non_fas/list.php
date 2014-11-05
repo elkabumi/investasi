@@ -105,7 +105,7 @@ $(function () {
                                        
                                     <div class="col-md-4"> 
                                      
-                                          <form role="form" action="<?= $action?>" method="post">
+                                       
 											<div class="form-group">
 												<label>Tahun</label>
 												<select id="basic" name="i_year" class="selectpicker show-tick form-control" data-live-search="true">
@@ -192,26 +192,32 @@ $(function () {
                                          <input  type="text" name="i_sub_business_type_id" class="form-control" placeholder="Enter ..." value="<?= $sub_business_id ?>"/>
                                       </div>
                                       </div>
+                                              
+                                                           <div style="clear:both;"></div>
+
+                                       
+                                       </div><!-- /.box-body -->
+                                   
+                            
+                             
+                    <div class="box-footer">
+                                <input class="btn btn-cokelat" type="submit" value="Preview"/>
+                                </div>
+                                   
                                               </form>
 									
                                                  
                                           
                               
-                                              
-                                              <div style="clear:both;"></div>
-
-                                       
-                                      
                                    
-                                </div><!-- /.box-body -->
-                             
-                    <div class="box-footer">
-                                <input class="btn btn-cokelat" type="submit" value="Preview"/>
-                                </div>
                   
                       
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
+                    </div>
+                    
+                    
+                    
                     <div class="row">
                     
                   

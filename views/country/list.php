@@ -80,7 +80,7 @@
                                             <tr>
                                             	<td><?= $no ?></td>
                                              	<td><?= $row['country_name']?></td>
-                                                <td><?= $row['country_desc']?></td>
+                                                <td><?= $row['country_description']?></td>
             
                                     
                                                  <td style="text-align:center;">
