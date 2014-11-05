@@ -143,7 +143,7 @@
                                  <li><a href="config.php"><i class="fa fa-chevron-circle-right"></i>Kurs Dollar</a></li>
                                 <li><a href="user.php"><i class="fa fa-chevron-circle-right"></i>User</a></li>
                                
-                                 <li><a href="log_data.php?page=list"><i class="fa fa-chevron-circle-right"></i>Log Data</a></li>
+                                 <li><a href="log_data.php?page=form"><i class="fa fa-chevron-circle-right"></i>Log Data</a></li>
                              
                             </ul>
                           

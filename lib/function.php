@@ -74,9 +74,18 @@ function get_hour($data){
 	$data = explode(" ", $data);
 	$hour = $data[1];
 	$h = explode(":", $hour);
-	$new_hour = $h[0].":".$h[1];
+	$new_hour = $h[0].":".$h[1].":".$h[2];
 	return $new_hour;
 }
+
+function get_date($data){
+	$data = explode(" ", $data);
+	$date = $data[0];
+	$h = explode("-", $date);
+	$new_date = $h[2]."/".$h[1]."/".$h[0];
+	return $new_date;
+}
+
 function format_back_date($date){
 
 	$date = explode("/", $date);
