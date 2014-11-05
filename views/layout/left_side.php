@@ -46,17 +46,10 @@
                              	
                             </ul>
                   </li>
-                   <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 8){ echo "class='active'"; }?>>
-                            <a href="config.php">
-                                <i class="fa fa-user"></i>
-                                <span>Config</span>
-                               
-                            </a>
-                            
-                  </li>
+                
                          <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 1){ echo "active"; }?>">
                             <a href="#">
-                                <i class="fa fa-briefcase"></i>
+                                <i class="fa fa-list-alt"></i>
                                 <span>Master</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -86,7 +79,7 @@
                 
                          <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 3){ echo "active"; }?>">
                             <a href="#">
-                                <i class="fa fa-briefcase"></i>
+                                <i class="fa fa-dollar"></i>
                                 <span>Realisasi</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -140,12 +133,20 @@
                             </ul>
                   </li>
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 7){ echo "class='active'"; }?>">
-                            <a href="user.php">
-                                <i class="fa fa-user"></i>
-                                <span>User</span>
-                               
+                  <li class="treeview <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 7){ echo "class='active'"; }?>">
+                            <a href="#">
+                                <i class="fa  fa-cog"></i>
+                                <span>Setting</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                             <ul class="treeview-menu">
+                                 <li><a href="config.php"><i class="fa fa-chevron-circle-right"></i>Kurs Dollar</a></li>
+                                <li><a href="user.php"><i class="fa fa-chevron-circle-right"></i>User</a></li>
+                               
+                                 <li><a href="log_data.php?page=list"><i class="fa fa-chevron-circle-right"></i>Log Data</a></li>
+                             
+                            </ul>
+                          
                             
                   </li>
                  
