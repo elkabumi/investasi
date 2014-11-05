@@ -3,7 +3,7 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/olah_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "olah");
+
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "form";
 
@@ -12,6 +12,9 @@ $title ='Olah';
 switch ($page) {
 	case 'form':
 		get_header();
+		if(!isset($_GET['preview'])){
+			log_data(1, 0, $_SESSION['user_id'], "olah");
+		}
 		$action = 'olah.php?page=form_action';
 		
 		$category = "";
@@ -76,7 +79,7 @@ switch ($page) {
 		
 				$query = select($category,$country,$city,$busines,$tenaga1,$tenaga2,$investasi1,$investasi2);
 				
-						
+				log_data(10, 0, $_SESSION['user_id'], "olah");		
 				include '../views/olah/list_result.php';
 			
 		}
@@ -151,7 +154,7 @@ switch ($page) {
 			
 			
 			$query = select($category,$country,$city,$busines,$tenaga1,$tenaga2,$investasi1,$investasi2);
-				
+			log_data(11, 0, $_SESSION['user_id'], "olah");		
 			include '../views/report/report_olah.php';
 			
 
@@ -191,7 +194,7 @@ switch ($page) {
 			
 			
 			$query = select($category,$country,$city,$busines,$tenaga1,$tenaga2,$investasi1,$investasi2);
-				
+				log_data(12, 0, $_SESSION['user_id'], "olah");	
 			
 			include '../views/report/report_olah_pdf.php';
 	

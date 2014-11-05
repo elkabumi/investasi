@@ -3,7 +3,6 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/dashboard_izin_prinsip_triwulan_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "dashboard realisasi Izin Prinsip pma dan pmdn");
 
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
@@ -23,12 +22,16 @@ switch ($page) {
 			$city_id = $_GET['city_id'];
 			$business_type_id = $_GET['business_type_id'];
 			$sub_business_type = $_GET['sub_business_type'];
+			log_data(10, 0, $_SESSION['user_id'], "dashboard realisasi Izin Prinsip pma dan pmdn");
+
 		}else{
 			$year_default = date('Y');
 			$country_id = 0;
 			$city_id = 0;
 			$business_type_id = 0;
 			$sub_business_type = "";
+			log_data(10, 0, $_SESSION['user_id'], "dashboard realisasi Izin Prinsip pma dan pmdn");
+
 		}
 		
 		

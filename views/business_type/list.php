@@ -80,7 +80,7 @@
                                             <tr>
                                             	<td><?= $no ?></td>
                                              	<td><?= $row['business_type_name']?></td>
-                                                <td><?= $row['business_type_desc']?></td>
+                                                <td><?= $row['business_type_description']?></td>
             
                                     
                                                  <td style="text-align:center;">

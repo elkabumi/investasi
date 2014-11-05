@@ -86,7 +86,7 @@
                                            <!-- textarea -->
                                         <div class="form-group">
                                             <label>Lain - lain</label>
-                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->bussines_type_desc ?></textarea>
+                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->bussines_type_description ?></textarea>
                                         </div>
                                        
                                        

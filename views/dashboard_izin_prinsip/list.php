@@ -191,14 +191,14 @@ $(function () {
 
                             <div class="box box-primary">
                                 
-                               
+                                <form role="form" action="<?= $action?>" method="post">
                                 <div class="box-body">
                                     	
                    
                                        
                                     <div class="col-md-4"> 
                                      
-                                          <form role="form" action="<?= $action?>" method="post">
+                                         
 											<div class="form-group">
 												<label>Tahun</label>
 												<select id="basic" name="i_year" class="selectpicker show-tick form-control" data-live-search="true">
@@ -289,13 +289,14 @@ $(function () {
                                               <div style="clear:both;"></div>
 
                                        
-                                      
+                                       </div><!-- /.box-body -->
                                    
-                                </div><!-- /.box-body -->
+                            
                              
                     <div class="box-footer">
                                 <input class="btn btn-cokelat" type="submit" value="Preview"/>
                                 </div>
+                                   
                                               </form>
 									
                                                  
@@ -306,8 +307,8 @@ $(function () {
                       
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
-                    
-                    </
+                     </div> 
+      
                     
            <div class="row">
                     

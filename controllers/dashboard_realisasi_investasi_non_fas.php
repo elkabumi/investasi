@@ -3,7 +3,7 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/dashboard_realisasi_investasi_non_fas_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "dashboard realisasi investasi pmdn non fas");
+
 
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
@@ -23,12 +23,16 @@ switch ($page) {
 			$city_id = $_GET['city_id'];
 			$business_id = $_GET['business_id'];
 			$sub_business_id = $_GET['sub_business_id'];
+			log_data(10, 0, $_SESSION['user_id'], "dashboard realisasi investasi pmdn non fas");
+
 		}else{
 			$year_default = date('Y');
 			$country_id = '0';
 			$city_id = '0';
 			$business_id = 0;
 			$sub_business_id = '';
+			
+			log_data(1, 0, $_SESSION['user_id'], "dashboard realisasi investasi pmdn non fas");
 		}
 		
 		
