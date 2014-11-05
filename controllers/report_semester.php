@@ -2,6 +2,8 @@
 include '../lib/config.php';
 include '../lib/function.php';
 include '../models/report_semester_model.php';
+
+log_data(1, 0, $_SESSION['user_id'], "laporan semester");
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Laporan Semester");

@@ -2,6 +2,9 @@
 include '../lib/config.php';
 include '../lib/function.php';
 include '../models/dashboard_realisasi_investasi_non_fas_model.php';
+
+log_data(1, 0, $_SESSION['user_id'], "dashboard realisasi investasi pmdn non fas");
+
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 

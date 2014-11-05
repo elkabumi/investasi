@@ -12,7 +12,7 @@ switch ($page) {
 	case 'list':
 		get_header();
 
-		
+		log_data(1, 0, $_SESSION['user_id'], "izin prinsip");
 		
 		$query = select();
 		$add_button = "izin_prinsip.php?page=form";
@@ -28,6 +28,8 @@ switch ($page) {
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
 		$category = (isset($_GET['category'])) ? $_GET['category'] : null;
 		$query = select_detail($id);
+		
+		log_data(1, 0, $_SESSION['user_id'], "izin prinsip");
 		
 		$add_button = "izin_prinsip.php?page=form_detail&id=$id&category=$category";
 		$close = "izin_prinsip.php?page=list";
@@ -177,6 +179,9 @@ switch ($page) {
 		$data = "'', '1', '6', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','1','0','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
 	
 	create($data);
+	$id = mysql_insert_id();
+	log_data(2, $id, $_SESSION['user_id'], "izin prinsip");
+		
 	
 	show_message("Simpan berhasil", "izin_prinsip.php?page=list&did=1");
 		
@@ -243,6 +248,8 @@ switch ($page) {
 			$data = "'', '1', '6', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','$i_master_type_ip_id','$row_id','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
 	
 	create($data);
+	$id = mysql_insert_id();
+	log_data(2, $id, $_SESSION['user_id'], "izin prinsip");
 		
 		show_message("Simpan berhasil", "izin_prinsip.php?page=list_detail&did=1&id=$id_ip");
 		
@@ -398,6 +405,7 @@ switch ($page) {
 		
 
 		update($data, $id);
+		log_data(3, $id, $_SESSION['user_id'], "izin prinsip");
 		show_message("Simpan berhasil", "izin_prinsip.php?page=list&did=2");
 
 	break;
@@ -560,6 +568,7 @@ switch ($page) {
 		
 		update($data, $id);
 		
+		log_data(3, $id, $_SESSION['user_id'], "izin prinsip");
 		
 		show_message("Simpan berhasil", "izin_prinsip.php?page=list_detail&id=$id_ip&did=2");
 
@@ -579,6 +588,8 @@ switch ($page) {
 			}
 			
 		delete($id);
+		
+		log_data(4, $id, $_SESSION['user_id'], "izin prinsip");
 		if($type == '1'){
 			
 			header('Location: izin_prinsip.php?page=list_detail&id='.$id_ip.'&did=3');

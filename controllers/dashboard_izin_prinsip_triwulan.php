@@ -2,6 +2,9 @@
 include '../lib/config.php';
 include '../lib/function.php';
 include '../models/dashboard_izin_prinsip_triwulan_model.php';
+
+log_data(1, 0, $_SESSION['user_id'], "dashboard realisasi Izin Prinsip pma dan pmdn");
+
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 

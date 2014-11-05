@@ -33,9 +33,8 @@
                 <div class="alert alert-info alert-dismissable">
                 <i class="fa fa-check"></i>
                 <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-              
-               <b>Sukses !</b>
-                <p>Edit data berhasil</p>
+                <b>Simpan Gagal !</b>
+               Kode sudah digunakan
                 </div>
            
                 </section>
@@ -53,7 +52,7 @@
 
                           
                           
-					<form action="<?= $action?>" name="config" method="post" enctype="multipart/form-data" role="form" onsubmit="return form_config()">
+					<form action="<?= $action?>" name="register" method="post" enctype="multipart/form-data" role="form" onsubmit="return form_investasi()">
 
                             <div class="box box-cokelat">
                                 
@@ -61,28 +60,52 @@
                                 <div class="box-body">
                                     
                                      <div class="col-md-6">
-                                  
                                     
                                         
-                                         <div class="form-group">
-                                            <label>Kurs Rupiah terhadap dolar</label>
-                                            <input required type="text" name="i_config_dollar" class="form-control" placeholder="Enter ..." value="<?= $row->config_dollar  ?>"/>
+                                       
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Nama Bidasng usaha</label>
+                                            <input required type="text" name="i_nama" class="form-control" placeholder="Enter ..." value="<?= $row->business_type_name ?>"/>
+                                        </div>
                                       
+                                    
+                                          	 <div class="form-group">
+                                        <label>Kategori</label>
+                                        <select id="basic" name="i_category" class="selectpicker show-tick form-control" data-live-search="true">
+                                       
+                                      
+             <option value="1" <?php if(  $row->business_parent_type_id == '1'){ ?> selected="selected"<?php }?>>SEKTOR PRIMER</option>
+              <option value="2" <?php if( $row->business_parent_type_id == '2'){ ?> selected="selected"<?php }?>>SEKTOR SEKUNDER</option>
+              <option value="3" <?php if($row->business_parent_type_id == '3'){ ?> selected="selected"<?php }?>>SEKTOR TERSIER</option>
+                                          
+                                        </select>
+                                      </div>
+                                          
                                    
-                                      
+                                           <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>Lain - lain</label>
+                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->bussines_type_desc ?></textarea>
+                                        </div>
                                        
-                                   </div>	
-                                  
                                        
+                                          
+                                       
+                                       </div>
+                                       <div style="clear:both;"></div>
+                                       
+                                   
+                                   
                                 </div><!-- /.box-body -->
-                               <div style="clear:both;"></div>
-                            
-                            </div><!-- /.box -->
-                            
+                                
                                 <div class="box-footer">
                                 <input class="btn btn-cokelat" type="submit" value="Save"/>
-                               
+                                <a href="<?= $close_button?>" class="btn btn-cokelat" >Close</a>
                                 </div>
+                            
+                            </div><!-- /.box -->
+                             
                             
                        </form>
                         </div><!--/.col (right) -->

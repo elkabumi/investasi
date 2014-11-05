@@ -67,7 +67,7 @@ $(function () {
                      for($y=$year_2; $y<=$year; $y++){
 						$data = get_data($y,$country_id,$city_id,$business_id,$sub_business_id);
 						echo $data;
-						if($y!=$year_default){ echo ","; }
+						if($y!=$year_2){ echo ","; }
 				 	}  
 				 ?>
 					],
@@ -80,7 +80,7 @@ $(function () {
                 for($y=$year_3; $y<=$year; $y++){
 					$data = get_data_dollar($y,$country_id,$city_id,$business_id,$sub_business_id);
 						echo $data;
-						if($y!=$year_default){ echo ","; }
+						if($y!=$year_3){ echo ","; }
 				 }  
 				 ?>],
 				color: '#933'
@@ -285,12 +285,7 @@ $(function () {
                                          <input  type="text" name="i_sub_business_type_id" class="form-control" placeholder="Enter ..." value="<?= $sub_business_id ?>"/>
                                       </div>
                                       </div>
-                                              </form>
-									
                                                  
-                                          
-                              
-                                              
                                               <div style="clear:both;"></div>
 
                                        
@@ -301,12 +296,18 @@ $(function () {
                     <div class="box-footer">
                                 <input class="btn btn-cokelat" type="submit" value="Preview"/>
                                 </div>
+                                              </form>
+									
+                                                 
+                                          
+                              
+                                   
                   
                       
                         </div><!--/.col (right) -->
                     </div>   <!-- /.row -->
                     
-                    
+                    </
                     
            <div class="row">
                     

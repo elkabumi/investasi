@@ -3,7 +3,6 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/user_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "menu user");
 
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
@@ -17,6 +16,7 @@ switch ($page) {
 
 		
 		$query = select();
+		log_data(1, 0, $_SESSION['user_id'], "menu user");
 		$add_button = "user.php?page=form";
 
 
@@ -101,6 +101,9 @@ switch ($page) {
 			";
 
 			create($data);
+			$id = mysql_insert_id();
+			log_data(2, $id, $_SESSION['user_id'],  "menu user");
+		
 			if($i_img){
 				move_uploaded_file($i_img_tmp, $path.$i_img);
 			}
@@ -165,6 +168,7 @@ switch ($page) {
 			
 			update($data, $id);
 			
+			log_data(3, $id, $_SESSION['user_id'],  "menu user");
 			header('Location: user.php?page=list&did=2');
 
 		}
@@ -177,6 +181,7 @@ switch ($page) {
 
 		delete($id);
 
+		log_data(4, $id, $_SESSION['user_id'],  "menu user");
 		header('Location: user.php?page=list&did=3');
 
 	break;
@@ -186,7 +191,7 @@ switch ($page) {
 		$id = get_isset($_GET['id']);	
 
 		actived($id);
-
+		log_data(7, $id, $_SESSION['user_id'],  "menu user");
 		header('Location: user.php?page=list&did=4');
 
 	break;
@@ -196,7 +201,7 @@ switch ($page) {
 		$id = get_isset($_GET['id']);	
 
 		deactived($id);
-
+		log_data(8, $id, $_SESSION['user_id'],  "menu user");
 		header('Location: user.php?page=list&did=5');
 
 	break;

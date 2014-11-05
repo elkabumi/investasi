@@ -17,6 +17,7 @@ switch ($page) {
 		
 		
 		$query = select();
+		log_data(1, 0, $_SESSION['user_id'], "izin usaha");
 		$add_button = "master.php?page=list_izin_prinsip";
 
 
@@ -30,9 +31,12 @@ switch ($page) {
 		
 		
 		$query = select_izin_prinsip();
+		
+		log_data(1, 0, $_SESSION['user_id'], "izin usaha");
+		
 		$add_button = "izin_prinsip.php?page=form";
 $close = "master.php?page=list";
-
+		
 		include '../views/master/list_izin_prinsip.php';
 		get_footer();
 	break;
@@ -127,7 +131,9 @@ $close = "master.php?page=list";
 			$data = "'', '1', '7', '$i_master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '$i_no_iu', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id','$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$row_id','','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
 		
 		create($data);
-		
+		$id = mysql_insert_id();
+		log_data(2, $id, $_SESSION['user_id'], "izin usaha");
+	
 		show_message("Simpan berhasil", "master.php?page=list&master_type_id=$master_type_id&did=1");
 		
 		
@@ -274,6 +280,8 @@ $close = "master.php?page=list";
 		
 
 		update($data, $id);
+		
+		log_data(3, $id, $_SESSION['user_id'], "izin usaha");
 		show_message("Simpan berhasil", "master.php?page=list&master_type_id=$master_type_id&did=2");
 
 	break;
@@ -291,6 +299,8 @@ $close = "master.php?page=list";
 			
 		delete($id);
 
+		log_data(4, $id, $_SESSION['user_id'], "izin usaha");
+		
 		header('Location: master.php?page=list&did=3');
 
 	break;

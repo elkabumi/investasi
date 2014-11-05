@@ -3,7 +3,6 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/config_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "user");
 
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "form";
@@ -16,6 +15,7 @@ switch ($page) {
 	
 	case 'form':
 		get_header();
+		log_data(1, 0, $_SESSION['user_id'], "config");
 
 		$close_button = "config.php?page=list";
 

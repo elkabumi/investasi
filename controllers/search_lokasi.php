@@ -2,6 +2,8 @@
 include '../lib/config.php';
 include '../lib/function.php';
 include '../models/search_lokasi_model.php';
+
+log_data(1, 0, $_SESSION['user_id'], "search lokasi");
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Data Investasi Berdasarkan Lokasi");

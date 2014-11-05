@@ -2,6 +2,8 @@
 include '../lib/config.php';
 include '../lib/function.php';
 include '../models/report_tahunan_model.php';
+
+log_data(1, 0, $_SESSION['user_id'], "laporan tahunan");
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Laporan Tahunan");
