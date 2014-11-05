@@ -128,7 +128,7 @@
                                                   <?php
                                                   if($row['user_active_status'] == 1){
 												  ?>
-                                                    <a href="javascript:void(0)" onclick="confirm_user_deactived(<?= $row['user_id']; ?>,'user.php?page=deactived&id=')" class="btn btn-default" title="Non Aktifkan Data" >X</a>
+                                                    <a href="javascript:void(0)" onclick="confirm_user_deactived(<?= $row['user_id']; ?>,'user.php?page=deactived&id=')" class="btn btn-default" title="Non Aktifkan Data" ><i class="fa fa-times"></i></a>
                                                     
                                                     <?php
 												  }else{
