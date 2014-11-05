@@ -3,7 +3,7 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/report_tahunan_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "laporan tahunan");
+
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Laporan Tahunan");
@@ -16,7 +16,9 @@ switch ($page) {
 		get_header();
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
-		
+		if(!isset($_GET['preview'])){
+			log_data(1, 0, $_SESSION['user_id'], "laporan tahunan");
+		}
 		$action = "report_tahunan.php?page=form_result&preview=1";
 		
 			$i_master_category_id = "";
@@ -46,7 +48,7 @@ switch ($page) {
 			}
 			
 			$query_item = select_detail($i_master_category_id, $i_master_year1, $i_master_year2);
-
+log_data(10, 0, $_SESSION['user_id'], "laporan tahunan");
 			$tanggal = $i_master_year1." s/d ".$i_master_year2;
 			$jumlah_data = get_jumlah_data($i_master_category_id, $i_master_year1, $i_master_year2);
 			$jumlah_investasi = get_jumlah_investasi($i_master_category_id, $i_master_year1, $i_master_year2);
@@ -101,7 +103,7 @@ switch ($page) {
 						
 			$title = 'report_tahunan';
 			$format = create_report($title."_".$i_master_year1."_".$i_master_year2);
-			
+			log_data(11, 0, $_SESSION['user_id'], "laporan tahunan");
 			include '../views/report/report_tahunan.php';
 			
 
@@ -126,7 +128,7 @@ switch ($page) {
 			$jumlah_investasi = number_format($jumlah_investasi, 2);
 			$jumlah_tenaga_kerja = get_jumlah_tenaga_kerja($i_master_category_id, $i_master_year1, $i_master_year2);
 			
-			
+			log_data(12, 0, $_SESSION['user_id'], "laporan tahunan");
 			include '../views/report/report_tahunan_pdf.php';
 	
 	break;

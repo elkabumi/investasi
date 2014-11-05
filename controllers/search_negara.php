@@ -3,7 +3,6 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/search_negara_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "search negara");
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Data Investasi Berdasarkan Asal negara");
@@ -16,7 +15,9 @@ switch ($page) {
 		get_header();
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
-		
+		if(!isset($_GET['preview'])){
+			log_data(1, 0, $_SESSION['user_id'], "search negara");
+		}
 		$action = "search_Negara.php?page=form_result&preview=1";
 		
 			$i_master_sub_category_id = false;
@@ -37,6 +38,7 @@ switch ($page) {
 		
 		if(isset($_GET['preview'])){
 			
+		log_data(10, 0, $_SESSION['user_id'], "search negara");
 			
 			$i_country_id = get_isset($_GET['country_id']);
 			$i_triwulan = get_isset($_GET['triwulan']);
@@ -86,6 +88,8 @@ switch ($page) {
 			$query = select_country($i_country_id);
 			$title = 'Searb_negara';
 			$format = create_report($title."_".$i_master_year);
+			
+log_data(11, 0, $_SESSION['user_id'], "search negara");
 			include '../views/report/search_negara.php';
 			
 
@@ -110,6 +114,7 @@ switch ($page) {
 			$jumlah_investasi = number_format($jumlah_investasi, 2);
 			$jumlah_tenaga_kerja = get_jumlah_tenaga_kerja($i_master_category_id, $i_semester, $i_master_year);
 			
+			log_data(12, 0, $_SESSION['user_id'], "search negara");
 			include '../views/report/search_negara_pdf.php';
 	
 	break;

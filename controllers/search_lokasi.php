@@ -3,7 +3,7 @@ include '../lib/config.php';
 include '../lib/function.php';
 include '../models/search_lokasi_model.php';
 
-log_data(1, 0, $_SESSION['user_id'], "search lokasi");
+
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Data Investasi Berdasarkan Lokasi");
@@ -16,7 +16,9 @@ switch ($page) {
 		get_header();
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
-		
+		if(!isset($_GET['preview'])){
+			log_data(1, 0, $_SESSION['user_id'], "search lokasi");
+		}
 		$action = "search_lokasi.php?page=form_result&preview=1";
 		
 			$i_master_sub_category_id = false;
@@ -45,7 +47,7 @@ switch ($page) {
 			$i_master_year = get_isset($_GET['master_year']);
 			
 			$query = select_city($i_city_id);
-		
+		log_data(10, 0, $_SESSION['user_id'], "search lokasi");
 			
 
 			$tanggal = $i_triwulan." - ".$i_master_year;
@@ -86,6 +88,7 @@ switch ($page) {
 			$query = select_city($i_city_id);
 			$title = 'Searb_lokasi';
 			$format = create_report($title."_".$i_master_year);
+			log_data(11, 0, $_SESSION['user_id'], "search lokasi");
 			include '../views/report/search_lokasi.php';
 			
 
@@ -110,6 +113,7 @@ switch ($page) {
 			$jumlah_investasi = number_format($jumlah_investasi, 2);
 			$jumlah_tenaga_kerja = get_jumlah_tenaga_kerja($i_master_category_id, $i_semester, $i_master_year);
 			
+			log_data(12, 0, $_SESSION['user_id'], "search lokasi");
 			include '../views/report/search_lokasi_pdf.php';
 	
 	break;
