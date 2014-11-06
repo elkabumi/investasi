@@ -109,9 +109,9 @@
                     
                     <div class="box-footer">
                                 <input class="btn btn-cokelat" type="submit" value="Preview"/>
-                             	 <?php if(isset($_GET['preview'])){ ?><a href="search_bidang_usaha.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&semester=<?= $_GET['semester']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-cokelat" >Download Excel</a>
+                             	 <?php /*if(isset($_GET['preview'])){ ?><a href="search_bidang_usaha.php?page=download&master_category_id=<?= $_GET['master_category_id']?>&semester=<?= $_GET['semester']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-cokelat" >Download Excel</a>
 								 <a href="search_bidang_usaha.php?page=download_pdf&master_category_id=<?= $_GET['master_category_id']?>&semester=<?= $_GET['semester']?>&master_year=<?= $_GET['master_year']?>" class="btn btn-cokelat" >Download PDF</a>
-								 <?php } ?>
+								 <?php }*/ ?>
                                 </div>
                             
                             </div><!-- /.box -->

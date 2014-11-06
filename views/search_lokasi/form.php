@@ -130,13 +130,14 @@
                                 <input class="btn btn-cokelat" type="submit" value="Preview"/>
                              	 
 								 
-								 <?php if(isset($_GET['preview'])){ ?>
+								 <?php /* if(isset($_GET['preview'])){ ?>
                             <a href="search_lokasi.php?page=download&city_id=<?= $_GET['city_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>&master_sub_category_id=<?= $_GET['master_sub_category_id']?>" class="btn btn-cokelat" >Download Excel</a>
 								 
                             <a href="search_lokasi.php?page=download_pdf&city_id=<?= $_GET['city_id']?>&triwulan=<?= $_GET['triwulan']?>&master_year=<?= $_GET['master_year']?>&master_sub_category_id=<?= $_GET['master_sub_category_id']?>" class="btn btn-cokelat" >Download pdf</a>
 								 
                                  
-								 <?php } ?>
+								 <?php } */
+								 ?>
                                 </div>
                             
                             </div><!-- /.box -->

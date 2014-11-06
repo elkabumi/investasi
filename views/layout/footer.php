@@ -89,6 +89,8 @@
 				$('#date_picker1').datepicker({
 					format: 'dd/mm/yyyy'
 				});
+				
+			
 			
                 
                 //Timepicker

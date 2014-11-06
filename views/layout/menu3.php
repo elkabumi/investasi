@@ -76,13 +76,14 @@
                             </ul>
                   </li>
                   
-                  <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "class='active'"; }?>>
+                 <!-- <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 6){ echo "class='active'"; }?>>
                             <a href="olah.php?page=form">
                                 <i class="fa fa-pencil-square-o"></i>
                                 <span>Olah</span>
                             </a>
                             
                   </li>
+                  -->
                   
                   
                   

@@ -1,13 +1,13 @@
 <?php echo $format; ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" style="font-size:32px; font-weight:bold;" colspan="12">Laporan Tahunan <?= $nama_category ?> </td>
+    <td align="center" style="font-size:32px; font-weight:bold;" colspan="<?= $colspan_aktif ?>">Laporan Tahunan <?= $nama_category ?> </td>
   </tr>
   <tr>
-    <td align="center" style="font-size:22px; font-weight:bold;"  colspan="12"><?= "Tahun ".$i_master_year1." - ".$i_master_year2; ?></td>
+    <td align="center" style="font-size:22px; font-weight:bold;"  colspan="<?= $colspan_aktif ?>"><?= "Tahun ".$i_master_year1." - ".$i_master_year2; ?></td>
   </tr>
 </table>
-
+<!--
 <br />
 <table border="1" cellpadding="4" cellspacing="0" class="table table-bordered"> 
  <thead>
@@ -43,24 +43,48 @@ for($i2=0; $i2<=3; $i2++){
  <table border="1" cellpadding="4" cellspacing="0" class="table table-bordered table-striped" id="example1">
                                         <thead>
                                             <tr bgcolor="#dddddd">
-                                                <th data-class="expand" data-sort-initial="true">No</th>
-                                          		<th>Kategori</th>
-                                            	<th>Nama Perusahaan</th>
-                                                <th data-hide="phone">Alamat</th>
-                                                <th data-hide="phone">No IP</th>
-                                                <th data-hide="phone">No IU</th>
-                                                <th data-hide="all">No Perusahaan</th>
-                                                <th data-hide="all">No Kode Proyek</th>       
-                                                <th data-hide="all">Investasi</th>
-                                                <th data-hide="all">Tenaga Kerja</th>
-                                                <th data-hide="all">Kapasitas</th>
-                                                <th data-hide="all">Ekspor</th>                                           
-                                                <th data-hide="phone">Negara</th>
-                                                <th data-hide="phone">Lokasi</th>
-                                                <th data-hide="phone,tablet">NPWP</th>
-                                                <th data-hide="phone">Bidang Usaha</th>
-                                                <th data-hide="all">Lain-lain</th>
-                                                <th data-hide="all">Tahun</th>
+                                                <?php
+                                               $nama_kolom = array(
+										   		'',
+										   		'Kategori',
+												'Tanggal',
+												'Nama Perusahaan',
+												'Alamat',
+												'No IP',
+												'No IU',
+												'No Perusahaan',
+												'No Kode Proyek',
+												'Investasi (Rp)',
+												'Investasi ($)',
+												'Kurs Dollar',
+												'Tenaga Kerja Pria',
+												'Tenaga Kerja Wanita',
+												'Tenaga Kerja Asing',
+												'Total Tenaga Kerja',
+												'Kapasitas',
+												'Ekspor',
+												'Negara',
+												'Lokasi',
+												'NPWP',
+												'Bidang Usaha',
+												'Sub Bidang Usaha',
+												'Produksi',
+												'Tanggal Expired',
+												'Lain-lain',
+												'Tahun'
+												
+										   );
+											  ?>
+                                              
+                                          		<th  data-class="expand" data-sort-initial="true">No</th>
+                                                <?php
+                                                for($ic=1; $ic<=26; $ic++){
+												?>
+                                          		<?php if($kol[$ic] == 1){ ?><th><?= $nama_kolom[$ic]; ?></th><?php } ?>
+                                             
+                                                <?php
+												}
+												?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -70,31 +94,44 @@ for($i2=0; $i2<=3; $i2++){
                                        ?>
                                             <tr>
                                           
-                                             	<td><?= $no_item ?></td>
-                                                <td><?php
+                                           <td><?= $no_item ?></td>
+                                                <?php if($kol[1] == 1){ ?><td><?php
 													if($row['master_type_id'] == 2){
-													echo "Realisasi ";
+													echo "Realisasi ".$row['master_sub_category_name'];
 													}
+													
+												if($row['master_category_id'] == 6 && $row['master_type_id'] == 1){
 													echo $row['master_category_name'];
-												if($row['master_category_id'] == 6){
+													echo " ".$row['master_sub_category_name'];
 													echo " ( ".$row['master_ip_type_name']." )";
-												} ?></td>
-                                             	<td><?= $row['nama_perusahaan']?></td>
-                                                <td><?= $row['alamat']?></td>
-                                                <td><?= $row['no_ip']?></td>
-                                                <td><?= $row['no_iu']?></td>
-                                                 <td><?= $row['no_perusahaan']?></td>
-                                                  <td><?= $row['no_kode_proyek']?></td>
-                                                   <td><?= $row['investasi']?></td>
-                                                 <td><?= $row['tenaga_kerja']?></td>
-                                                <td><?= $row['kapasitas']?></td>
-                                                <td><?= $row['ekspor']?></td>
-                                                <td><?= $row['country_name']?></td>
-                                                <td><?= $row['city_name']?></td>
-                                                <td><?= $row['npwp']?></td>
-                                                <td><?= $row['business_type_name']?></td>
-                                                <td><?= $row['keterangan']?></td>
-                                                <td><?= $row['master_year']?></td>
+												} 
+												$spasi = "&nbsp;";
+												?></td><?php } ?>
+                                                <?php if($kol[2] == 1){ ?><td><?= $spasi.format_date($row['master_date']) ?></td><?php } ?>
+                                             	<?php if($kol[3] == 1){ ?><td><?= $spasi.$row['nama_perusahaan']?></td><?php } ?>
+                                                <?php if($kol[4] == 1){ ?><td><?= $spasi.$row['alamat']?></td><?php } ?>
+                                                <?php if($kol[5] == 1){ ?><td><?= $spasi.$row['no_ip']?></td><?php } ?>
+                                                <?php if($kol[6] == 1){ ?> <td><?= $spasi.$row['no_iu']?></td><?php } ?>
+                                                <?php if($kol[7] == 1){ ?><td><?= $spasi.$row['no_perusahaan']?></td><?php } ?>
+                                                <?php if($kol[8] == 1){ ?><td><?= $spasi.$row['no_kode_proyek']?></td><?php } ?>
+                                                <?php if($kol[9] == 1){ ?><td align="right"><?= $spasi.$row['investasi']?></td><?php } ?>
+                                                <?php if($kol[10] == 1){ ?><td align="right"><?= $spasi.$row['investasi_dollar']?></td><?php } ?>
+                                                <?php if($kol[11] == 1){ ?><td align="right"><?= $spasi.$row['master_config_dollar']?></td><?php } ?>
+                                                <?php if($kol[12] == 1){ ?><td><?= $spasi.$row['master_tk_laki']?></td><?php } ?>
+                                                <?php if($kol[13] == 1){ ?><td><?= $spasi.$row['master_tk_perempuan']?></td><?php } ?>
+                                                <?php if($kol[14] == 1){ ?><td><?= $spasi.$row['master_tk_asing']?></td><?php } ?>
+                                                <?php if($kol[15] == 1){ ?><td><?= $spasi.$row['tenaga_kerja']?></td><?php } ?>
+                                                <?php if($kol[16] == 1){ ?><td align="right"><?= $spasi.$row['kapasitas']?></td><?php } ?>
+                                                <?php if($kol[17] == 1){ ?><td align="right"><?= $spasi.$row['ekspor']?></td><?php } ?>
+                                                <?php if($kol[18] == 1){ ?><td><?= $spasi.$row['country_name']?></td><?php } ?>
+                                                <?php if($kol[19] == 1){ ?><td><?= $spasi.$row['city_name']?></td><?php } ?>
+                                                <?php if($kol[20] == 1){ ?><td><?= $spasi.$row['npwp']?></td><?php } ?>
+                                                <?php if($kol[21] == 1){ ?><td><?= $spasi.$row['business_type_name']?></td><?php } ?>
+                                                <?php if($kol[22] == 1){ ?> <td><?= $spasi.$row['business_sub_type_id']?></td><?php } ?>
+                                                <?php if($kol[23] == 1){ ?> <td><?= $spasi.$row['master_production']?></td><?php } ?>
+                                                <?php if($kol[24] == 1){ ?><td><?= $spasi.format_date($row['master_expired_date']) ?></td><?php } ?>
+                                                <?php if($kol[25] == 1){ ?><td><?= $spasi.$row['keterangan']?></td><?php } ?>
+                                                <?php if($kol[26] == 1){ ?><td><?= $spasi.$row['master_year']?></td><?php } ?>
                                                  </tr>
                                            
                                         

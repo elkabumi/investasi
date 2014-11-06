@@ -49,6 +49,7 @@
 													
 												if($row['master_category_id'] == 6 && $row['master_type_id'] == 1){
 													echo $row['master_category_name'];
+													echo " ".$row['master_sub_category_name'];
 													echo " ( ".$row['master_ip_type_name']." )";
 												} ?></td>
                                              	<td><?= $row['nama_perusahaan']?></td>
