@@ -10,7 +10,7 @@ $content .= '
     <td align="center" size=18 >'; $content .= "Triwulan ".$i_triwulan." - ".$i_master_year; $content .='</td>
   </tr>
 </table>';
-
+/*
 $content .= '
 
 <br />
@@ -46,7 +46,7 @@ $content .= '
   </tr></tbody>
 
 </table>';
-
+*/
        
            $content .= '     <!-- list item -->
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -72,8 +72,7 @@ $content .= '
                                                
                                                 <td data-hide="phone">Investasi</td>
                                                <td data-hide="phone">Tenaga Kerja</td>
-                                                <td data-hide="phone">Kapasitas</td>
-                                                 <td data-hide="phone">Ekspor</td>
+                                              
                                                 <td data-hide="phone">Negara</td>
                                                 <td data-hide="phone,tablet">Lokasi</td>
                                                 <td data-hide="phone,tablet">NPWP</td>
@@ -94,10 +93,12 @@ $content .= '
 											 <td>';
 											 
 													if($row_item['master_type_id'] == 2){
-														$content .= "Realisasi ";
+													$content .= "Realisasi ".$row_item['master_sub_category_name'];
 													}
+													
+												if($row_item['master_category_id'] == 6 && $row_item['master_type_id'] == 1){
 													$content .= $row_item['master_category_name'];
-												if($row_item['master_category_id'] == 6){
+													$content .= " ".$row_item['master_sub_category_name'];
 													$content .= " ( ".$row_item['master_ip_type_name']." )";
 												} 
 												$content .= '</td>
@@ -120,12 +121,7 @@ $content .= '
                        							<td align="right">'; $content .=  $row_item['tenaga_kerja'];
 												 $content .= '</td>
                                                 <td align="right">';
-												$content .= ($row_item['kapasitas']);
-												$content .= '</td>
-                                                <td align="right">';
-												$content .= ($row_item['ekspor']);
-												$content .= '</td>
-                                                <td align="right">'; 
+												
 												 $content .= ($row_item['country_name']);
 												  $content .= '</td>
                                                 

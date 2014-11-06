@@ -66,7 +66,7 @@
       <thead>
         <tr>
          
-         									 	<th  data-class="expand" data-sort-initial="true">No</th>
+         									 	<th  data-class="expand" data-sort-initial="true" data-type="numeric">No</th>
                                             	<th>Kategori</th>
                                                 <th>Nama Perusahaan</th>
                                                 <th data-hide="phone">Alamat</th>

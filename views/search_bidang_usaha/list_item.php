@@ -24,7 +24,7 @@
                                  <table data-filter="#filter" class="footable">
       <thead>
         <tr>
-                                             <th rowspan="2">No</th>
+                                             <th rowspan="2" >No</th>
                                           		<th rowspan="2">Bidang Usaha</th>
                                                 <?php
 												

@@ -2,11 +2,12 @@
 include '../lib/config.php';
 include '../lib/function.php';
 include '../models/search_bidang_usaha_model.php';
+
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
 $title = ucfirst("Data Investasi Berdasarkan Bidang Usaha");
 
-$_SESSION['menu_active'] = 5;
+$_SESSION['menu_active'] = 7;
 
 switch ($page) {
 	
@@ -14,7 +15,9 @@ switch ($page) {
 		get_header();
 
 		$id = (isset($_GET['id'])) ? $_GET['id'] : null;
-		
+		if(!isset($_GET['preview'])){
+			log_data(1, 0, $_SESSION['user_id'], "search bidang usaha");
+		}
 		$action = "search_bidang_usaha.php?page=form_result&preview=1";
 		
 			$i_master_sub_category_id = "";
@@ -43,6 +46,7 @@ switch ($page) {
 			
 			$query_item = select_detail($i_master_sub_category_id, $i_triwulan, $i_master_year);
 
+			log_data(10, 0, $_SESSION['user_id'], "search bidang usaha");
 			$tanggal = $i_triwulan." - ".$i_master_year;
 			
 			include '../views/search_bidang_usaha/list_item.php';
@@ -91,7 +95,7 @@ switch ($page) {
 						
 			$title = 'search_bidang_usaha';
 			$format = create_report($title."_".$i_master_year);
-			
+			log_data(11, 0, $_SESSION['user_id'], "search bidang usaha");
 			include '../views/report/search_bidang_usaha.php';
 			
 
@@ -115,7 +119,7 @@ switch ($page) {
 			$jumlah_investasi = get_jumlah_investasi($i_master_sub_category_id, $i_semester, $i_master_year);
 			$jumlah_investasi = number_format($jumlah_investasi, 2);
 			$jumlah_tenaga_kerja = get_jumlah_tenaga_kerja($i_master_sub_category_id, $i_semester, $i_master_year);
-			
+			log_data(12, 0, $_SESSION['user_id'], "search bidang usaha");
 			include '../views/report/search_bidang_usaha_pdf.php';
 	
 	break;

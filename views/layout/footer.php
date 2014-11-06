@@ -47,6 +47,8 @@
 				  $('#new_table2').footable();
 				});
 				
+			
+				
 				$('.footable').data('limit-navigation', 5);
 				$('.footable').trigger('footable_initialized');
 						
@@ -87,6 +89,8 @@
 				$('#date_picker1').datepicker({
 					format: 'dd/mm/yyyy'
 				});
+				
+			
 			
                 
                 //Timepicker

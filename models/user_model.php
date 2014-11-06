@@ -3,7 +3,7 @@
 function select(){
 	$query = mysql_query("select *
 		from users a 
-			
+			where user_id <> 11
 			");
 	return $query;
 }
@@ -28,6 +28,15 @@ function update($data, $id){
 function delete($id){
 	mysql_query("delete from users  where user_id = '$id'");
 }
+
+function actived($id){
+	mysql_query("update users set user_active_status = '1' where user_id = '$id'");
+}
+
+function deactived($id){
+	mysql_query("update users set user_active_status = '0' where user_id = '$id'");
+}
+
 function cek_name_login($name){
 	$query = mysql_query("select count(user_id)
 							from users 

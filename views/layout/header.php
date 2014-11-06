@@ -43,6 +43,8 @@ if(!$_SESSION['login']){
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
         
+       
+        
         <!-- footable -->
            <link href="../css/footable/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css"/>
             <link href="../css/footable/footable.standalone.css" rel="stylesheet" type="text/css"/>
@@ -86,9 +88,10 @@ if(!$_SESSION['login']){
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a href="../index.php" class="logo">
-            	<img src="../img/jatim.png" width="20" style="margin-right:10px;">
+            	<img src="../img/jatim.png" width="20" style="margin-right:5px;">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 BPM Jawa Timur
+               <div style="font-size:11px; line-height:0px; margin-top:-2px; margin-left:30px; color:#FF0;"> Bidang Data & Sistem Informasi</div>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">

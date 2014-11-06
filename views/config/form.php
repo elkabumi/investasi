@@ -33,8 +33,9 @@
                 <div class="alert alert-info alert-dismissable">
                 <i class="fa fa-check"></i>
                 <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
-                <b>Simpan Gagal !</b>
-               Kode sudah digunakan
+              
+               <b>Sukses !</b>
+                <p>Edit data berhasil</p>
                 </div>
            
                 </section>

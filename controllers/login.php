@@ -37,22 +37,23 @@ switch ($page) {
 
 		if($query > 0 ){
 			//login sukses
-			$_SESSION['login'] = 1;
-			$_SESSION['user_id'] = $query_user->user_id;
-			$_SESSION['user_type_id'] = $query_user->user_type_id;
-			/*
-			if($_SESSION['user_type_id'] == 1 || $_SESSION['user_type_id'] == 3){
-				header("Location: transaction.php?page=list");
+			
+			if($query_user->user_active_status == 0){
+				header('Location: ../login.php?err=2');
 			}else{
-				header('Location: report_detail.php?page=list');
-			}*/
-
-
 			
-			header("Location: master.php?page=list");
-			
-			echo $_SESSION['user_type_id'];
-			
+				$_SESSION['login'] = 1;
+				$_SESSION['user_id'] = $query_user->user_id;
+				$_SESSION['user_type_id'] = $query_user->user_type_id;
+				/*
+				if($_SESSION['user_type_id'] == 1 || $_SESSION['user_type_id'] == 3){
+					header("Location: transaction.php?page=list");
+				}else{
+					header('Location: report_detail.php?page=list');
+				}*/
+			log_data(5, 0, $query_user->user_id, "");
+			header("Location: home.php?page=list");
+			}
 		}else{
 			//login gagal
 			header('Location: ../login.php?err=1');

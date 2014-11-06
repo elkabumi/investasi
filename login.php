@@ -30,14 +30,24 @@
                 <div class="body bg-white">
 
                     <?php
-                    if(isset($_GET['err'])){
+                   if(isset($_GET['err']) && $_GET['err'] == 1){
                     ?>
                     <br>
                      <div class="alert alert-warning alert-dismissable">
                     <i class="fa fa-warning"></i>
                     <button class="close" aria-hidden="true" data-dismiss="alert" type="button"></button>
-                    <b>Error !</b>
-                   User login or Password incorrect
+                    <b>Login Gagal !</b><br>
+                   User login atau password salah
+                    </div>
+                    <?php
+                    }else if(isset($_GET['err']) && $_GET['err'] == 2){
+                    ?>
+                    <br>
+                     <div class="alert alert-warning alert-dismissable">
+                    <i class="fa fa-warning"></i>
+                    <button class="close" aria-hidden="true" data-dismiss="alert" type="button"></button>
+                    <b>Login Gagal !</b><br>
+                   User telah di nonaktifkan
                     </div>
                     <?php
                     }
