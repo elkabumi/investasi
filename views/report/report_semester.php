@@ -91,6 +91,7 @@ for($i2=0; $i2<=3; $i2++){
                                         <tbody>
                                                  <?php
                                            $no_item = 1;
+										   $spasi = "&nbsp;";
                                             while($row = mysql_fetch_array($query_item)){
                                        ?>
                                             <tr>
@@ -106,7 +107,7 @@ for($i2=0; $i2<=3; $i2++){
 													echo " ".$row['master_sub_category_name'];
 													echo " ( ".$row['master_ip_type_name']." )";
 												} 
-												$spasi = "&nbsp;";
+												
 												?></td><?php } ?>
                                                 <?php if($kol[2] == 1){ ?><td><?= $spasi.format_date($row['master_date']) ?></td><?php } ?>
                                              	<?php if($kol[3] == 1){ ?><td><?= $spasi.$row['nama_perusahaan']?></td><?php } ?>
