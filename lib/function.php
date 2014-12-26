@@ -207,5 +207,25 @@ function show_message($message, $link){
     <?php
 	
 }
-
+function get_city_id($city){
+	$query	= mysql_query("SELECT city_id FROM cities WHERE city_name LIKE '%".$city."%'");
+	$row	= mysql_fetch_object($query);
+	return $row->city_id;
+}
+function get_country_id($country){
+	$query	= mysql_query("SELECT country_id FROM  countries WHERE country_name LIKE '%".$country."%'");
+	$row	= mysql_fetch_object($query);
+	return $row->country_id;
+}
+function format_money($money){
+	$cx = array("*",",","."," ");
+	$f = array("","","","");
+	$money = str_replace($cx,$f,$money);
+	return $money;
+}
+function get_ip_id($no_ip){
+	$query	= mysql_query("SELECT master_id FROM  master WHERE no_ip = '".$no_ip."' AND master_ip_type_id = '1'");
+	$row	= mysql_fetch_object($query);
+	return $row->master_id;
+}
 ?>

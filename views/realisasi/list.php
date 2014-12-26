@@ -50,6 +50,17 @@
            
                 </section>
                 <?php
+                }else if(isset($_GET['did']) && $_GET['did'] == 4){
+                ?>
+                <section class="content_new">
+                   
+               <div class="callout callout-info">
+                <h4>Sukses !</h4>
+                <p>Upload berhasil</p>
+                </div>
+           
+                </section>
+                <?php
                 }
                 ?>
 

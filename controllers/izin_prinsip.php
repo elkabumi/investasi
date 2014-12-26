@@ -1,6 +1,7 @@
 <?php
 include '../lib/config.php';
 include '../lib/function.php';
+include '../lib/excel_reader.php';
 include '../models/izin_prinsip_model.php';
 $page = null;
 $page = (isset($_GET['page'])) ? $_GET['page'] : "list";
@@ -16,6 +17,7 @@ switch ($page) {
 		
 		$query = select();
 		$add_button = "izin_prinsip.php?page=form";
+		$upload_button = "izin_prinsip.php?page=form_upload";
 
 
 		include '../views/izin_prinsip/list.php';
@@ -38,7 +40,7 @@ switch ($page) {
 		include '../views/izin_prinsip/list_detail.php';
 		get_footer();
 	break;
-	
+
 	case 'form':
 		get_header();
 
@@ -88,8 +90,88 @@ switch ($page) {
 		include '../views/izin_prinsip/form.php';
 		get_footer();
 	break;
-	
-	
+	case 'form_upload':
+		get_header();
+		$action='izin_prinsip.php?page=save_upload';
+		$close_button = "izin_prinsip.php?page=list";
+		include '../views/izin_prinsip/form_upload.php';
+		get_footer();
+	break;
+	case'save_upload':
+		extract($_POST);
+		$i_user_id = get_isset($_SESSION['user_id']);
+		$type_file   = $_FILES['file_xls']['type'];
+		
+		$data = new Spreadsheet_Excel_Reader($_FILES['file_xls']['tmp_name']);
+		$hasildata = $data->rowcount($sheet_index=0);
+		
+		for($j=2; $j<=$hasildata; $j++){
+			
+			
+			 $no				= strtolower(trim($data->val($j,1))); 
+			 $tahun 			= strtolower(trim($data->val($j,2)));
+			 $negara 			= get_country_id(strtolower(trim($data->val($j,3))));	 
+			 $lokasi 			= get_city_id(strtolower(trim($data->val($j,4)))); 		 
+			 $npwp			  	= strtolower(trim($data->val($j,5)));
+			 $no_perusahaan 	= strtolower(trim($data->val($j,6)));
+			 $no_kode_proyek 	= strtolower(trim($data->val($j,7)));
+			 $alamat_perusahaan 	= strtolower(trim($data->val($j,8)));
+			 $nama_perusahaan 	= strtolower(trim($data->val($j,9)));
+			 $no_ip			 	= strtolower(trim($data->val($j,10)));
+			 
+			 $tanggal_ip 		= format_back_date_upload(strtolower(trim($data->val($j,11))));
+			 $tanggal_exp_ip 	= format_back_date_upload(strtolower(trim($data->val($j,12))));	 
+			 $kategoty			= strtolower(trim($data->val($j,13)));	
+			 $investasi			= format_money(strtolower(trim($data->val($j,14))));
+			 $kode_bid_usaha	= strtolower(trim($data->val($j,15)));
+			 $sub_bid_usaha		= strtolower(trim($data->val($j,16)));
+			 $produksi			= strtolower(trim($data->val($j,17)));
+			 $ekspor			= strtolower(trim($data->val($j,18)));
+			 $tk_laki			= strtolower(trim($data->val($j,19))); 			 
+			 $tk_wanita 		= strtolower(trim($data->val($j,20))); 
+			 $tk_asing 			= strtolower(trim($data->val($j,21))); 
+			 $kapasitas 		= strtolower(trim($data->val($j,22))); 		 
+			 $ket				= strtolower(trim($data->val($j,23)));
+			 $ip_type			= strtolower(trim($data->val($j,24)));
+			 $total_tk			= $tk_laki + $tk_wanita + $tk_asing;	
+		
+			if($ip_type == '1'){
+				if($kategoty == '1'){
+						$master_dollar =  get_config_dollar();
+						$jml_investasi="'0','$investasi'";
+						$dollar ="'$master_dollar'";
+				}else if($kategoty == '2'){
+						$jml_investasi="'$investasi','0'";
+						$dollar="'0'";
+						
+				}
+				
+				$create_data = "'', '1', '6', '$kategoty', '$nama_perusahaan', '$alamat_perusahaan', '$no_ip', '', '$no_perusahaan', '$no_kode_proyek',$jml_investasi, '$total_tk', '$kapasitas', '$ekspor', '$negara', '$lokasi', '$npwp', '$kode_bid_usaha','$sub_bid_usaha','$ket', '$i_user_id', '$tahun', '$tanggal_ip', '','1','0','$tanggal_exp_ip','','$tk_laki','$tk_wanita','$tk_asing',$dollar";
+				mysql_query("INSERT INTO master VALUES(".$create_data.")");
+				
+			}else if($ip_type == '2' or $ip_type == '3' or $ip_type == '4' or $ip_type == '5'){
+				$ip_id = get_ip_id($no_ip);
+				echo $ip_id;
+				if($kategoty == '1'){
+						$master_dollar =  get_config_dollar();
+						$jml_investasi="'0','$investasi'";
+						$dollar ="'$master_dollar'";
+				}else if($kategoty == '2'){
+						$jml_investasi="'$investasi','0'";
+						$dollar="'0'";
+						
+				}
+				$create_data = "'', '1', '6', '$kategoty', '$nama_perusahaan', '$alamat_perusahaan', '$no_ip', '', '$no_perusahaan', '$no_kode_proyek',$jml_investasi, '$total_tk', '$kapasitas', '$ekspor', '$negara', '$lokasi', '$npwp', '$kode_bid_usaha','$sub_bid_usaha','$ket', '$i_user_id', '$tahun', '$tanggal_ip', '','$ip_type','$ip_id','$tanggal_exp_ip','','$tk_laki','$tk_wanita','$tk_asing',$dollar";
+				mysql_query("INSERT INTO master VALUES(".$create_data.")");
+			}
+								
+			
+						
+
+			
+		}
+		show_message("upload berhasil", "izin_prinsip.php?page=list&did=4");
+	break;
 	case 'form_detail':
 		get_header();
 
