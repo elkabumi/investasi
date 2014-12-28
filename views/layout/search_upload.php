@@ -1,6 +1,7 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="test">
   <tr>
-    <td width="76%"><a href="<?= $add_button ?>" class="btn btn-cokelat" >Tambah Data</a> </td>
+    <td width="76%"><a href="<?= $add_button ?>" class="btn btn-cokelat" >Tambah Data</a> 
+    <a href="<?= $upload_button ?>" class="btn btn-cokelat" >Upload File(.xls)</a></td>
   
     <td width="50" align="right"><select id="change-page-size" class="page_new">
 									<option value="10">10</option>
