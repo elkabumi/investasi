@@ -61,7 +61,7 @@ function select_detail($i_master_category_id, $i_master_sub_category_id, $i_triw
 							join master_categories g on g.master_category_id = a.master_category_id
 							left join master_ip_types h on h.master_ip_type_id = a.master_ip_type_id
 							LEFT join master_categories i on i.master_category_id = a.master_sub_category_id
-							where  a.master_year = $i_master_year $where 
+							where  a.master_year = $i_master_year $parameter 
 						");
 	return $query;
 }
