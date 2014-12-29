@@ -41,7 +41,13 @@
 						  include 'menu4.php';
 					  }
 					  ?>
-                 
+                   <li <?php if(isset($_SESSION['menu_active']) && $_SESSION['menu_active'] == 8){ echo "class='active'"; }?>>
+                            <a href="ranking.php?page=list">
+                               <i class="fa fa-bar-chart-o"></i>
+                                <span>Ranking</span>
+                            </a>
+                            
+                  </li>
               
                     </ul>
                 </section>

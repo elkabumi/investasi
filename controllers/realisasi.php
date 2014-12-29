@@ -213,7 +213,7 @@ switch ($page) {
 				$data2="'$i_investasi','0'";
 				$data3="'0'";
 		}else {
-		if($i_investasi_dollar > 0 and $i_investasi <='0' ){
+			if($i_investasi_dollar > 0 and $i_investasi <='0' ){
 				$master_dollar =  get_config_dollar();
 				$data2="'0','$i_investasi_dollar'";
 				$data3="'$master_dollar'";	
@@ -225,6 +225,7 @@ switch ($page) {
 			}
 			
 		}
+	
 		
 		$data = "'', '2', '6', '$master_category_id', '$i_nama_perusahaan', '$i_alamat', '$i_no_ip', '', '$i_no_perusahaan', '$i_no_kode_proyek',$data2, '$tenaga_kerja', '$i_kapasitas', '$i_ekspor', '$i_country_id', '$i_city_id', '$i_npwp', '$i_business_type_id','$i_business_sub_type_id', '$i_keterangan', '$i_user_id', '$i_master_year', '$i_master_date', '$image','0','$id_ip','$i_expired_date','','$i_tk_laki','$i_tk_perempuan','$i_tk_asing',$data3";
 		

@@ -55,9 +55,11 @@
                                 
                                 <li><a href="search_bidang_usaha.php?page=list"><i class="fa fa-chevron-circle-right"></i>Menurut Bidang Usaha</a></li>
                                 <li><a href="search_lokasi.php?page=list"><i class="fa fa-chevron-circle-right"></i>Menurut Lokasi Proyek</a></li>
-                                 <li><a href="search_negara.php?page=list"><i class="fa fa-chevron-circle-right"></i>Menurut Asal Negara</a></li>
+                                <li><a href="search_negara.php?page=list"><i class="fa fa-chevron-circle-right"></i>Menurut Asal Negara</a></li>
                              
                             </ul>
                   </li>
+                 
+                  
                   
              

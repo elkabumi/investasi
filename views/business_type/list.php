@@ -67,7 +67,8 @@
         <tr>
          
          									 	<th  data-class="expand" data-sort-initial="true" data-type="numeric">No</th>
-                                            	<th>Nama kabupaten/kota</th>
+                                            	<th>Kode bidang usaha</th>
+                                                <th>Nama bidang usaha</th>
                                                 <th>keterangan</th>
                                                 <th width="25%">Config</th>
         </tr>
@@ -79,7 +80,8 @@
                                             ?>
                                             <tr>
                                             	<td><?= $no ?></td>
-                                             	<td><?= $row['business_type_name']?></td>
+                                             	<td><?= $row['business_type_code']?></td>
+                                                <td><?= $row['business_type_name']?></td>
                                                 <td><?= $row['business_type_description']?></td>
             
                                     
