@@ -62,7 +62,10 @@
                                      <div class="col-md-6">
                                     
                                         
-                                       
+                                           <div class="form-group">
+                                            <label>Nama Bidasng Code</label>
+                                            <input  readonly="readonly" required type="text" name="i_code" class="form-control" placeholder="Enter ..." value="<?= $row->business_type_code ?>"/>
+                                        </div>
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Nama Bidasng usaha</label>
@@ -86,7 +89,7 @@
                                            <!-- textarea -->
                                         <div class="form-group">
                                             <label>Lain - lain</label>
-                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->bussines_type_description ?></textarea>
+                            <textarea class="form-control" name="i_keterangan" rows="3" placeholder="Enter ..."><?= $row->business_type_description ?></textarea>
                                         </div>
                                        
                                        

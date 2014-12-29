@@ -228,4 +228,17 @@ function get_ip_id($no_ip){
 	$row	= mysql_fetch_object($query);
 	return $row->master_id;
 }
+function get_business_type_code(){
+	$query = mysql_query("select business_type_code from counters");
+	$result = mysql_fetch_array($query);
+	$code = ($result['business_type_code']) ? $result['business_type_code'] + 1 : 1;
+	
+
+	return $code;
+}
+
+function edit_business_type_code(){
+	mysql_query("update counters set business_type_code = business_type_code + 1");
+}
+
 ?>

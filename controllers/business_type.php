@@ -40,8 +40,11 @@ switch ($page) {
 		} else{
 			//inisialisasi
 			$row = new stdClass();
+			$get_code = get_business_type_code();
+			
+			$row->business_type_code = $get_code;
 			$row->business_type_name = false;
-			$row->business_type_desc = false;
+			$row->business_type_description	 = false;
 			$action = "business_type.php?page=save";
 		}
 		
@@ -56,14 +59,15 @@ switch ($page) {
 
 		extract($_POST);
 		
-			
+		$i_code = get_isset($i_code);	
 		$i_nama = get_isset($i_nama);
 		$i_keterangan = get_isset($i_keterangan);
 		$i_category = get_isset($i_category);
 		
-		$data = "'', '$i_nama', '$i_keterangan', '$i_category'";
+		$data = "'','$i_code','$i_nama', '$i_keterangan', '$i_category'";
 	
 		create($data);
+		edit_business_type_code();
 		$id = mysql_insert_id();
 		log_data(2, $id, $_SESSION['user_id'], "bidang usaha");
 		
