@@ -72,8 +72,7 @@
                                  
                                <?php
 
-                               include '../views/layout/search5.php';
-
+                             
                                include '../views/layout/search_upload.php';
 
 							   ?>

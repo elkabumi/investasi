@@ -71,11 +71,8 @@
                                 <div class="box-body2 table-responsive">
                                  
                                <?php
-<<<<<<< HEAD
-                               include '../views/layout/search5.php';
-=======
+
                                include '../views/layout/search_upload.php';
->>>>>>> 9af26135a696ee2fa702f69599cb3be6ad686f79
 							   ?>
                                  <table data-filter="#filter" class="footable" data-page-size="10" id="new_table">
       <thead>
